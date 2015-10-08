@@ -15,5 +15,13 @@
   "bugs": {
     "url": "https://github.com/FullSailWDD/BROGRAMMERS/issues"
   },
-  "homepage": "https://github.com/FullSailWDD/BROGRAMMERS#readme"
+  "homepage": "https://github.com/FullSailWDD/BROGRAMMERS#readme",
+  "dependencies": {
+    "angular": "^1.4.7",
+    "body-parser": "^1.14.1",
+    "express": "^4.13.3",
+    "express-handlebars": "^2.0.1",
+    "materialize-css": "^0.97.1",
+    "mongoose": "^4.1.10"
+  }
 }
