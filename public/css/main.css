@@ -1,0 +1,18 @@
+html{
+
+}
+body{
+	
+}
+h1{
+ color:deeppink;
+ font-family: 'Flamenco', sans-serif;
+}
+p{
+color:white;
+font-family: 'Asap', sans-serif;	
+}
+.header{
+	padding-left:50px;
+	background-color: gray;
+}
