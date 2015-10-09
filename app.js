@@ -5,7 +5,7 @@ var express = require('express'),
 	exphbs  = require('express-handlebars'),
 	mongoose = require('mongoose');
 	
-mongoose.connect('mongodb://westindev:ratio.1.61803@ds035014.mongolab.com:35014/heroku_2ngprfz7');
+mongoose.connect('mongodb://<username>:<password>@ds035014.mongolab.com:35014/heroku_2ngprfz7');
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function (callback) {
