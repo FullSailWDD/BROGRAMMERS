@@ -9,10 +9,22 @@ nav{
  font-family: 'Flamenco', sans-serif;
 }
 p{
-color:white;
-font-family: 'Asap', sans-serif;	
+ color:white;
+ font-family: 'Asap', sans-serif;	
 }
-.header{
-	padding-left:50px;
-	background-color: gray;
+#search{
+	border: none;
 }
+.search-wrapper {
+	padding-top: 10px;
+	height:50px;
+	width:300px;
+}
+.glass{
+	float: right;
+	margin-right: 6px;
+}
+.header.center.cyan-text{
+	margin-top:0;
+}
+
