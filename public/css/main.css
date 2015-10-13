@@ -6,11 +6,26 @@ body{
 }
 nav{
  color:#0097a7;
- font-family: 'Flamenco', sans-serif;
+    font-family: 'Flamenco', sans-serif;
 }
+footer{
+	font-family: 'Flamenco', sans-serif;
+}
+
 p{
  color:white;
  font-family: 'Asap', sans-serif;	
+}
+
+/* #####  Buttons  ######*/
+.button{
+	font-family: 'Asap', sans-serif;
+}
+.btn-large{
+	font-family: 'Asap', sans-serif;
+}
+.card{
+	font-family: 'Flamenco', sans-serif;
 }
 #search{
 	border: none;
@@ -26,5 +41,12 @@ p{
 }
 .header.center.cyan-text{
 	margin-top:0;
+	font-family: 'Flamenco', sans-serif;
+
 }
+.one{
+	margin-bottom: 10px;
+}
+
+
 
