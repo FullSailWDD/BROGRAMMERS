@@ -10,7 +10,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
         res.render('home');
     });
 
-    app.get('/forms',function(req,res){
-        res.render('forms');
-    });
+    // app.get('/forms',function(req,res){
+    //     res.render('forms');
+    // });
 }//end export
