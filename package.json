@@ -23,5 +23,8 @@
     "express-handlebars": "^2.0.1",
     "materialize-css": "^0.97.1",
     "mongoose": "^4.1.10"
+  },
+  "devDependencies": {
+    "gulp-nodemon": "^2.0.4"
   }
 }
