@@ -4,15 +4,49 @@ html{
 body{
 	
 }
-h1{
+nav{
  color:#0097a7;
- font-family: 'Flamenco', sans-serif;
+    font-family: 'Flamenco', sans-serif;
 }
+footer{
+	font-family: 'Flamenco', sans-serif;
+}
+
 p{
-color:white;
-font-family: 'Asap', sans-serif;	
+ color:white;
+ font-family: 'Asap', sans-serif;	
 }
-.header{
-	padding-left:50px;
-	background-color: gray;
+
+/* #####  Buttons  ######*/
+.button{
+	font-family: 'Asap', sans-serif;
 }
+.btn-large{
+	font-family: 'Asap', sans-serif;
+}
+.card{
+	font-family: 'Flamenco', sans-serif;
+}
+#search{
+	border: none;
+}
+.search-wrapper {
+	padding-top: 10px;
+	height:50px;
+	width:300px;
+}
+.glass{
+	float: right;
+	margin-right: 6px;
+}
+.header.center.cyan-text{
+	margin-top:0;
+	font-family: 'Flamenco', sans-serif;
+
+}
+.one{
+	margin-bottom: 10px;
+}
+
+
+
