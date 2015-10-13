@@ -11,9 +11,10 @@ nav{
 footer{
 	font-family: 'Flamenco', sans-serif;
 }
-p{
+/*p{
  color:white;
  font-family: 'Asap', sans-serif;	
+<<<<<<< HEAD
 }
 
 /* #####  Buttons  ######*/
@@ -26,6 +27,9 @@ p{
 .card{
 	font-family: 'Flamenco', sans-serif;
 }
+=======
+}*/
+>>>>>>> e8a18911eada94cdd963884c13dd5ed1cd44e915
 #search{
 	border: none;
 }

@@ -14,5 +14,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
     // });
     // app.get('/addruberic',function(req,res){
     //     res.render('addruberic');
+
+    // app.get('/forms',function(req,res){
+    //     res.render('forms');
     // });
 }//end export
