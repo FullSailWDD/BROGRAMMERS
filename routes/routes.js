@@ -1,7 +1,8 @@
 module.exports = function(app) {
 console.log('Loaded routes');
 var bodyParser = require('body-parser'),
-	Degree = require('../models/degrees.js');
+	Degree = require('../models/degrees.js'),
+	Course = require('../models/courses.js');
 
 // create application/x-www-form-urlencoded parser
 app.use(bodyParser.json());
@@ -29,6 +30,27 @@ app.get('/fetchDegrees', function(req, res){
 // Finds one degree
 app.get('/fetchDegree/:degreeAbbr', function(req, res){
     Degree.fetch(req.params.degreeAbbr, function(doc){
+    	res.send(doc);
+    });
+});
+
+// Inserts a new course
+app.post('/newCourse', function(req, res){
+    Course.create(req.body, function(results){
+	    res.status(201).send(results);
+    });
+});
+
+// Finds all of the courses by the degree
+app.get('/fetchCourses/:degreeAbbr', function(req, res){
+    Course.fetchAll(req.params, function(doc){
+	    res.send(doc);
+    });
+});
+
+// Finds one course by degree and course
+app.get('/fetchCourse/:degreeAbbr/:abbr', function(req, res){
+    Course.fetch(req.params, function(doc){
     	res.send(doc);
     });
 });

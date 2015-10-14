@@ -34,7 +34,7 @@ module.exports = function(app){
         // fetch - finds only one specified degree
         _find = function(targ, success, fail){
 	        // Finds just one degree specificed by the Degree Abbreviation
-	        _degreeModel.findOne({abbr: targ}, function(err, result){
+	        _degreeModel.findOne(targ, function(err, result){
 		        (err) ? fail(err) : success(result);
 	        });
         }
