@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lnag="en" ng-app="proRubApp">
     
     <head>
         <meta charset="utf-8">
@@ -11,12 +11,13 @@
          <!-- Compiled and minified CSS wtf-->
   		 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/css/materialize.min.css">
        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <title>BROGRAMMERS</title>
+        <title>Brogrammers</title>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
         <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular-route.min.js"></script>
         <base href="/">
     </head>
-    <body  ng-app="proRubApp">
+    <body>
 
 <!-- Navigation -->
         <nav class=" cyan darken-3" role="navigation">
@@ -24,16 +25,14 @@
             <a id="logo-container" href="#" class="brand-logo"><i class="material-icons">group</i></a>
             <ul class="right hide-on-med-and-down">
               <li><a href="#">Sign In</a></li>
-              <li><a href="/">Home</a></li>
-              <li><a href="/about">About</a></li>
-              <li><a href="/contact">Contact</a></li>
+              <li><a href="#home">Home</a></li>
+              <li><a href="#about">About</a></li>
             </ul>
 
             <ul id="nav-mobile" class="side-nav">
               <li><a href="#">Sign In</a></li>
-              <li><a href="/">Home</a></li>
-              <li><a href="/about">About</a></li>
-              <li><a href="/contact">Contact</a></li>
+              <li><a href="#home">Home</a></li>
+              <li><a href="#about">About</a></li>
             </ul>
             <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
           </div>
@@ -43,17 +42,19 @@
 
 <!-- Mika is playing with some stuff here.  -->
 <div class="wrapper container">
-  <div class="row" ng-controller="mainController">
-    <div class="col s12 m12">
-      <div class="card white">
-        <div class="card-content black-text">
+<div class="row" ng-controller="mainController">
+  <div class="col s12 m12">
+    <div class="card white">
+      <div class="card-content black-text">
 
-        {{{body}}}
+      <div nv-view class="row">
+        (( message ))
+      </div>
 
-        </div>
       </div>
     </div>
   </div>
+</div>
 </div>
 
 
@@ -89,13 +90,15 @@
     </div>
     <div class="footer-copyright">
       <div class="container">
-        </a>Made by Brogrammers</a>
+      Made by Brogrammers</a>
       </div>
     </div>
   </footer>
        <!--  { { { body } } } -->
      <!-- Compiled and minified JavaScript -->
-    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>      
+  	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.min.js"></script>
     <script type="text/javascript" src="js/materialize.js"></script>  
     <script type="text/javascript" src="js/main.js"></script>    
     </body>

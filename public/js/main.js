@@ -1,81 +1,76 @@
-// var proRubApp = angular.module('proRubApp', [])
-// .config(['$interpolateProvider', function($interpolateProvider, $routeProvider){
-// 	$interpolateProvider.startSymbol('{[{');
-// 	$interpolateProvider.endSymbol('}]}'); 
-// }])
-var proRubApp = angular.module('proRubApp',[]);
-
-//This allows angular binding inside a handlebars template
-function handlebarsBinding($interpolateProvider) {
-    $interpolateProvider.startSymbol('((').endSymbol('))');
-}
-
-function locationing($locationProvider){
-	// use the HTML5 History API
-	$locationProvider.html5Mode(true);
-}
-
-function routering($routeProvider) {
+var proRubApp = angular.module('proRubApp', ['ngRoute'])
+.config(['$interpolateProvider', '$routeProvider', '$locationProvider', function($interpolateProvider, $routeProvider, $locationProvider){
+	$interpolateProvider.startSymbol('((');
+	$interpolateProvider.endSymbol('))'); 
 	$locationProvider.html5Mode(true);
 
-    $routeProvider 
+	$routeProvider 
 		//route for the home page
 		.when('/', {
-			templateUrl : 'layouts/home.html',
+			templateUrl : '/views/home.html',
 			controller  : 'mainController'
 		})
 
 		//route for the about page
 		.when('/about', {
-			templateUrl : 'layouts/about.handlebars',
+			templateUrl : '/views/about.html',
 			controller  : 'aboutController'
 		})
 
 		//route for the contact page
 		.when('/contact', {
-			templateUrl : 'layouts/contact.html',
+			templateUrl : '/views/contact.html',
 			controller  : 'contactController'
+		})
+
+		.otherwise({
+			redirectTo: '/'
 		});
-}
-
-proRubApp.config(handlebarsBinding, routering, locationing);
+}])
 
 
+// var proRubApp = angular.module('proRubApp',['ngRoute']);
 
+// //This allows angular binding inside a handlebars template
+// function handlebarsBinding($interpolateProvider) {
+//     $interpolateProvider.startSymbol('((').endSymbol('))');
+// }
 
+// function locationing($locationProvider){
+// 	// use the HTML5 History API
+// 	$locationProvider.html5Mode(true).hashPrefix('!');
+// }
 
+// function routering($routeProvider) {
 
-
-
-
-
-
-
-
-
-// proRubApp.config(function($routeProvider){
-// 	$routeProvider 
+//     $routeProvider 
 // 		//route for the home page
 // 		.when('/', {
-// 			templateUrl : 'pages/home.html',
+// 			templateUrl : 'home',
 // 			controller  : 'mainController'
 // 		})
 
 // 		//route for the about page
 // 		.when('/about', {
-// 			templateUrl : 'pages/about.html',
+// 			templateUrl : 'about',
 // 			controller  : 'aboutController'
 // 		})
 
 // 		//route for the contact page
 // 		.when('/contact', {
-// 			templateUrl : 'pages/contact.html',
+// 			templateUrl : 'layouts/contact.html',
 // 			controller  : 'contactController'
 // 		});
-// });
+
+// 		// .otherwise({
+// 		// 	redirectTo: '/'
+// 		// });
+// }
+
+// proRubApp.config(handlebarsBinding, routering, locationing);
 
 proRubApp.controller('mainController', function($scope){
-	$scope.message = 'Everyone come and see how good I look!';
+	$scope.message = 'Is it working gah yet?';
 });
 
 proRubApp.controller('aboutController', function($scope){
@@ -85,6 +80,7 @@ proRubApp.controller('aboutController', function($scope){
 proRubApp.controller('contactController', function($scope){
 	$scope.message = 'Contact us! JK. This is just a demo.';
 });
+
 
 
 
@@ -103,4 +99,4 @@ proRubApp.controller('contactController', function($scope){
 // 	};
 // }]);
 
-console.log("main.js is linked properly, this is where angular controller lies.");
+console.log("main.js is linked properly");
