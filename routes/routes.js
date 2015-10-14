@@ -2,7 +2,8 @@ module.exports = function(app) {
 console.log('Loaded routes');
 var bodyParser = require('body-parser'),
 	Degree = require('../models/degrees.js'),
-	Course = require('../models/courses.js');
+	Course = require('../models/courses.js'),
+	Rubric = require('../models/courses.js');
 
 // create application/x-www-form-urlencoded parser
 app.use(bodyParser.json());
