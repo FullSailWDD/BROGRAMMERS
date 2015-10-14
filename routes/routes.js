@@ -9,4 +9,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
     app.get('/',function(req,res){
         res.render('home');
     });
+
+    // app.get('/forms',function(req,res){
+    //     res.render('forms');
+    // });
 }//end export
