@@ -1,3 +1,4 @@
+console.log('Loaded app.js');
 // =-=-=-=-=-=-=-=-=-=-=- Modules -=-=-=-=-=-=-=-=-=-=-=-=
 var express = require('express'),
 	app = express(),
