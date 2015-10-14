@@ -17,7 +17,7 @@ p{
  font-family: 'Asap', sans-serif;	
 }
 
-/* #####  Buttons  ######*/
+/* ##############  Buttons  #########################*/
 .button{
 	font-family: 'Asap', sans-serif;
 }
@@ -46,6 +46,16 @@ p{
 }
 .one{
 	margin-bottom: 10px;
+}
+/*############## Home page degree add styles  #########*/
+.add{
+	color: #0097a7;
+}
+.degreelabel{
+	font-weight: bold;
+}
+.degreeSelect{
+	margin-bottom: 60px;
 }
 
 

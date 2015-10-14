@@ -6,7 +6,9 @@ var express = require('express'),
 // =-=-=-=-=-=-=-=-=-=-=- View engine -=-=-=-=-=-=-=-=-=-=
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
+app.use('/templates', express.static('templates'));
 app.use(express.static(__dirname + '/public'));
+
 
 // =-=-=-=-=-=-=-=-=-=-=- Config vars -=-=-=-=-=-=-=-=-=-=
 var port = process.env.PORT || 8080;
