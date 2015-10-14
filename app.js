@@ -1,3 +1,4 @@
+console.log('Loaded app.js');
 // =-=-=-=-=-=-=-=-=-=-=- Modules -=-=-=-=-=-=-=-=-=-=-=-=
 var express = require('express'),
 	app = express(),
@@ -13,6 +14,6 @@ var port = process.env.PORT || 8080;
 
 // =-=-=-=-=-=-=-=-=-=-=- Routes -=-=-=-=-=-=-=-=-=-=-=-=-=
 require('./routes/routes')(app);
-
+//start app
 app.listen(port);
 console.log("app running on port",port);
