@@ -28,8 +28,8 @@ app.get('/fetchDegrees', function(req, res){
 });
 
 // Finds one degree
-app.get('/fetchDegree/:degreeAbbr', function(req, res){
-    Degree.fetch(req.params.degreeAbbr, function(doc){
+app.get('/fetchDegree/:abbr', function(req, res){
+    Degree.fetch(req.params, function(doc){
     	res.send(doc);
     });
 });
