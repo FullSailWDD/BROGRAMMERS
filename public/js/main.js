@@ -4,7 +4,7 @@
 // 	$interpolateProvider.startSymbol('{[{');
 // 	$interpolateProvider.endSymbol('}]}'); 
 // }])
-var proRubApp = angular.module('proRubApp',[]);
+var proRubApp = angular.module('proRubApp',['ui.router']);
 
 //This allows angular binding inside a handlebars template
 function handlebarsBinding($interpolateProvider) {
@@ -22,7 +22,7 @@ function routering($routeProvider) {
     $routeProvider 
 		//route for the home page
 		.when('/', {
-			templateUrl : 'layouts/home.html',
+			templateUrl : 'layouts/main.handlebars',
 			controller  : 'mainController'
 		})
 
