@@ -12,15 +12,15 @@ var proRubApp = angular.module('proRubApp', ['ngRoute'])
 		})
 
 		//route for the about page
-		.when('/about', {
-			templateUrl : '/views/about.html',
-			controller  : 'aboutController'
+		.when('/rubric', {
+			templateUrl : '/views/rubric.html',
+			controller  : 'rubricController'
 		})
 
 		//route for the contact page
-		.when('/contact', {
-			templateUrl : '/views/contact.html',
-			controller  : 'contactController'
+		.when('/course', {
+			templateUrl : '/views/course.html',
+			controller  : 'courseController'
 		})
 
 		.otherwise({
@@ -73,11 +73,11 @@ proRubApp.controller('mainController', function($scope){
 	$scope.message = 'Is it working gah yet?';
 });
 
-proRubApp.controller('aboutController', function($scope){
+proRubApp.controller('rubricController', function($scope){
 	$scope.message = 'Look! I am an about page.';
 });
 
-proRubApp.controller('contactController', function($scope){
+proRubApp.controller('courseController', function($scope){
 	$scope.message = 'Contact us! JK. This is just a demo.';
 });
 
