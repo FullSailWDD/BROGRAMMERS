@@ -8,7 +8,7 @@ var proRubApp = angular.module('proRubApp', ['ngRoute'])
         templateUrl: '/views/home.html',
         controller: 'homeCtrl'
       }).
-      when('/adddegree', {
+      when('/addDegree', {
         templateUrl: '/views/adddegree.html',
         controller: 'adddegreeCtrl'
       }).
@@ -16,7 +16,7 @@ var proRubApp = angular.module('proRubApp', ['ngRoute'])
         templateUrl: '/views/degree.html',
         controller: 'degreeCtrl'
       }).
-       when('/degree/WDD/newcourse', {
+       when('/degree/WDD/addCourse', {
         templateUrl: '/views/newcourse.html',
         controller: 'newcourseCtrl'
       }).
