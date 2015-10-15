@@ -23,7 +23,7 @@ prorubControllers.controller('degreeCtrl', ['$scope', '$http',
 
 prorubControllers.controller('newCourseCtrl', ['$scope', '$http',
   function ($scope, $http) {
-    $http.get('newcourse.html').success(function(data) {
+    $http.get('addCourse.html').success(function(data) {
      $scope.course = data;
     });
   }]);
