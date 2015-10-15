@@ -103,11 +103,4 @@ app.get('/fetchRubric/:degreeAbbr/:courseAbbr/:title', function(req, res){
     });
 });
 
-// Finds just one rubric specificed by the degree abbreviation, course abbreviation and section title
-app.get('/fetchRubric/:degreeAbbr/:courseAbbr/:title/:sectionTitle', function(req, res){
-    Rubric.fetchSection(req.params, function(doc){
-    	res.send(doc);
-    });
-});
-
 } //end export

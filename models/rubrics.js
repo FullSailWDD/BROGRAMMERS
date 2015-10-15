@@ -60,50 +60,13 @@ module.exports = function(app){
         _rubricModel.findOne(targ, function(err, result){
             (err) ? fail(err) : success(result);
         });
-    },
-    
-    // fetch - finds only one specified rubric
-    _findSection = function(targ, success, fail){
-        // Finds just one rubric specificed by the degree abbreviation, course abbreviation and section title
-		_rubricModel.find({degreeAbbr: targ.degreeAbbr, courseAbbr: targ.courseAbbr, title: targ.title},
-			{sections: { $elemMatch: { title: targ.sectionTitle } } },
-			function(err, result){
-				/*
-				 * FIX ME
-				 * This function returns data in an unexpected format:
-				 * 
-				 *	[
-				 *	  {
-				 *	    "_id": "561e91c2d2cb0972b4f8dcc6",
-				 *	    "sections": [
-				 *	      {
-				 *	        "title": "Color",
-				 *	        "desc": "This covers overall color and how they work together.",
-				 *	        "weight": 25,
-				 *	        "grade": 0,
-				 *	        "_id": "561e91c2d2cb0972b4f8dcc7",
-				 *	        "items": []
-				 *	      }
-				 *	    ],
-				 *	    "gradeOptions": []
-				 *	  }
-				 *	]
-				 *
-				 * TEMP FIX: success(result[0].sections[0]);
-				 * SHOULD BE: success(result);
-				 *
-				*/
-                (err) ? fail(err) : success(result[0].sections[0]);
-			}
-		);
     }
         
     ;return {
         schema: rubricSchema,
         create: _save,
         fetchAll: _findAll,
-        fetch: _find,
-        fetchSection: _findSection
+        fetch: _find
     };
 	
 }();
