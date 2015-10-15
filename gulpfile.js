@@ -17,5 +17,9 @@ gulp.task('dev', function () {
       console.log('restarted!')
     })
 });
-
+gulp.task('test',function(){
+    child_process.exec('mocha', function(err,stdout,stderr){
+    	console.log(stdout);
+    });
+});
   gulp.task('startup', ['mongod', 'dev']);
