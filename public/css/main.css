@@ -37,6 +37,9 @@ footer p{
 }
 
 /*  #########  addcourse page  ##############*/
+p.alert{
+	color: #FFA500 !important;
+}
 .one{
 	margin-bottom: 10px;
 	color:white;

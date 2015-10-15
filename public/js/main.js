@@ -2,7 +2,6 @@ var proRubApp = angular.module('proRubApp', ['ngRoute', 'ng-breadcrumbs'])
 .config(['$interpolateProvider', '$routeProvider', '$locationProvider', function($interpolateProvider, $routeProvider, $locationProvider){
 	$interpolateProvider.startSymbol('((');
 	$interpolateProvider.endSymbol('))'); 
-<<<<<<< HEAD
 	// $locationProvider.html5Mode(true); // eanabling this creates pretty urls
 
 	  $routeProvider.
@@ -18,19 +17,26 @@ var proRubApp = angular.module('proRubApp', ['ngRoute', 'ng-breadcrumbs'])
         templateUrl: '/views/degree.html',
         controller: 'degreeCtrl'
       }).
-       when('/degree/WDD/addcourse', {
-        templateUrl: '/views/addcourse.html',
-        controller: 'addcourseCtrl'
+       when('/degree/WDD/newcourse', {
+        templateUrl: '/views/newcourse.html',
+        controller: 'newcourseCtrl'
       }).
         when('/addruberic', {
         templateUrl: '/views/addruberic.html',
         controller: 'addrubericCtrl'
       }).
+           when('/degree/WDD/WebDeployment/audit', {
+        templateUrl: '/views/audit.html',
+        controller: 'auditCtrl'
+      }).
+         when('/degree/WDD/course', {
+        templateUrl: '/views/addcourse.html',
+        controller: 'addCourseCtrl'
+      }).
       otherwise({
         redirectTo: '/'
       });
 }]);
-
 
 // Breadcrumbs must be included with each controller. 
 proRubApp.controller('rubricController', function($scope,$routeParams, breadcrumbs){
@@ -51,5 +57,6 @@ proRubApp.controller('rubricController', function($scope,$routeParams, breadcrum
 proRubApp.controller('courseController', function($scope){
 	$scope.message = 'Contact us! JK. This is just a demo.';
 });
+
 
 console.log("main.js is linked properly");
