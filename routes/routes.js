@@ -22,7 +22,7 @@ app.get('/',function(req,res){
         //get all courses from the database
     });
 
-}
+
 // Inserts a new degree
 app.post('/newDegree', function(req, res){
     Degree.create(req.body, function(results){
