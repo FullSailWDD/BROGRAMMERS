@@ -17,8 +17,8 @@ app.get('/',function(req,res){
         //get all courses from the database
     });
 
-
     // app.get('/forms',function(req,res){
     //     res.render('forms');
     // });
 };//end export
+

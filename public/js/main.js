@@ -2,39 +2,33 @@ var proRubApp = angular.module('proRubApp', ['ngRoute', 'ng-breadcrumbs'])
 .config(['$interpolateProvider', '$routeProvider', '$locationProvider', function($interpolateProvider, $routeProvider, $locationProvider){
 	$interpolateProvider.startSymbol('((');
 	$interpolateProvider.endSymbol('))'); 
+<<<<<<< HEAD
 	// $locationProvider.html5Mode(true); // eanabling this creates pretty urls
 
-	$routeProvider 
-		// basic route for the home page
-		.when('/', {
-			templateUrl : '/views/home.html',
-			controller  : 'mainController'
-		})
-
-		// basic route for the rubric page
-		.when('/rubric', {
-			templateUrl : '/views/rubric.html',
-			controller  : 'rubricController'
-		})
-
-		// basic route for the course page
-		.when('/course', {
-			templateUrl : '/views/course.html',
-			controller  : 'courseController'
-		})
-
-		// breadcrumbs require this route configure to work. 
-		.when('/degree/:degree/course/:course', {
-          templateUrl: '/views/rubric.html',
-          controller: 'rubricController',
-          label: '  Degree > Add rubric'
-          //label: $routeParams.degree + '  Add rubric'
-          // label : $scope.breadcrumbs = [$routeParams.degree,$routeParams.course]
-        })
-
-		.otherwise({
-			redirectTo: '/'
-		});
+	  $routeProvider.
+      when('/', {
+        templateUrl: '/views/home.html',
+        controller: 'homeCtrl'
+      }).
+      when('/adddegree', {
+        templateUrl: '/views/adddegree.html',
+        controller: 'adddegreeCtrl'
+      }).
+       when('/degree/WDD', {
+        templateUrl: '/views/degree.html',
+        controller: 'degreeCtrl'
+      }).
+       when('/degree/WDD/addcourse', {
+        templateUrl: '/views/addcourse.html',
+        controller: 'addcourseCtrl'
+      }).
+        when('/addruberic', {
+        templateUrl: '/views/addruberic.html',
+        controller: 'addrubericCtrl'
+      }).
+      otherwise({
+        redirectTo: '/'
+      });
 }]);
 
 
@@ -53,8 +47,6 @@ proRubApp.controller('rubricController', function($scope,$routeParams, breadcrum
 // 	console.log($scope.trail);
 // 	$scope.message = 'Look! I am an about page.';
 // });
-
-
 
 proRubApp.controller('courseController', function($scope){
 	$scope.message = 'Contact us! JK. This is just a demo.';

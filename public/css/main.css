@@ -4,12 +4,19 @@ html{
 body{
 	
 }
-nav{
- color:#0097a7;
-    font-family: 'Flamenco', sans-serif;
+h5{
+   font-family: 'Flamenco', sans-serif;	
 }
+nav{
+    color: #00b8d4;
+    font-family: 'Asap', sans-serif;
+}
+
 footer{
 	font-family: 'Flamenco', sans-serif;
+
+footer p{
+	font-family: 'Asap', sans-serif;
 }
 /*p{
  color:white;
@@ -17,7 +24,7 @@ footer{
 <<<<<<< HEAD
 }
 
-/* #####  Buttons  ######*/
+/* ##############  Buttons  #########################*/
 .button{
 	font-family: 'Asap', sans-serif;
 }
@@ -26,10 +33,27 @@ footer{
 }
 .card{
 	font-family: 'Flamenco', sans-serif;
+	color:white;
 }
 
+/*  #########  addcourse page  ##############*/
+.one{
+	margin-bottom: 10px;
+	color:white;
+}
+.card .card-action a{
+	font-family: 'Asap', sans-serif;
+	color:white !important;
+}
+/*####### search card  ########################*/
 #search{
+
+	width:200px;
+	height:30px;
 	border: none;
+}
+#search .focus{
+	border-color: #000;
 }
 .search-wrapper {
 	padding-top: 10px;
@@ -37,14 +61,53 @@ footer{
 	width:300px;
 }
 .glass{
+	color: #000 !important;
 	float: right;
 	margin-right: 6px;
 }
-.header.center.cyan-text{
+.header.center.cyan-text.proheader{
 	margin-top:0;
+	margin-bottom: 0px;
 	font-family: 'Flamenco', sans-serif;
 }
 
-.one{
-	margin-bottom: 10px;
+.betterbanner{
+	margin-top: 0px;
 }
+
+/*############## Home page add styles  #########*/
+.add{
+	color: #0097a7;
+}
+.degreelabel{
+	font-weight: bold;
+}
+.degreeSelect{
+	margin-bottom: 67px;
+}
+.homeselection{
+   margin-top:60px;
+}
+/*add degree page*/
+.noteadd{
+	color: #0097a7;
+}
+.note{
+	margin-top: 40px;
+}
+.row.savedegree{
+	margin-top:55px;
+	margin-bottom: 75px;
+}
+/*############ degree page ##########################*/
+.degreealert{
+	font-family: 'Asap', sans-serif;
+	font-weight: bold;
+	color: #0097a7;
+}
+.verified{
+	color:#0097a7;
+}
+
+
+
