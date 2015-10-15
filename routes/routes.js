@@ -9,54 +9,53 @@ var bodyParser = require('body-parser'),
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-
 app.get('/',function(req,res){
     res.render('home');
 });
 
 // Inserts a new degree
-app.post('/newDegree', function(req, res){
+app.post('/api/newDegree', function(req, res){
     Degree.create(req.body, function(results){
 	    res.status(201).send(results);
     });
 });
 
 // Finds all of the degrees
-app.get('/fetchDegrees', function(req, res){
+app.get('/api/fetchDegrees', function(req, res){
     Degree.fetchAll(function(doc){
 	    res.send(doc);
     });
 });
 
 // Finds one degree
-app.get('/fetchDegree/:abbr', function(req, res){
+app.get('/api/fetchDegree/:abbr', function(req, res){
     Degree.fetch(req.params, function(doc){
     	res.send(doc);
     });
 });
 
 // Inserts a new course
-app.post('/newCourse', function(req, res){
+app.post('/api/newCourse', function(req, res){
     Course.create(req.body, function(results){
 	    res.status(201).send(results);
     });
 });
 // Finds all of the courses by the degree
-app.get('/fetchCourses/:degreeAbbr', function(req, res){
+app.get('/api/fetchCourses/:degreeAbbr', function(req, res){
     Course.fetchAll(req.params, function(doc){
 	    res.send(doc);
     });
 });
 
 // Finds one course by degree and course
-app.get('/fetchCourse/:degreeAbbr/:abbr', function(req, res){
+app.get('/api/fetchCourse/:degreeAbbr/:abbr', function(req, res){
     Course.fetch(req.params, function(doc){
     	res.send(doc);
     });
 });
 
 // Inserts a new rubric
-app.post('/newRubric', function(req, res){
+app.post('/api/newRubric', function(req, res){
 	// Define an empty array to hold our section objects
 	var sectionsArr = [],
 		// Converts our string of grade options to an array and converts each array index to an integer
@@ -90,14 +89,14 @@ app.post('/newRubric', function(req, res){
 });
 
 // Finds all of the rubrics by the degree and course
-app.get('/fetchRubrics/:degreeAbbr/:courseAbbr', function(req, res){
+app.get('/api/fetchRubrics/:degreeAbbr/:courseAbbr', function(req, res){
     Rubric.fetchAll(req.params, function(doc){
 	    res.send(doc);
     });
 });
 
 // Finds just one rubric by the degree and course
-app.get('/fetchRubric/:degreeAbbr/:courseAbbr/:title', function(req, res){
+app.get('/api/fetchRubric/:degreeAbbr/:courseAbbr/:title', function(req, res){
     Rubric.fetch(req.params, function(doc){
 	    res.send(doc);
     });
