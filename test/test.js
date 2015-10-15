@@ -1,77 +1,72 @@
 var expect          = require("chai").expect,
-    card            = require('../models/card.js');
+    degree            = require('../models/degrees.js');
 
-describe('A Card in a Deck', function() {
-    
-    var testCard = null;
-    
-    beforeEach(function(done){    
-        card.add({
-                deck_id: 'unknown',
-                title : 'Test Card',
-                range : 5,
-                damage : 3,
-                quantity:  2,
-                activation : 'On Attack',
-                overcharge : 'Discharging this item can only be prefomed in a test environment. Result: Auto-win',
+describe('A degree in a collection', function() {
+
+    var testdegree = null;
+
+    beforeEach(function(done){
+        degree.create({
+            abbr: "WDD",
+            title: "Web Design & Development",
             }, function (doc) {
-                testCard = doc;
+                testdegree = doc;
                 done();
         });
-        
+
     });
-    
-    afterEach( function (done) {
-        card.remove(testCard._id, function () {        
+
+    // afterEach( function (done) {
+    //     degree.remove(testdegree._id, function () {
+    //         done();
+    //     });
+    // });
+
+    it('ADD a new degree', function(done){
+        expect(testdegree.title).to.be.equal('Web Design & Development');
+        done();
+    });
+
+    // it('UPDATE an existing degree', function(done){
+    //     degree.update({_id:testdegree._id, abbr:"WDD"}, function(doc){
+    //         expect(doc.quantity).to.be.equal(99);
+    //         done();
+    //     });
+    // });
+
+    // it('REMOVE an existing degree', function(done){
+    //     degree.add({
+    //             deck_id: 'unknown',
+    //             title : 'Deleted degree',
+    //             range : 1,
+    //             damage : 1,
+    //             quantity: 1,
+    //             activation : 'On Defense',
+    //             overcharge : 'Fail on Attack, this degree never makes it into a deck',
+    //         }, function (doc) {
+    //
+    //             var removedegree = doc;
+    //             expect(doc).not.to.be.null;
+    //             degree.remove(removedegree._id, function () {
+    //                 degree.find(removedegree, function(targetDoc){
+    //                     expect(targetDoc).to.be.null;
+    //                     done();
+    //                 });
+    //             });
+    //     });
+    // });
+
+    it('FIND a degree', function(done){
+        degree.fetch({_id:testdegree._id}, function(doc){
+            expect(doc.title).to.be.equal('Web Design & Development');
             done();
         });
     });
 
-    it('ADD a new Card', function(done){
-        expect(testCard.title).to.be.equal('Test Card');
-        done();
-    });
-
-    it('UPDATE an existing Card', function(done){
-        card.update({_id:testCard._id, quantity:99}, function(doc){
-            expect(doc.quantity).to.be.equal(99);
-            done();    
-        });
-    });
-
-    it('REMOVE an existing Card', function(done){
-        card.add({
-                deck_id: 'unknown',
-                title : 'Deleted Card',
-                range : 1,
-                damage : 1,
-                quantity: 1,
-                activation : 'On Defense',
-                overcharge : 'Fail on Attack, this card never makes it into a deck',
-            }, function (doc) {
-
-                var removeCard = doc;
-                expect(doc).not.to.be.null;
-                card.remove(removeCard._id, function () {        
-                    card.find(removeCard, function(targetDoc){
-                        expect(targetDoc).to.be.null;
-                        done();
-                    });
-                }); 
-        });
-    });
-
-    it('FIND a Card', function(done){
-        card.find({_id:testCard._id}, function(doc){
-            expect(doc.title).to.be.equal('Test Card');
-            done();    
-        });
-    });
-    
-    it('FIND ALL Cards', function(done){
-        card.all(function(docs){
-            expect(docs.length).to.be.above(1);
-            done();    
-        });
-    });
+    // it('FIND ALL degrees', function(done){
+    //     degree.all(function(docs){
+    //         expect(docs.length).to.be.above(1);
+    //         done();
+    //     });
+    // });
 });
