@@ -16575,7 +16575,11 @@ function adjustMatchers(matchers) {
  *
  * - your app is hosted at url `http://myapp.example.com/`
  * - but some of your templates are hosted on other domains you control such as
+<<<<<<< HEAD
  *   `http://srv01.assets.example.com/`,  `http://srv02.assets.example.com/`, etc.
+=======
+ *   `http://srv01.assets.example.com/`,  `http://srv02.assets.example.com/`, etc.
+>>>>>>> b180654578cf4f1746fbc14a993ed82efe574f8b
  * - and you have an open redirect at `http://myapp.example.com/clickThru?...`.
  *
  * Here is what a secure configuration for this scenario might look like:

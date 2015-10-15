@@ -1,3 +1,4 @@
+console.log('Loaded app.js');
 // =-=-=-=-=-=-=-=-=-=-=- Modules -=-=-=-=-=-=-=-=-=-=-=-=
 var express = require('express'),
 	app 	= express(),
@@ -15,15 +16,7 @@ app.use('/views', express.static('views'));
 var port = process.env.PORT || 8080;
 
 // =-=-=-=-=-=-=-=-=-=-=- Routes -=-=-=-=-=-=-=-=-=-=-=-=-=
-// require('./routes/routes')(app);
-app.get('/', function (req, res) {
-    res.render('home');
-});
-
-
-// require('./app/routes')(app); // pass our application into our routes
-
-
-
+require('./routes/routes')(app);
+//start app
 app.listen(port);
 console.log("app running on port",port);
