@@ -98,7 +98,7 @@ app.get('/fetchRubrics/:degreeAbbr/:courseAbbr', function(req, res){
 
 // Finds just one rubric by the degree and course
 app.get('/fetchRubric/:degreeAbbr/:courseAbbr/:title', function(req, res){
-    Rubric.fetchAll(req.params, function(doc){
+    Rubric.fetch(req.params, function(doc){
 	    res.send(doc);
     });
 });

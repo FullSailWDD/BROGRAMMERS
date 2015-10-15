@@ -54,17 +54,16 @@ module.exports = function(app){
         });
     },
     
-    // fetchAll - finds one rubric
+    // fetch - finds one rubric
     _find = function(targ, success, fail){
         // Finds all of the rubrics specified by the degree and course
-        _rubricModel.find(targ, function(err, result){
+        _rubricModel.findOne(targ, function(err, result){
             (err) ? fail(err) : success(result);
         });
     },
     
     // fetch - finds only one specified rubric
     _findSection = function(targ, success, fail){
-	    console.log(targ);
         // Finds just one rubric specificed by the degree abbreviation, course abbreviation and section title
 		_rubricModel.find({degreeAbbr: targ.degreeAbbr, courseAbbr: targ.courseAbbr, title: targ.title},
 			{sections: { $elemMatch: { title: targ.sectionTitle } } },
