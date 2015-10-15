@@ -17,6 +17,7 @@ app.get('/',function(req,res){
     app.get('/degrees',function(req,res){
         //get all degrees from the database
     });
+
     app.get('/courses',function(req,res){
         //get all courses from the database
     });
