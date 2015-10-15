@@ -21,9 +21,23 @@ prorubControllers.controller('degreeCtrl', ['$scope', '$http',
     });
   }]);
 
+prorubControllers.controller('newCourseCtrl', ['$scope', '$http',
+  function ($scope, $http) {
+    $http.get('newcourse.html').success(function(data) {
+     $scope.course = data;
+    });
+  }]);
+
 prorubControllers.controller('addCourseCtrl', ['$scope', '$http',
   function ($scope, $http) {
     $http.get('addcourse.html').success(function(data) {
+     $scope.course = data;
+    });
+  }]);
+
+prorubControllers.controller('auditCtrl', ['$scope', '$http',
+  function ($scope, $http) {
+    $http.get('audit.html').success(function(data) {
      $scope.course = data;
     });
   }]);

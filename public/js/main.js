@@ -16,13 +16,21 @@ var proRubApp = angular.module('proRubApp', ['ngRoute'])
         templateUrl: '/views/degree.html',
         controller: 'degreeCtrl'
       }).
-       when('/degree/WDD/addcourse', {
-        templateUrl: '/views/addcourse.html',
-        controller: 'addcourseCtrl'
+       when('/degree/WDD/newcourse', {
+        templateUrl: '/views/newcourse.html',
+        controller: 'newcourseCtrl'
       }).
         when('/addruberic', {
         templateUrl: '/views/addruberic.html',
         controller: 'addrubericCtrl'
+      }).
+           when('/degree/WDD/WebDeployment/audit', {
+        templateUrl: '/views/audit.html',
+        controller: 'auditCtrl'
+      }).
+         when('/degree/WDD/course', {
+        templateUrl: '/views/addcourse.html',
+        controller: 'addCourseCtrl'
       }).
       otherwise({
         redirectTo: '/'
@@ -30,16 +38,6 @@ var proRubApp = angular.module('proRubApp', ['ngRoute'])
   }]);
 
 
-proRubApp.controller('mainController', function($scope){
-	$scope.message = 'Is it working gah yet?';
-});
 
-proRubApp.controller('rubricController', function($scope){
-	$scope.message = 'Look! I am an about page.';
-});
-
-proRubApp.controller('courseController', function($scope){
-
-});
 
 console.log("main.js is linked properly");
