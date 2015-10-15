@@ -8,6 +8,7 @@ app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 app.use(express.static(__dirname + '/public'));
 app.use('/views', express.static('views'));
+app.use('/bower_components', express.static('bower_components'));
 
 // =-=-=-=-=-=-=-=-=-=-=- Config vars -=-=-=-=-=-=-=-=-=-=
 var port = process.env.PORT || 8080;
@@ -18,8 +19,6 @@ app.get('/', function (req, res) {
     res.render('home');
 });
 
-
-// require('./app/routes')(app); // pass our application into our routes
 
 
 
