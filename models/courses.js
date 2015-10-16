@@ -42,7 +42,6 @@ module.exports = function(app){
         }
         
     ;return {
-        schema: courseSchema,
         create: _save,
         fetchAll: _findAll,
         fetch: _find

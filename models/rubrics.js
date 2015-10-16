@@ -60,13 +60,29 @@ module.exports = function(app){
         _rubricModel.findOne(targ, function(err, result){
             (err) ? fail(err) : success(result);
         });
+    },
+    
+    // update - updates a rubric
+    _update = function(targ, data, success, fail){
+	    // targ is the _id, data is the new document
+    	_rubricModel.update({_id: targ}, data, function(err, result){
+            (err) ? fail(err) : success(result);
+    	});
+    },
+    
+    // destroy - removes the document from the database
+    _delete = function (targ, success, fail){
+    	_rubricModel.remove(targ, function(err, result){
+            (err) ? fail(err) : success(result);
+    	});
     }
         
     ;return {
-        schema: rubricSchema,
         create: _save,
         fetchAll: _findAll,
-        fetch: _find
+        fetch: _find,
+        update: _update,
+        destroy: _delete
     };
 	
 }();
