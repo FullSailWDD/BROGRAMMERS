@@ -20,9 +20,9 @@ var proRubApp = angular.module('proRubApp', ['ngRoute'])
         templateUrl: '/views/newcourse.html',
         controller: 'newCourseCtrl'
       }).
-        when('/addruberic', {
-        templateUrl: '/views/addruberic.html',
-        controller: 'addrubericCtrl'
+        when('/addrubric', {
+        templateUrl: '/views/addrubric.html',
+        controller: 'addrubricCtrl'
       }).
            when('/degree/WDD/WebDeployment/audit', {
         templateUrl: '/views/audit.html',
