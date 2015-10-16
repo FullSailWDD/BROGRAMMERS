@@ -42,7 +42,9 @@ var proRubApp = angular.module('proRubApp', ['ngRoute'])
         redirectTo: '/'
       });
   }]);
-// reading all degrees from DB
+
+console.log("main.js is linked properly");
+
 proRubApp.controller('homeCtrl', ['$scope', '$http',
   function ($scope, $http) {
 	  // Fetches all of the degrees
@@ -67,11 +69,25 @@ proRubApp.controller('homeCtrl', ['$scope', '$http',
   	  });
     }]);
 
+// Insert a new degree
 proRubApp.controller('addDegreeCtrl', ['$scope', '$http',
   function ($scope, $http) {
-    $http.get('/views/adddegree.html').success(function(data) {
-      // $scope.course = data;
-    });
+	  // The function to be run when the user presses "Save Degree Program"
+	  $scope.insertDegree = function(){
+		  // Send a POST Request to the API with the degree title and degree abbreviation
+		  $http.post('/api/newDegree', $scope.degree)
+		  // Once we catch a response run this code
+		  .then(function(result){
+			  // Create the URL we want to redirect to
+			  var targRoute = '/#/degree/' + result.data.abbr;
+
+			  // Forward the user to the new degree they just created
+			  window.location.href = targRoute;
+
+		  }, function(){
+			  // TODO: Add error handling
+		  });
+	  }
   }]);
 
 
