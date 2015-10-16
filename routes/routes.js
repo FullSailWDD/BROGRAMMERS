@@ -13,15 +13,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.get('/',function(req,res){
     res.render('home');
 });
-    //=-=-=-=-=-=-=- Routes for API -=-=-=-=-=-=-=-=-=
-    app.get('/degrees',function(req,res){
-        //get all degrees from the database
-    });
-
-    app.get('/courses',function(req,res){
-        //get all courses from the database
-    });
-
 
 // Inserts a new degree
 app.post('/newDegree', function(req, res){
