@@ -117,10 +117,15 @@ color:red;
 	padding: 5px;
 	text-align: center;
 	background-color: #546e7a;
-	
+	 width: 611.06px;
+    -webkit-transition: width .5s; /* Safari 3.1 to 6.0 */
+    transition: width .5s;
+
 }
+
 .card.degreelink:hover { 
-    margin-bottom: 25px;
-    box-shadow: 7px 7px 5px #888888;
-    background-color: #00bcd4; 
+    margin-bottom: 15px;
+    box-shadow: 3px 3px 3px #888888;
+    background-color: #00b8d4;
+    width: 617px;
 }
