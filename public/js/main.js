@@ -79,7 +79,7 @@ proRubApp.controller('homeCtrl', ['$scope', '$http',
 		  	  $http.get('/api/fetchRubrics/'+ $routeParams.degree + '/' + course.abbr)
 		  	  .success(function(data){
 			  	  // creates an array of the rubrics associated with the course
-			  	  course.courses = data;
+			  	  course.rubrics = data;
 		  	  }).error(function(){
 		  	  // TODO: Add error handling
 		  	  });
