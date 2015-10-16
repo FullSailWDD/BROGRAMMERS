@@ -40,7 +40,7 @@ var proRubApp = angular.module('proRubApp', ['ngRoute'])
 
 
 
-console.log("main.js is linked properly");
+
 
 
 
@@ -87,4 +87,4 @@ proRubApp.controller('auditCtrl', ['$scope', '$http',
     });
   }]);
 
-console.log("working");
+console.log("Angular routes and Controllers");
