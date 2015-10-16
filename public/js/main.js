@@ -20,8 +20,8 @@ var proRubApp = angular.module('proRubApp', ['ngRoute'])
         templateUrl: '/views/newcourse.html',
         controller: 'newCourseCtrl'
       }).
-        when('/addruberic', {
-        templateUrl: '/views/addruberic.html',
+        when('/addrubric', {
+        templateUrl: '/views/addrubric.html',
         controller: 'addrubericCtrl'
       }).
            when('/degree/WDD/WebDeployment/audit', {
@@ -29,22 +29,13 @@ var proRubApp = angular.module('proRubApp', ['ngRoute'])
         controller: 'auditCtrl'
       }).
          when('/degree/WDD/course', {
-        templateUrl: '/views/addCourse.html',
+        templateUrl: '/views/addcourse.html',
         controller: 'addCourseCtrl'
       }).
       otherwise({
         redirectTo: '/'
       });
   }]);
-
-
-
-
-
-
-
-
-
 
 proRubApp.controller('homeCtrl', ['$scope', '$http',
   function ($scope, $http) {
@@ -68,7 +59,7 @@ proRubApp.controller('degreeCtrl', ['$scope', '$http',
 
 proRubApp.controller('newCourseCtrl', ['$scope', '$http',
   function ($scope, $http) {
-    $http.get('/views/addCourse.html').success(function(data) {
+    $http.get('/views/addcourse.html').success(function(data) {
      // $scope.course = data;
     });
   }]);

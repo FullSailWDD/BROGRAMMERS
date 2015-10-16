@@ -54,57 +54,35 @@ module.exports = function(app){
         });
     },
     
-    // fetchAll - finds one rubric
+    // fetch - finds one rubric
     _find = function(targ, success, fail){
         // Finds all of the rubrics specified by the degree and course
-        _rubricModel.find(targ, function(err, result){
+        _rubricModel.findOne(targ, function(err, result){
             (err) ? fail(err) : success(result);
         });
     },
     
-    // fetch - finds only one specified rubric
-    _findSection = function(targ, success, fail){
-	    console.log(targ);
-        // Finds just one rubric specificed by the degree abbreviation, course abbreviation and section title
-		_rubricModel.find({degreeAbbr: targ.degreeAbbr, courseAbbr: targ.courseAbbr, title: targ.title},
-			{sections: { $elemMatch: { title: targ.sectionTitle } } },
-			function(err, result){
-				/*
-				 * FIX ME
-				 * This function returns data in an unexpected format:
-				 * 
-				 *	[
-				 *	  {
-				 *	    "_id": "561e91c2d2cb0972b4f8dcc6",
-				 *	    "sections": [
-				 *	      {
-				 *	        "title": "Color",
-				 *	        "desc": "This covers overall color and how they work together.",
-				 *	        "weight": 25,
-				 *	        "grade": 0,
-				 *	        "_id": "561e91c2d2cb0972b4f8dcc7",
-				 *	        "items": []
-				 *	      }
-				 *	    ],
-				 *	    "gradeOptions": []
-				 *	  }
-				 *	]
-				 *
-				 * TEMP FIX: success(result[0].sections[0]);
-				 * SHOULD BE: success(result);
-				 *
-				*/
-                (err) ? fail(err) : success(result[0].sections[0]);
-			}
-		);
+    // update - updates a rubric
+    _update = function(targ, data, success, fail){
+	    // targ is the _id, data is the new document
+    	_rubricModel.update({_id: targ}, data, function(err, result){
+            (err) ? fail(err) : success(result);
+    	});
+    },
+    
+    // destroy - removes the document from the database
+    _delete = function (targ, success, fail){
+    	_rubricModel.remove(targ, function(err, result){
+            (err) ? fail(err) : success(result);
+    	});
     }
         
     ;return {
-        schema: rubricSchema,
         create: _save,
         fetchAll: _findAll,
         fetch: _find,
-        fetchSection: _findSection
+        update: _update,
+        destroy: _delete
     };
 	
 }();

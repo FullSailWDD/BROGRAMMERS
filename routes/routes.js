@@ -1,27 +1,14 @@
 module.exports = function(app) {
 console.log('Loaded routes');
-var bodyParser = require('body-parser'),
-	Degree = require('../models/degrees.js'),
-	Course = require('../models/courses.js'),
-	Rubric = require('../models/rubrics.js');
+var bodyParser = require('body-parser');
 
 // create application/x-www-form-urlencoded parser
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-//********this route will be replaced with angular routes **********************
 app.get('/',function(req,res){
     res.render('home');
 });
-    //=-=-=-=-=-=-=- Routes for API -=-=-=-=-=-=-=-=-=
-    app.get('/degrees',function(req,res){
-        //get all degrees from the database
-    });
-
-    app.get('/courses',function(req,res){
-        //get all courses from the database
-    });
-
 
 // Inserts a new degree
 app.post('/newDegree', function(req, res){
@@ -118,5 +105,8 @@ app.get('/fetchRubric/:degreeAbbr/:courseAbbr/:title/:sectionTitle', function(re
     	res.send(doc);
     });
 });
+require('./degrees.js')(app);
+require('./courses.js')(app);
+require('./rubrics.js')(app);
 
 }
