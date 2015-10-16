@@ -13,7 +13,7 @@ var proRubApp = angular.module('proRubApp', ['ngRoute'])
         templateUrl: '/views/adddegree.html',
         controller: 'addDegreeCtrl'
       }).
-       when('/degree/WDD', {
+       when('/degree/:degree', {
         templateUrl: '/views/degree.html',
         controller: 'degreeCtrl'
       }).
@@ -42,7 +42,7 @@ var proRubApp = angular.module('proRubApp', ['ngRoute'])
         redirectTo: '/'
       });
   }]);
-
+// reading all degrees from DB
 proRubApp.controller('homeCtrl', ['$scope', '$http',
   function ($scope, $http) {
 	  // Fetches all of the degrees
@@ -54,6 +54,18 @@ proRubApp.controller('homeCtrl', ['$scope', '$http',
 		  // TODO: Add error handling
 	  });
   }]);
+  // reading one degrees from DB
+  proRubApp.controller('degreeCtrl', ['$scope', '$http','$routeParams',
+    function ($scope, $http,$routeParams) {
+		// Fetches all of the degrees
+  	  $http.get('/api/fetch/'+ $routeParams.degree)
+  	  .success(function(data){
+  		  // Make the data available to the DOM
+  		  $scope.data = data;
+  	  }).error(function(){
+  		  // TODO: Add error handling
+  	  });
+    }]);
 
 proRubApp.controller('addDegreeCtrl', ['$scope', '$http',
   function ($scope, $http) {
@@ -61,12 +73,7 @@ proRubApp.controller('addDegreeCtrl', ['$scope', '$http',
       // $scope.course = data;
     });
   }]);
-proRubApp.controller('degreeCtrl', ['$scope', '$http',
-  function ($scope, $http) {
-    $http.get('/views/degree.html').success(function(data) {
-      // $scope.course = data;
-    });
-  }]);
+
 
 proRubApp.controller('newCourseCtrl', ['$scope', '$http',
   function ($scope, $http) {
