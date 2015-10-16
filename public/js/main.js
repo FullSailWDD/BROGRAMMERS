@@ -28,10 +28,15 @@ var proRubApp = angular.module('proRubApp', ['ngRoute'])
         templateUrl: '/views/audit.html',
         controller: 'auditCtrl'
       }).
+          when('/degree/WDD/WebDeployment/audit/editMode', {
+        templateUrl: '/views/editMode.html',
+        controller: 'editModeCtrl'
+      }).
          when('/degree/WDD/course', {
         templateUrl: '/views/addCourse.html',
         controller: 'addCourseCtrl'
       }).
+
       otherwise({
         redirectTo: '/'
       });
@@ -83,6 +88,13 @@ proRubApp.controller('addCourseCtrl', ['$scope', '$http',
 proRubApp.controller('auditCtrl', ['$scope', '$http',
   function ($scope, $http) {
     $http.get('/views/audit.html').success(function(data) {
+     // $scope.course = data;
+    });
+  }]);
+
+proRubApp.controller('editModeCtrl', ['$scope', '$http',
+  function ($scope, $http) {
+    $http.get('/views/editMode.html').success(function(data) {
      // $scope.course = data;
     });
   }]);
