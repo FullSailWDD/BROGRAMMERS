@@ -68,10 +68,24 @@ proRubApp.controller('homeCtrl', ['$scope', '$http',
   		  // TODO: Add error handling
   	  });
   	  
+  	  // Grab all of the courses from the database
   	  $http.get('/api/fetchCourses/'+ $routeParams.degree)
   	  .success(function(data){
   		  // Make the data available to the DOM
   		  $scope.coursesData = data;
+  		  
+  		  // For every course, loop through and grab all of the rubrics
+  		  $scope.coursesData.forEach(function(course){
+		  	  $http.get('/api/fetchRubrics/'+ $routeParams.degree + '/' + course.abbr)
+		  	  .success(function(data){
+			  	  // creates an array of the rubrics associated with the course
+			  	  course.courses = data;
+		  	  }).error(function(){
+		  	  // TODO: Add error handling
+		  	  });
+	  		  
+  		  });
+  		  	  	  
   	  }).error(function(){
   		  // TODO: Add error handling
   	  });
