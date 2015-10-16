@@ -120,3 +120,8 @@ color:red;
 	font-family: 'Asap', sans-serif;
 	font-weight: bold;
 }
+.card.degreelink.blue-grey.darken-1{
+	font-family: 'Asap', sans-serif;
+	padding: 5px;
+	text-align: center;
+}

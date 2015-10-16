@@ -9,9 +9,14 @@
 
 	<div class="row homeselection">
     <div class="degreeSelect input-field col s12">
-	  <input type="text" ng-model="search" placeholder="Search here fam"/>
+	  <input type="text" ng-model="search" placeholder="Search for Degree"/>
 	  <div ng-repeat="degree in data | filter:search">
-	    <a href="/#/degree/(( degree.abbr ))">(( degree.title ))</a>
+	    <a href="/#/degree/(( degree.abbr ))">
+          <div class="card degreelink blue-grey darken-1">
+          <span class="card-title white-text">
+          (( degree.title ))
+          </span>
+          </div></a>
     </div>
   </div>
   <br><br>

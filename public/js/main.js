@@ -14,7 +14,7 @@ var proRubApp = angular.module('proRubApp', ['ngRoute', 'ng-breadcrumbs'])
         templateUrl: '/views/adddegree.html',
         controller: 'addDegreeCtrl'
       }).
-       when('/degree/WDD', {
+       when('/degree/:degree', {
         templateUrl: '/views/degree.html',
         controller: 'degreeCtrl'
       }).
@@ -45,6 +45,8 @@ var proRubApp = angular.module('proRubApp', ['ngRoute', 'ng-breadcrumbs'])
 }]);
 
 
+console.log("main.js is linked properly");
+
 proRubApp.controller('homeCtrl', ['$scope', '$http',
   function ($scope, $http) {
 	  // Fetches all of the degrees
@@ -56,19 +58,40 @@ proRubApp.controller('homeCtrl', ['$scope', '$http',
 		  // TODO: Add error handling
 	  });
   }]);
+  // reading one degrees from DB
+  proRubApp.controller('degreeCtrl', ['$scope', '$http','$routeParams',
+    function ($scope, $http,$routeParams) {
+		// Fetches all of the degrees
+  	  $http.get('/api/fetch/'+ $routeParams.degree)
+  	  .success(function(data){
+  		  // Make the data available to the DOM
+  		  $scope.data = data;
+  	  }).error(function(){
+  		  // TODO: Add error handling
+  	  });
+    }]);
 
+// Insert a new degree
 proRubApp.controller('addDegreeCtrl', ['$scope', '$http',
   function ($scope, $http) {
-    $http.get('/views/adddegree.html').success(function(data) {
-      // $scope.course = data;
-    });
+	  // The function to be run when the user presses "Save Degree Program"
+	  $scope.insertDegree = function(){
+		  // Send a POST Request to the API with the degree title and degree abbreviation
+		  $http.post('/api/newDegree', $scope.degree)
+		  // Once we catch a response run this code
+		  .then(function(result){
+			  // Create the URL we want to redirect to
+			  var targRoute = '/#/degree/' + result.data.abbr;
+
+			  // Forward the user to the new degree they just created
+			  window.location.href = targRoute;
+
+		  }, function(){
+			  // TODO: Add error handling
+		  });
+	  }
   }]);
-proRubApp.controller('degreeCtrl', ['$scope', '$http',
-  function ($scope, $http) {
-    $http.get('/views/degree.html').success(function(data) {
-      // $scope.course = data;
-    });
-  }]);
+
 
 proRubApp.controller('newCourseCtrl', ['$scope', '$http',
   function ($scope, $http) {
