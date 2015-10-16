@@ -6,9 +6,14 @@
       <div class="row center">
 	      <h5 class="header col s12 light betterbanner">Better than Spreadsheets</h5>
 	     </div>
+
+       <!-- json population test -->
+   
+
+
+    <!-- static options -->
 	 <div class="row homeselection"> 
     <div class="degreeSelect input-field col s12">
-     
       <select class="browser-default">
         <option value="" disabled selected>Choose a Degree Program</option>
         <option value="1">Web Design & Development Bachelor of Science</option>
@@ -17,8 +22,7 @@
         <option value="4">Simulation & Visualization Bachelor of Science</option>
         <option value="5">Software Development Bachelor of Science</option>
         <option value="6">Mobile Development Bachelor of Science</option>
-      </select>
-   
+      </select> 
   </div>
   <br><br>
   <div class="row center input">
@@ -30,4 +34,10 @@
 
 
  <!--  end banner -->
-
+<div ng-controller="DemoCtrl">
+    
+  <p>populate select options with ajax</p>
+        
+  <select ng-model="selectedCountry.countryId" ng-options="country.countryId as country.name for country in chooseCountries"></select>
+    
+    <span>Selected country id is {{selectedCountry.countryId}}</span>

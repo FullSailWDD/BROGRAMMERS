@@ -100,3 +100,17 @@ proRubApp.controller('editModeCtrl', ['$scope', '$http',
   }]);
 
 console.log("Angular routes and Controllers");
+
+
+// json data testing
+
+proRubApp.controller('DemoCtrl', function ($scope) {
+
+    $scope.chooseCountries=[
+        {countryId : 1, name : "France - Mainland", desc: "some description" },
+        {countryId : 2, name : "Gibraltar", desc: "some description"},
+        {countryId : 3, name : "Malta", desc: "some description"}
+    ];
+    
+    $scope.selectedCountry = angular.copy($scope.chooseCountries[0]);
+});
