@@ -1,8 +1,7 @@
-<<<<<<< HEAD
 var proRubApp = angular.module('proRubApp', ['ngRoute'])
 .config(['$interpolateProvider', '$routeProvider', '$locationProvider', function($interpolateProvider, $routeProvider, $locationProvider){
 	$interpolateProvider.startSymbol('((');
-	$interpolateProvider.endSymbol('))'); 
+	$interpolateProvider.endSymbol('))');
 	// $locationProvider.html5Mode(false);
 	  $routeProvider.
       when('/', {
@@ -37,11 +36,3 @@ var proRubApp = angular.module('proRubApp', ['ngRoute'])
         redirectTo: '/'
       });
   }]);
-
-
-
-
-console.log("main.js is linked properly");
-=======
-var app = angular.module('myApp',['ngRoute']);
->>>>>>> b180654578cf4f1746fbc14a993ed82efe574f8b

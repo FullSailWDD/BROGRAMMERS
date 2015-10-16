@@ -1,5 +1,4 @@
- 
-var prorubControllers = angular.module('prorubControllers', []);
+ var prorubControllers = angular.module('prorubControllers', []);
 
 prorubControllers.controller('homeCtrl', ['$scope', '$http',
   function ($scope, $http) {
