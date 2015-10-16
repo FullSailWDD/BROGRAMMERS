@@ -87,7 +87,7 @@ p.alert{
 .homeselection{
    margin-top:60px;
 }
-/*add degree page*/
+/*##############   add degree page  #############*/
 .noteadd{
 	color: #0097a7;
 }
@@ -106,6 +106,14 @@ p.alert{
 }
 .verified{
 	color:#0097a7;
+}
+/*############ audit page ######################## */
+.medium.material-icons{
+color:red;
+}
+.comment{
+	font-family: 'Asap', sans-serif;
+	font-weight: bold;
 }
 
 

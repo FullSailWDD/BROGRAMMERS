@@ -1,9 +1,7 @@
 
+
 $(document).ready(function() {
-	
-});
-$(document).ready(function() {
-	console.log("hello world");
+	console.log("Materialize.js");
     	// Show sideNav
 	$('.button-collapse').sideNav('show');
 		// Hide sideNav
