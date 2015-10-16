@@ -18,7 +18,7 @@ var proRubApp = angular.module('proRubApp', ['ngRoute'])
         templateUrl: '/views/degree.html',
         controller: 'degreeCtrl'
       }).
-       when('/degree/WDD/addCourse', {
+       when('/degree/:degree/addCourse', {
         templateUrl: '/views/newcourse.html',
         controller: 'newCourseCtrl'
       }).
@@ -102,11 +102,26 @@ proRubApp.controller('addDegreeCtrl', ['$scope', '$http',
 		  });
 	  }
   }]);
+proRubApp.controller('newCourseCtrl', ['$scope', '$http', '$routeParams',
+  function ($scope, $http, $routeParams) {
+	// The function to be run when the user presses "Save Course"
+    $scope.insertCourse = function(){
+	   	  // Grabs the current degree from the URL
+	      $scope.course.degreeAbbr = $routeParams.degree;
+		  // Send a POST Request to the API with the degree abbreviation, course abbreviation and course title
+		  $http.post('/api/newCourse', $scope.course)
+		  // Once we catch a response run this code
+		  .then(function(result){
+			  //Create the URL we want to redirect to
+			  var targRoute = '/#/degree/' + result.data.degreeAbbr;
 
+			  // Forward the user to the degree
+			  window.location.href = targRoute;
 
-proRubApp.controller('newCourseCtrl', ['$scope', '$http',
-  function ($scope, $http) {
-
+		  }, function(){
+			  // TODO: Add error handling
+		  });
+	  }
   }]);
 
 proRubApp.controller('auditCtrl', ['$scope', '$http',
