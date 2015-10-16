@@ -22,7 +22,7 @@ var proRubApp = angular.module('proRubApp', ['ngRoute'])
       }).
         when('/addrubric', {
         templateUrl: '/views/addrubric.html',
-        controller: 'addrubericCtrl'
+        controller: 'addrubricCtrl'
       }).
            when('/degree/WDD/WebDeployment/audit', {
         templateUrl: '/views/audit.html',
