@@ -82,7 +82,6 @@ proRubApp.controller('homeCtrl', ['$scope', '$http',
 		  	  .success(function(data){
 			  	  // creates an array of the rubrics associated with the course
 			  	  course.rubrics = data;
-            console.log(course);
 		  	  }).error(function(){
 		  	  // TODO: Add error handling
 		  	  });
