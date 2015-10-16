@@ -13,9 +13,9 @@ $(document).ready(function() {
 	$('select').material_select();
 
 	// show and hide FAB actions
-	$('.fixed-action-btn').openFAB();
-	$('.fixed-action-btn').closeFAB();
-    $('select').material_select();
+	// $('.fixed-action-btn').openFAB();
+	// $('.fixed-action-btn').closeFAB();
+ //    $('select').material_select();
 });
 
 

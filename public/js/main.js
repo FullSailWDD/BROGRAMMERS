@@ -11,7 +11,7 @@ var proRubApp = angular.module('proRubApp', ['ngRoute', 'ng-breadcrumbs'])
       }).
       when('/addDegree', {
         templateUrl: '/views/adddegree.html',
-        controller: 'adddegreeCtrl'
+        controller: 'addDegreeCtrl'
       }).
        when('/degree/WDD', {
         templateUrl: '/views/degree.html',
@@ -19,7 +19,7 @@ var proRubApp = angular.module('proRubApp', ['ngRoute', 'ng-breadcrumbs'])
       }).
        when('/degree/WDD/addCourse', {
         templateUrl: '/views/newcourse.html',
-        controller: 'newcourseCtrl'
+        controller: 'newCourseCtrl'
       }).
         when('/addruberic', {
         templateUrl: '/views/addruberic.html',
@@ -30,7 +30,7 @@ var proRubApp = angular.module('proRubApp', ['ngRoute', 'ng-breadcrumbs'])
         controller: 'auditCtrl'
       }).
          when('/degree/WDD/course', {
-        templateUrl: '/views/addcourse.html',
+        templateUrl: '/views/addCourse.html',
         controller: 'addCourseCtrl'
       }).
       otherwise({
@@ -60,3 +60,50 @@ proRubApp.controller('courseController', function($scope){
 
 
 console.log("main.js is linked properly");
+
+
+ 
+
+
+proRubApp.controller('homeCtrl', ['$scope', '$http',
+  function ($scope, $http) {
+      $http.get('/views/home.html').success(function(data) {
+      // $scope.home = data;
+    });
+  }]);
+
+proRubApp.controller('addDegreeCtrl', ['$scope', '$http',
+  function ($scope, $http) {
+    $http.get('/views/adddegree.html').success(function(data) {
+      // $scope.course = data;
+    });
+  }]);
+proRubApp.controller('degreeCtrl', ['$scope', '$http',
+  function ($scope, $http) {
+    $http.get('/views/degree.html').success(function(data) {
+      // $scope.course = data;
+    });
+  }]);
+
+proRubApp.controller('newCourseCtrl', ['$scope', '$http',
+  function ($scope, $http) {
+    $http.get('/views/addCourse.html').success(function(data) {
+     // $scope.course = data;
+    });
+  }]);
+
+proRubApp.controller('addCourseCtrl', ['$scope', '$http',
+  function ($scope, $http) {
+    $http.get('/views/addcourse.html').success(function(data) {
+     // $scope.course = data;
+    });
+  }]);
+
+proRubApp.controller('auditCtrl', ['$scope', '$http',
+  function ($scope, $http) {
+    $http.get('/views/audit.html').success(function(data) {
+     // $scope.course = data;
+    });
+  }]);
+
+console.log("working");
