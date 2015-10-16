@@ -1,10 +1,10 @@
-var proRubApp = angular.module('proRubApp', ['ngRoute', 'ng-breadcrumbs'])
+var proRubApp = angular.module('proRubApp', ['ngRoute'])
 .config(['$interpolateProvider', '$routeProvider', '$locationProvider', function($interpolateProvider, $routeProvider, $locationProvider){
   //set interpolateProvider to reset handlebars
 	$interpolateProvider.startSymbol('((');
-	$interpolateProvider.endSymbol('))'); 
+	$interpolateProvider.endSymbol('))');
 	// $locationProvider.html5Mode(true); // eanabling this creates pretty urls
-	  
+
     $routeProvider.
       when('/', {
         templateUrl: '/views/home.html',
@@ -70,7 +70,7 @@ proRubApp.controller('homeCtrl', ['$scope', '$http',
   	  }).error(function(){
   		  // TODO: Add error handling
   	  });
-  	  
+
   	  $http.get('/api/fetchCourses/'+ $routeParams.degree)
   	  .success(function(data){
   		  // Make the data available to the DOM
@@ -79,7 +79,7 @@ proRubApp.controller('homeCtrl', ['$scope', '$http',
   	  }).error(function(){
   		  // TODO: Add error handling
   	  });
-  	  
+
     }]);
 
 // Insert a new degree
@@ -106,7 +106,7 @@ proRubApp.controller('addDegreeCtrl', ['$scope', '$http',
 
 proRubApp.controller('newCourseCtrl', ['$scope', '$http',
   function ($scope, $http) {
-    
+
   }]);
 
 proRubApp.controller('auditCtrl', ['$scope', '$http',
