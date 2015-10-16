@@ -2,10 +2,10 @@ html{
 
 }
 body{
-	
+
 }
 h5{
-   font-family: 'Flamenco', sans-serif;	
+   font-family: 'Flamenco', sans-serif;
 }
 nav{
     color: #00b8d4;
@@ -17,12 +17,13 @@ footer{
 }
 
 footer p{
+	color:white;
 	font-family: 'Asap', sans-serif;
 }
-/*p{
+
+p{
  color:white;
- font-family: 'Asap', sans-serif;	
-<<<<<<< HEAD
+ font-family: 'Asap', sans-serif;
 }
 
 /* ##############  Buttons  #########################*/
@@ -55,9 +56,6 @@ p.alert{
 	width:200px;
 	height:30px;
 	border: none;
-}
-#search .focus{
-	border-color: #000;
 }
 .search-wrapper {
 	padding-top: 10px;
@@ -93,7 +91,7 @@ p.alert{
 .homeselection{
    margin-top:60px;
 }
-/*add degree page*/
+/*##############   add degree page  #############*/
 .noteadd{
 	color: #0097a7;
 }
@@ -114,5 +112,11 @@ p.alert{
 	color:#0097a7;
 }
 
-
-
+/*############ audit page ######################## */
+.medium.material-icons{
+color:red;
+}
+.comment{
+	font-family: 'Asap', sans-serif;
+	font-weight: bold;
+}

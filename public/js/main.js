@@ -1,10 +1,11 @@
 var proRubApp = angular.module('proRubApp', ['ngRoute', 'ng-breadcrumbs'])
 .config(['$interpolateProvider', '$routeProvider', '$locationProvider', function($interpolateProvider, $routeProvider, $locationProvider){
+  //set interpolateProvider to reset handlebars
 	$interpolateProvider.startSymbol('((');
 	$interpolateProvider.endSymbol('))'); 
 	// $locationProvider.html5Mode(true); // eanabling this creates pretty urls
-
-	  $routeProvider.
+	  
+    $routeProvider.
       when('/', {
         templateUrl: '/views/home.html',
         controller: 'homeCtrl'
@@ -21,55 +22,39 @@ var proRubApp = angular.module('proRubApp', ['ngRoute', 'ng-breadcrumbs'])
         templateUrl: '/views/newcourse.html',
         controller: 'newCourseCtrl'
       }).
-        when('/addruberic', {
-        templateUrl: '/views/addruberic.html',
-        controller: 'addrubericCtrl'
+        when('/addrubric', {
+        templateUrl: '/views/addrubric.html',
+        controller: 'addrubricCtrl'
       }).
            when('/degree/WDD/WebDeployment/audit', {
         templateUrl: '/views/audit.html',
         controller: 'auditCtrl'
       }).
+          when('/degree/WDD/WebDeployment/audit/editMode', {
+        templateUrl: '/views/editMode.html',
+        controller: 'editModeCtrl'
+      }).
          when('/degree/WDD/course', {
-        templateUrl: '/views/addCourse.html',
+        templateUrl: '/views/addcourse.html',
         controller: 'addCourseCtrl'
       }).
+
       otherwise({
         redirectTo: '/'
       });
 }]);
 
-// Breadcrumbs must be included with each controller. 
-proRubApp.controller('rubricController', function($scope,$routeParams, breadcrumbs){
-	// $scope.trail = [$routeParams.degree,$routeParams.course];
-	// console.log(breadcrumbs);
-	breadcrumbs.options = { 'Degree': $routeParams.degree + ' Details' };
-	$scope.breadcrumbs = breadcrumbs;
-	$scope.message = 'Look! I am an about page.';
-});
-
-// Chapmans way, let's leave this here for reference
-// proRubApp.controller('rubricController', function($scope,$routeParams){
-// 	$scope.trail = [$routeParams.degree,$routeParams.course];
-// 	console.log($scope.trail);
-// 	$scope.message = 'Look! I am an about page.';
-// });
-
-proRubApp.controller('courseController', function($scope){
-	$scope.message = 'Contact us! JK. This is just a demo.';
-});
-
-
-console.log("main.js is linked properly");
-
-
- 
-
 
 proRubApp.controller('homeCtrl', ['$scope', '$http',
   function ($scope, $http) {
-      $http.get('/views/home.html').success(function(data) {
-      // $scope.home = data;
-    });
+	  // Fetches all of the degrees
+	  $http.get('/api/fetchDegrees')
+	  .success(function(data){
+		  // Make the data available to the DOM
+		  $scope.data = data;
+	  }).error(function(){
+		  // TODO: Add error handling
+	  });
   }]);
 
 proRubApp.controller('addDegreeCtrl', ['$scope', '$http',
@@ -87,7 +72,7 @@ proRubApp.controller('degreeCtrl', ['$scope', '$http',
 
 proRubApp.controller('newCourseCtrl', ['$scope', '$http',
   function ($scope, $http) {
-    $http.get('/views/addCourse.html').success(function(data) {
+    $http.get('/views/addcourse.html').success(function(data) {
      // $scope.course = data;
     });
   }]);
@@ -106,4 +91,12 @@ proRubApp.controller('auditCtrl', ['$scope', '$http',
     });
   }]);
 
-console.log("working");
+
+console.log("Angular routes and Controllers");
+
+proRubApp.controller('editModeCtrl', ['$scope', '$http',
+  function ($scope, $http) {
+    $http.get('/views/editMode.html').success(function(data) {
+     // $scope.course = data;
+    });
+  }]);=

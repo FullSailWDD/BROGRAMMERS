@@ -2,34 +2,27 @@
 <html lnag="en">
     <head>
         <meta charset="utf-8">
-        <script src="js/angular.js"></script>
-        <script src="js/routes.js"></script>
-        <script src="js/controllers/degreectrl.js"></script>
         <link href='https://fonts.googleapis.com/css?family=Asap' rel='stylesheet' type='text/css'>
         <link href='https://fonts.googleapis.com/css?family=Flamenco' rel='stylesheet' type='text/css'>
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link href='css/main.css' rel='stylesheet' type='text/css'>
         <link href='css/materialize.css' rel='stylesheet' type='text/css'>
-
          <!-- Compiled and minified CSS wtf-->
   		 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/css/materialize.min.css">
        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <title>BROGRAMMERS</title>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
-        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
         <base href="/">
     </head>
 
-    <body  ng-app="proRubApp">
+    <body ng-app="proRubApp">
 
 <!-- Navigation -->
         <nav class=" cyan darken-3" role="navigation">
           <div class="nav-wrapper container">
-            <a id="logo-container" href="#" class="brand-logo"><i class="material-icons">group</i></a>
-            <ul class="right hide-on-med-and-down navlink">
-              <li><a href="#">Sign In</a></li>
-              <li><a href="/#/">Home</a></li>
-            </ul>
+            <a id="logo-container" href="/#/" class="brand-logo"><i class="material-icons">group</i></a>
+
 
             <ul id="nav-mobile" class="side-nav navlink">
               <li><a href="#">Sign In</a></li>
@@ -37,11 +30,9 @@
             </ul>
             <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
           </div>
-        </nav> 
+        </nav>
 <!-- end Navigation -->
 
-
-<!-- Mika is playing with some stuff here.  -->
 <div class="wrapper container">
   {{{body}}}
 </div>
@@ -79,9 +70,11 @@
   </footer>
 
      <!-- Compiled and minified JavaScript -->
-    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>      
-    <script type="text/javascript" src="js/materialize.js"></script>  
-    <script type="text/javascript" src="js/main.js"></script>  
-    <script type="text/javascript" src="bower_components/ng-breadcrumbs/dist/ng-breadcrumbs.min.js"></script>  
+    <script type="text/javascript" src="bower_components/ng-breadcrumbs/dist/ng-breadcrumbs.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="js/materialize.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
     </body>
 </html>
