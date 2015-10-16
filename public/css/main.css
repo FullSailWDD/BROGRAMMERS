@@ -1,3 +1,7 @@
+.brand-logo{
+	font-family: 'Flamenco', sans-serif;
+}
+
 html{
 
 }
@@ -12,12 +16,17 @@ nav{
     font-family: 'Asap', sans-serif;
 }
 
+footer{
+	font-family: 'Flamenco', sans-serif;
+}
+
 footer p{
 	color:white;
 	font-family: 'Asap', sans-serif;
 }
 
 p{
+ color:white;
  font-family: 'Asap', sans-serif;
 }
 
@@ -32,6 +41,7 @@ p{
 	font-family: 'Flamenco', sans-serif;
 	color:white;
 }
+
 /*  #########  addcourse page  ##############*/
 p.alert{
 	color: #FFA500 !important;
@@ -66,6 +76,7 @@ p.alert{
 	margin-bottom: 0px;
 	font-family: 'Flamenco', sans-serif;
 }
+
 .betterbanner{
 	margin-top: 20px;
 	color:#0097a7;
@@ -104,6 +115,7 @@ p.alert{
 .verified{
 	color:#0097a7;
 }
+
 /*############ audit page ######################## */
 .medium.material-icons{
 color:red;

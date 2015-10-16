@@ -1,10 +1,11 @@
-var proRubApp = angular.module('proRubApp', ['ngRoute'])
+var proRubApp = angular.module('proRubApp', ['ngRoute', 'ng-breadcrumbs'])
 .config(['$interpolateProvider', '$routeProvider', '$locationProvider', function($interpolateProvider, $routeProvider, $locationProvider){
   //set interpolateProvider to reset handlebars
 	$interpolateProvider.startSymbol('((');
-	$interpolateProvider.endSymbol('))');
-	// $locationProvider.html5Mode(false);
-	  $routeProvider.
+	$interpolateProvider.endSymbol('))'); 
+	// $locationProvider.html5Mode(true); // eanabling this creates pretty urls
+	  
+    $routeProvider.
       when('/', {
         templateUrl: '/views/home.html',
         controller: 'homeCtrl'
@@ -41,7 +42,8 @@ var proRubApp = angular.module('proRubApp', ['ngRoute'])
       otherwise({
         redirectTo: '/'
       });
-  }]);
+}]);
+
 
 console.log("main.js is linked properly");
 
@@ -57,16 +59,27 @@ proRubApp.controller('homeCtrl', ['$scope', '$http',
 	  });
   }]);
   // reading one degrees from DB
+
   proRubApp.controller('degreeCtrl', ['$scope', '$http','$routeParams',
-    function ($scope, $http,$routeParams) {
+    function ($scope, $http, $routeParams) {
 		// Fetches all of the degrees
   	  $http.get('/api/fetchDegree/'+ $routeParams.degree)
   	  .success(function(data){
   		  // Make the data available to the DOM
-  		  $scope.data = data;
+  		  $scope.degreeData = data;
   	  }).error(function(){
   		  // TODO: Add error handling
   	  });
+  	  
+  	  $http.get('/api/fetchCourses/'+ $routeParams.degree)
+  	  .success(function(data){
+  		  // Make the data available to the DOM
+  		  $scope.coursesData = data;
+        console.log($scope.coursesData);
+  	  }).error(function(){
+  		  // TODO: Add error handling
+  	  });
+  	  
     }]);
 
 // Insert a new degree
@@ -93,16 +106,7 @@ proRubApp.controller('addDegreeCtrl', ['$scope', '$http',
 
 proRubApp.controller('newCourseCtrl', ['$scope', '$http',
   function ($scope, $http) {
-    $http.get('/views/addcourse.html').success(function(data) {
-     // $scope.course = data;
-    });
-  }]);
-
-proRubApp.controller('addCourseCtrl', ['$scope', '$http',
-  function ($scope, $http) {
-    $http.get('/views/addcourse.html').success(function(data) {
-     // $scope.course = data;
-    });
+    
   }]);
 
 proRubApp.controller('auditCtrl', ['$scope', '$http',
@@ -111,6 +115,7 @@ proRubApp.controller('auditCtrl', ['$scope', '$http',
      // $scope.course = data;
     });
   }]);
+
 
 console.log("Angular routes and Controllers");
 
