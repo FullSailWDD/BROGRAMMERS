@@ -1,7 +1,7 @@
 var proRubApp = angular.module('proRubApp', ['ngRoute'])
 .config(['$interpolateProvider', '$routeProvider', '$locationProvider', function($interpolateProvider, $routeProvider, $locationProvider){
 	$interpolateProvider.startSymbol('((');
-	$interpolateProvider.endSymbol('))'); 
+	$interpolateProvider.endSymbol('))');
 	// $locationProvider.html5Mode(false);
 	  $routeProvider.
       when('/', {
@@ -43,7 +43,7 @@ var proRubApp = angular.module('proRubApp', ['ngRoute'])
 console.log("main.js is linked properly");
 
 
- 
+
 
 
 proRubApp.controller('homeCtrl', ['$scope', '$http',
