@@ -6,21 +6,23 @@
       <div class="row center">
 	      <h5 class="header col s12 light betterbanner">Better than Spreadsheets</h5>
 	     </div>
-
+         
 	<div class="row homeselection">
     <div class="degreeSelect input-field col s12">
 	  <input type="text" ng-model="search" placeholder="Search here fam"/>
 	  <div ng-repeat="degree in data | filter:search">
 	    <a href="/#/degree/(( degree.abbr ))">(( degree.title ))</a>
-    </div>   
+    </div>
   </div>
   <br><br>
+
   <div class="row center input">
 	 <a href="/#/addDegree" class="waves-effect waves-light cyan btn-large"><i class="material-icons left">input</i>Add Degree Program</a>
   </div>
   <br><br>
   </div>
 </div>
+<<<<<<< HEAD
  <!--  end banner -->
 <div ng-controller="DemoCtrl">
 
@@ -29,3 +31,8 @@
   <select ng-model="selectedCountry.countryId" ng-options="country.countryId as country.name for country in chooseCountries"></select>
 
     <span>Selected country id is {{selectedCountry.countryId}}</span>
+=======
+
+ <!--  end banner -->
+
+>>>>>>> 0602eaf5bb013e424438501d1f8398e3a727bfdb
