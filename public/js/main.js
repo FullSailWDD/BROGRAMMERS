@@ -66,11 +66,19 @@ proRubApp.controller('homeCtrl', ['$scope', '$http',
   	  $http.get('/api/fetchDegree/'+ $routeParams.degree)
   	  .success(function(data){
   		  // Make the data available to the DOM
-  		  $scope.data = data;
-        console.log ($scope.data);
+  		  $scope.degreeData = data;
   	  }).error(function(){
   		  // TODO: Add error handling
   	  });
+  	  
+  	  $http.get('/api/fetchCourses/'+ $routeParams.degree)
+  	  .success(function(data){
+  		  // Make the data available to the DOM
+  		  $scope.coursesData = data;
+  	  }).error(function(){
+  		  // TODO: Add error handling
+  	  });
+  	  
     }]);
 
 // Insert a new degree
@@ -97,16 +105,7 @@ proRubApp.controller('addDegreeCtrl', ['$scope', '$http',
 
 proRubApp.controller('newCourseCtrl', ['$scope', '$http',
   function ($scope, $http) {
-    $http.get('/views/addcourse.html').success(function(data) {
-     // $scope.course = data;
-    });
-  }]);
-
-proRubApp.controller('addCourseCtrl', ['$scope', '$http',
-  function ($scope, $http) {
-    $http.get('/views/addcourse.html').success(function(data) {
-     // $scope.course = data;
-    });
+    
   }]);
 
 proRubApp.controller('auditCtrl', ['$scope', '$http',
