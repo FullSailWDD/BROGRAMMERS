@@ -62,7 +62,7 @@ proRubApp.controller('homeCtrl', ['$scope', '$http',
   proRubApp.controller('degreeCtrl', ['$scope', '$http','$routeParams',
     function ($scope, $http,$routeParams) {
 		// Fetches all of the degrees
-  	  $http.get('/api/fetch/'+ $routeParams.degree)
+  	  $http.get('/api/fetchDegree/'+ $routeParams.degree)
   	  .success(function(data){
   		  // Make the data available to the DOM
   		  $scope.data = data;
