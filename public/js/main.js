@@ -1,10 +1,10 @@
-var proRubApp = angular.module('proRubApp', ['ngRoute', 'ng-breadcrumbs'])
+var proRubApp = angular.module('proRubApp', ['ngRoute'])
 .config(['$interpolateProvider', '$routeProvider', '$locationProvider', function($interpolateProvider, $routeProvider, $locationProvider){
   //set interpolateProvider to reset handlebars
 	$interpolateProvider.startSymbol('((');
-	$interpolateProvider.endSymbol('))'); 
+	$interpolateProvider.endSymbol('))');
 	// $locationProvider.html5Mode(true); // eanabling this creates pretty urls
-	  
+
     $routeProvider.
       when('/', {
         templateUrl: '/views/home.html',
@@ -70,7 +70,7 @@ proRubApp.controller('homeCtrl', ['$scope', '$http',
   	  }).error(function(){
   		  // TODO: Add error handling
   	  });
-  	  
+
   	  // Grab all of the courses from the database
   	  $http.get('/api/fetchCourses/'+ $routeParams.degree)
   	  .success(function(data){
@@ -87,11 +87,10 @@ proRubApp.controller('homeCtrl', ['$scope', '$http',
 		  	  // TODO: Add error handling
 		  	  });
   		  });
-  		  	  
   	  }).error(function(){
   		  // TODO: Add error handling
   	  });
-  	  
+
     }]);
 
 // Insert a new degree
@@ -114,8 +113,6 @@ proRubApp.controller('addDegreeCtrl', ['$scope', '$http',
 		  });
 	  }
   }]);
-
-
 proRubApp.controller('newCourseCtrl', ['$scope', '$http', '$routeParams',
   function ($scope, $http, $routeParams) {
 	// The function to be run when the user presses "Save Course"
