@@ -13,11 +13,11 @@ nav{
 }
 
 footer p{
+	color:white;
 	font-family: 'Asap', sans-serif;
 }
 
 p{
- color:white;
  font-family: 'Asap', sans-serif;
 }
 
@@ -50,9 +50,6 @@ p.alert{
 	width:200px;
 	height:30px;
 	border: none;
-}
-#search .focus{
-	border-color: #000;
 }
 .search-wrapper {
 	padding-top: 10px;

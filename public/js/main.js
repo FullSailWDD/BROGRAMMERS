@@ -28,10 +28,15 @@ var proRubApp = angular.module('proRubApp', ['ngRoute'])
         templateUrl: '/views/audit.html',
         controller: 'auditCtrl'
       }).
+          when('/degree/WDD/WebDeployment/audit/editMode', {
+        templateUrl: '/views/editMode.html',
+        controller: 'editModeCtrl'
+      }).
          when('/degree/WDD/course', {
         templateUrl: '/views/addcourse.html',
         controller: 'addCourseCtrl'
       }).
+
       otherwise({
         redirectTo: '/'
       });
@@ -79,3 +84,24 @@ proRubApp.controller('auditCtrl', ['$scope', '$http',
   }]);
 
 console.log("Angular routes and Controllers");
+
+proRubApp.controller('editModeCtrl', ['$scope', '$http',
+  function ($scope, $http) {
+    $http.get('/views/editMode.html').success(function(data) {
+     // $scope.course = data;
+    });
+  }]);
+
+
+// json data testing
+
+proRubApp.controller('DemoCtrl', function ($scope) {
+
+    $scope.chooseCountries=[
+        {countryId : 1, name : "France - Mainland", desc: "some description" },
+        {countryId : 2, name : "Gibraltar", desc: "some description"},
+        {countryId : 3, name : "Malta", desc: "some description"}
+    ];
+
+    $scope.selectedCountry = angular.copy($scope.chooseCountries[0]);
+});
