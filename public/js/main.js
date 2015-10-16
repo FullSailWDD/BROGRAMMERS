@@ -48,9 +48,14 @@ console.log("main.js is linked properly");
 
 proRubApp.controller('homeCtrl', ['$scope', '$http',
   function ($scope, $http) {
-      $http.get('/views/home.html').success(function(data) {
-      // $scope.home = data;
-    });
+	  // Fetches all of the degrees
+	  $http.get('/api/fetchDegrees')
+	  .success(function(data){
+		  // Make the data available to the DOM
+		  $scope.data = data;
+	  }).error(function(){
+		  // TODO: Add error handling
+	  });
   }]);
 
 proRubApp.controller('addDegreeCtrl', ['$scope', '$http',

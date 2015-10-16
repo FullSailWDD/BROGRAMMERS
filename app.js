@@ -16,9 +16,7 @@ app.use('/views', express.static('views'));
 var port = process.env.PORT || 8080;
 
 // Routes
-app.get('/', function (req, res) {
-    res.render('home');
-});
+require('./routes/routes')(app);
 
 // Start App
 app.listen(port);
