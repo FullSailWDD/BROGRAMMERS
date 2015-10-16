@@ -112,8 +112,15 @@ color:red;
 	font-family: 'Asap', sans-serif;
 	font-weight: bold;
 }
-.card.degreelink.blue-grey.darken-1{
+.card.degreelink{
 	font-family: 'Asap', sans-serif;
 	padding: 5px;
 	text-align: center;
+	background-color: #546e7a;
+	
+}
+.card.degreelink:hover { 
+    margin-bottom: 25px;
+    box-shadow: 7px 7px 5px #888888;
+    background-color: #00bcd4; 
 }

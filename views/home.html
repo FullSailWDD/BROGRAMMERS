@@ -11,8 +11,8 @@
     <div class="degreeSelect input-field col s12">
 	  <input type="text" ng-model="search" placeholder="Search for Degree"/>
 	  <div ng-repeat="degree in data | filter:search">
-	    <a href="/#/degree/(( degree.abbr ))">
-          <div class="card degreelink blue-grey darken-1">
+	    <a class="degreelink" href="/#/degree/(( degree.abbr ))">
+          <div class="card degreelink">
           <span class="card-title white-text">
           (( degree.title ))
           </span>
