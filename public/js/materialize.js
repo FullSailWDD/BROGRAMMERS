@@ -1,6 +1,6 @@
 
 $(document).ready(function() {
-    $('select').material_select();
+	
 });
 $(document).ready(function() {
 	console.log("hello world");
@@ -11,6 +11,11 @@ $(document).ready(function() {
 	$(".button-collapse").sideNav();
 	 // must include for select forms
 	$('select').material_select();
+
+	// show and hide FAB actions
+	// $('.fixed-action-btn').openFAB();
+	// $('.fixed-action-btn').closeFAB();
+ //    $('select').material_select();
 });
 
 
