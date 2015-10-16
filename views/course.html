@@ -1,4 +1,13 @@
+<!-- breadcrumbs elements -->
   <div class="row">
+    <ul class="ab-nav breadcrumb" style="list-style-type:none">
+        <li ng-repeat="breadcrumb in breadcrumbs.get() track by breadcrumb.path" ng-class="(( active: $last ))">
+        <a ng-if="!$last" ng-href="#(( breadcrumb.path ))" ng-bind="breadcrumb.label" class="margin-right-xs"></a>
+        <span ng-if="$last" ng-bind="breadcrumb.label"></span>
+      </li>
+    </ul>
+
+
     <div class="col s12 m12">
       <div class="card white">
         <div class="card-content black-text">
@@ -18,6 +27,7 @@
             <button class="btn waves-effect waves-light right" type="submit" name="submit">Submit
               <i class="material-icons right">send</i>
             </button>
+            <a class="waves-effect waves-light btn one" href="/rubric">Add rubric</a>
           </form>
         </div>
         </div>

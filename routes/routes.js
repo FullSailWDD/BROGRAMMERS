@@ -14,4 +14,5 @@ require('./degrees.js')(app);
 require('./courses.js')(app);
 require('./rubrics.js')(app);
 
-}
+
+};

@@ -1,10 +1,11 @@
-var proRubApp = angular.module('proRubApp', ['ngRoute'])
+var proRubApp = angular.module('proRubApp', ['ngRoute', 'ng-breadcrumbs'])
 .config(['$interpolateProvider', '$routeProvider', '$locationProvider', function($interpolateProvider, $routeProvider, $locationProvider){
   //set interpolateProvider to reset handlebars
 	$interpolateProvider.startSymbol('((');
-	$interpolateProvider.endSymbol('))');
-	// $locationProvider.html5Mode(false);
-	  $routeProvider.
+	$interpolateProvider.endSymbol('))'); 
+	// $locationProvider.html5Mode(true); // eanabling this creates pretty urls
+	  
+    $routeProvider.
       when('/', {
         templateUrl: '/views/home.html',
         controller: 'homeCtrl'
@@ -41,7 +42,8 @@ var proRubApp = angular.module('proRubApp', ['ngRoute'])
       otherwise({
         redirectTo: '/'
       });
-  }]);
+}]);
+
 
 console.log("main.js is linked properly");
 
@@ -57,6 +59,7 @@ proRubApp.controller('homeCtrl', ['$scope', '$http',
 	  });
   }]);
   // reading one degrees from DB
+
   proRubApp.controller('degreeCtrl', ['$scope', '$http','$routeParams',
     function ($scope, $http, $routeParams) {
 		// Fetches all of the degrees
@@ -73,7 +76,6 @@ proRubApp.controller('homeCtrl', ['$scope', '$http',
   	  .success(function(data){
   		  // Make the data available to the DOM
   		  $scope.coursesData = data;
-  		  
   		  // For every course, loop through and grab all of the rubrics
   		  $scope.coursesData.forEach(function(course){
 		  	  $http.get('/api/fetchRubrics/'+ $routeParams.degree + '/' + course.abbr)
@@ -84,9 +86,8 @@ proRubApp.controller('homeCtrl', ['$scope', '$http',
 		  	  }).error(function(){
 		  	  // TODO: Add error handling
 		  	  });
-	  		  
   		  });
-  		  	  	  
+  		  	  
   	  }).error(function(){
   		  // TODO: Add error handling
   	  });
@@ -143,6 +144,7 @@ proRubApp.controller('auditCtrl', ['$scope', '$http',
      // $scope.course = data;
     });
   }]);
+
 
 console.log("Angular routes and Controllers");
 
