@@ -1,7 +1,5 @@
 <div class="row" ng-controller="degreeCtrl">
-
         <input type="text" ng-model="search" placeholder="Search for Courses"/>
-
     <!-- end Search Bar -->
     <div class="section no-pad-bot" id="index-banner" >
         <div class="container">
@@ -25,13 +23,12 @@
             <p>((course.title))</p>
           </div>
           <div class="card-action">
-            <a class="waves-effect waves-light btn cyan one" href="">Hello World App</a>
-            <a class="waves-effect waves-light btn cyan one" href="">New World App</a>
+            <div ng-repeat="rubric in course.rubrics">
+              <a class="waves-effect waves-light btn cyan one" href="#/degree/WDD/WebDeployment/audit">(( rubric.title ))</a>
+            </div>
           </div>
         </div>
       </div>
     </div>
 
 </div>
-
-<!-- end card Section -->
