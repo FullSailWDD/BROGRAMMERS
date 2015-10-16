@@ -1,23 +1,33 @@
+.brand-logo{
+	font-family: 'Flamenco', sans-serif;
+}
+
 html{
 
 }
 body{
-	
+
 }
 h5{
-   font-family: 'Flamenco', sans-serif;	
+   font-family: 'Flamenco', sans-serif;
 }
 nav{
     color: #00b8d4;
     font-family: 'Asap', sans-serif;
 }
 
+footer{
+	font-family: 'Flamenco', sans-serif;
+}
+
 footer p{
+	color:white;
 	font-family: 'Asap', sans-serif;
 }
+
 p{
  color:white;
- font-family: 'Asap', sans-serif;	
+ font-family: 'Asap', sans-serif;
 }
 
 /* ##############  Buttons  #########################*/
@@ -31,6 +41,7 @@ p{
 	font-family: 'Flamenco', sans-serif;
 	color:white;
 }
+
 /*  #########  addcourse page  ##############*/
 p.alert{
 	color: #FFA500 !important;
@@ -50,9 +61,14 @@ p.alert{
 	height:30px;
 	border: none;
 }
-#search .focus{
-	border-color: #000;
+#search:focus {
+	outline:none;
+	background-color: #bbdefb;
 }
+.coursesearch{
+	width: 50%;
+}
+
 .search-wrapper {
 	padding-top: 10px;
 	height:50px;
@@ -68,6 +84,7 @@ p.alert{
 	margin-bottom: 0px;
 	font-family: 'Flamenco', sans-serif;
 }
+
 .betterbanner{
 	margin-top: 20px;
 	color:#0097a7;
@@ -86,7 +103,7 @@ p.alert{
 .homeselection{
    margin-top:60px;
 }
-/*add degree page*/
+/*##############   add degree page  #############*/
 .noteadd{
 	color: #0097a7;
 }
@@ -107,4 +124,28 @@ p.alert{
 	color:#0097a7;
 }
 
+/*############ audit page ######################## */
+.medium.material-icons{
+color:red;
+}
+.comment{
+	font-family: 'Asap', sans-serif;
+	font-weight: bold;
+}
+.card.degreelink{
+	font-family: 'Asap', sans-serif;
+	padding: 5px;
+	text-align: center;
+	background-color: #546e7a;
+	 width: 611.06px;
+    -webkit-transition: width .5s; /* Safari 3.1 to 6.0 */
+    transition: width .5s;
 
+}
+
+.card.degreelink:hover { 
+    margin-bottom: 15px;
+    box-shadow: 3px 3px 3px #888888;
+    background-color: #00b8d4;
+    width: 617px;
+}

@@ -2,32 +2,29 @@
 <div class="section no-pad-bot" id="index-banner">
   <div class="container">
       <br><br>
-      <h1 class="header center cyan-text proheader">Pro Ruberics</h1>
+      <h1 class="header center cyan-text proheader">Pro Rubrics</h1>
       <div class="row center">
 	      <h5 class="header col s12 light betterbanner">Better than Spreadsheets</h5>
 	     </div>
-	 <div class="row homeselection"> 
+
+	<div class="row homeselection">
     <div class="degreeSelect input-field col s12">
-     
-      <select class="browser-default">
-        <option value="" disabled selected>Choose a Degree Program</option>
-        <option value="1">Web Design & Development Bachelor of Science </option>
-        <option value="2">Computer Animation Bachelor of Science</option>
-        <option value="3">Digital Arts & Design Bachelor of Science</option>
-        <option value="4">Simulation & Visualization Bachelor of Science</option>
-        <option value="5">Software Development Bachelor of Science</option>
-        <option value="6">Mobile Development Bachelor of Science</option>
-      </select>
-   
+	  <input type="text" ng-model="search" placeholder="Search for Degree"/>
+	  <div ng-repeat="degree in data | filter:search">
+	    <a class="degreelink fade" href="/#/degree/(( degree.abbr ))">
+          <div class="card degreelink">
+          <span class="card-title white-text">
+          (( degree.title ))
+          </span>
+          </div></a>
+    </div>
   </div>
   <br><br>
+
   <div class="row center input">
 	 <a href="/#/addDegree" class="waves-effect waves-light cyan btn-large"><i class="material-icons left">input</i>Add Degree Program</a>
   </div>
   <br><br>
   </div>
 </div>
-
-
  <!--  end banner -->
-

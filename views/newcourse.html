@@ -8,16 +8,16 @@
     </div>
       <div class="row">
         <div class="input-field col s6">
-          <input placeholder="" id="degree_name" type="text" class="validate">
+          <input placeholder="" id="degree_name" type="text" class="validate" ng-model="course.title">
           <label for="degree_name">Course Name</label>
         </div>
         <div class="input-field col s6">
-          <input id="degree_code" type="text" class="validate">
+          <input id="degree_code" type="text" class="validate" ng-model="course.abbr">
           <label for="degree_code">Course Code</label>
         </div>
       </div>
       <div class="row center input savedegree">
-      <a href="/#/degree/WDD/course" class="waves-effect waves-light cyan btn-large"><i class="material-icons left">input</i>Save Course</a>
+      <button ng-click="insertCourse()" class="waves-effect waves-light cyan btn-large"><i class="material-icons left">input</i>Save Course</button>
      </div>     
   </div>
         
