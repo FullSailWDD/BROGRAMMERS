@@ -149,3 +149,7 @@ color:red;
     background-color: #00b8d4;
     width: 617px;
 }
+
+.btn-floating{
+	margin: 15px 15px 0 0;
+}
