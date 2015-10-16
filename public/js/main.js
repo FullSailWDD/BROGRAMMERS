@@ -59,13 +59,15 @@ proRubApp.controller('homeCtrl', ['$scope', '$http',
 	  });
   }]);
   // reading one degrees from DB
+
   proRubApp.controller('degreeCtrl', ['$scope', '$http','$routeParams',
-    function ($scope, $http,$routeParams) {
+    function ($scope, $http, $routeParams) {
 		// Fetches all of the degrees
   	  $http.get('/api/fetchDegree/'+ $routeParams.degree)
   	  .success(function(data){
   		  // Make the data available to the DOM
   		  $scope.data = data;
+        console.log ($scope.data);
   	  }).error(function(){
   		  // TODO: Add error handling
   	  });
@@ -122,4 +124,4 @@ proRubApp.controller('editModeCtrl', ['$scope', '$http',
     $http.get('/views/editMode.html').success(function(data) {
      // $scope.course = data;
     });
-  }]);=
+  }]);
