@@ -61,6 +61,14 @@ p.alert{
 	height:30px;
 	border: none;
 }
+#search:focus {
+	outline:none;
+	background-color: #bbdefb;
+}
+.coursesearch{
+	width: 50%;
+}
+
 .search-wrapper {
 	padding-top: 10px;
 	height:50px;
