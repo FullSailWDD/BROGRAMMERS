@@ -41,3 +41,50 @@ var proRubApp = angular.module('proRubApp', ['ngRoute'])
 
 
 console.log("main.js is linked properly");
+
+
+ 
+// var prorubControllers = angular.module('prorubControllers', []);
+
+proRubApp.controller('homeCtrl', ['$scope', '$http',
+  function ($scope, $http) {
+     $http.get('/views/home.html').success(function(data) {
+      $scope.home = data;
+    });
+  }]);
+
+proRubApp.controller('addDegreeCtrl', ['$scope', '$http',
+  function ($scope, $http) {
+    $http.get('adddegree.html').success(function(data) {
+      $scope.course = data;
+    });
+  }]);
+proRubApp.controller('degreeCtrl', ['$scope', '$http',
+  function ($scope, $http) {
+    $http.get('degree.html').success(function(data) {
+      $scope.course = data;
+    });
+  }]);
+
+proRubApp.controller('newCourseCtrl', ['$scope', '$http',
+  function ($scope, $http) {
+    $http.get('addCourse.html').success(function(data) {
+     $scope.course = data;
+    });
+  }]);
+
+proRubApp.controller('addCourseCtrl', ['$scope', '$http',
+  function ($scope, $http) {
+    $http.get('addcourse.html').success(function(data) {
+     $scope.course = data;
+    });
+  }]);
+
+proRubApp.controller('auditCtrl', ['$scope', '$http',
+  function ($scope, $http) {
+    $http.get('audit.html').success(function(data) {
+     $scope.course = data;
+    });
+  }]);
+
+console.log("working");
