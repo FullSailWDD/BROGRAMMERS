@@ -75,6 +75,7 @@ proRubApp.controller('homeCtrl', ['$scope', '$http',
   	  .success(function(data){
   		  // Make the data available to the DOM
   		  $scope.coursesData = data;
+        console.log($scope.coursesData);
   	  }).error(function(){
   		  // TODO: Add error handling
   	  });
