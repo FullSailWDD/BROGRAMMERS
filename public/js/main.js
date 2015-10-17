@@ -92,6 +92,7 @@ proRubApp.controller('homeCtrl', ['$scope', '$http',
 
     }]);
 
+console.log("main.js is linked properly");
 // Insert a new degree
 proRubApp.controller('addDegreeCtrl', ['$scope', '$http',
   function ($scope, $http) {
