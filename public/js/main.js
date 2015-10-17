@@ -22,11 +22,11 @@ var proRubApp = angular.module('proRubApp', ['ngRoute'])
         templateUrl: '/views/newcourse.html',
         controller: 'newCourseCtrl'
       }).
-        when('/:course/addRubric', {
+        when('/:degree/:course/addRubric', {
         templateUrl: '/views/addrubric.html',
         controller: 'addrubricCtrl'
       }).
-           when('/degree/WDD/WebDeployment/audit', {
+           when('/degree/:degree/:course/:rubricTitle/audit', {
         templateUrl: '/views/audit.html',
         controller: 'auditCtrl'
       }).
@@ -58,8 +58,8 @@ proRubApp.controller('homeCtrl', ['$scope', '$http',
 		  // TODO: Add error handling
 	  });
   }]);
-  // reading one degrees from DB
 
+  // reading one degrees from DB
   proRubApp.controller('degreeCtrl', ['$scope', '$http','$routeParams',
     function ($scope, $http, $routeParams) {
 		// Fetches all of the degrees
@@ -92,6 +92,9 @@ proRubApp.controller('homeCtrl', ['$scope', '$http',
 
     }]);
 
+
+
+
 // Insert a new degree
 proRubApp.controller('addDegreeCtrl', ['$scope', '$http',
   function ($scope, $http) {
@@ -112,6 +115,7 @@ proRubApp.controller('addDegreeCtrl', ['$scope', '$http',
 		  });
 	  }
   }]);
+
 proRubApp.controller('newCourseCtrl', ['$scope', '$http', '$routeParams',
   function ($scope, $http, $routeParams) {
 	// The function to be run when the user presses "Save Course"
@@ -134,11 +138,16 @@ proRubApp.controller('newCourseCtrl', ['$scope', '$http', '$routeParams',
 	  }
   }]);
 
-proRubApp.controller('auditCtrl', ['$scope', '$http',
-  function ($scope, $http) {
-    $http.get('/views/audit.html').success(function(data) {
-     // $scope.course = data;
-    });
+proRubApp.controller('auditCtrl', ['$scope', '$http', '$routeParams',
+  function ($scope, $http, $routeParams) {
+    $http.get('/api/fetchRubric/' + $routeParams.degree + '/' + $routeParams.course + '/' + $routeParams.rubricTitle)
+	.success(function(data){
+		$scope.rubric = data;
+		console.log(data);
+	  // creates an array of the rubrics associated with the course
+	}).error(function(){
+	// TODO: Add error handling
+	});
   }]);
 
 
@@ -148,5 +157,14 @@ proRubApp.controller('editModeCtrl', ['$scope', '$http',
   function ($scope, $http) {
     $http.get('/views/editMode.html').success(function(data) {
      // $scope.course = data;
+    });
+  }]);
+
+proRubApp.controller('addrubricCtrl', ['$scope', '$http', '$routeParams', 
+  function ($scope, $http, $routeParams) {
+    $http.get('/views/addrubric.html').success(function(data) {
+     $scope.degree = $routeParams.degree;
+     $scope.course= $routeParams.course;
+     console.log($scope.course.degreeAbbr);
     });
   }]);

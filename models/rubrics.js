@@ -4,6 +4,7 @@ module.exports = function(app){
 		
 	var itemSchema = mongoose.Schema({
 		title: {type: String},
+		desc: {type: String},
 		link: {type: String},
 		comment: {type: String},
 		grade: {type: Number}
@@ -11,7 +12,6 @@ module.exports = function(app){
 	
 	sectionSchema = mongoose.Schema({
 		title: {type: String},
-		desc: {type: String},
 		weight: {type: Number},
 		grade: {type: Number},
 		items: [itemSchema]
