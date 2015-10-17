@@ -7,9 +7,9 @@ describe('A course in a collection', function() {
 
     beforeEach(function(done){
         course.create({
-            degreeAbbr: String,
-            abbr: "WDD",
-            title: "Web Design & Development",
+            degreeAbbr: "WDD",
+            abbr: "ADT",
+            title: "Applied Design Tools and Interfaces",
             }, function (doc) {
                 testcourse = doc;
                 done();
@@ -24,7 +24,9 @@ describe('A course in a collection', function() {
     // });
 
     it('ADD a new course', function(done){
-        expect(testcourse.title).to.be.equal('Web Design & Development');
+        expect(testcourse.degreeAbbr).to.be.equal('WDD');
+        expect(testcourse.abbr).to.be.equal('ADT');
+        expect(testcourse.title).to.be.equal('Applied Design Tools and Interfaces');
         done();
     });
 
@@ -59,15 +61,17 @@ describe('A course in a collection', function() {
 
     it('FIND a course', function(done){
         course.fetch({_id:testcourse._id}, function(doc){
-            expect(doc.title).to.be.equal('Web Design & Development');
+            expect(testcourse.degreeAbbr).to.be.equal('WDD');
+            expect(testcourse.abbr).to.be.equal('ADT');
+            expect(testcourse.title).to.be.equal('Applied Design Tools and Interfaces');
             done();
         });
     });
 
-    // it('FIND ALL courses', function(done){
-    //     course.all(function(docs){
-    //         expect(docs.length).to.be.above(1);
-    //         done();
-    //     });
-    // });
+    it('FIND ALL courses', function(done){
+        course.fetchAll(function(docs){
+            expect(docs.length).to.be.above(1);
+            done();
+        });
+    });
 });
