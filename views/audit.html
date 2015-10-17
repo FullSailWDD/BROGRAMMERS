@@ -1,6 +1,6 @@
        <!--  heading -->
         <div class="row center">
-          <h5 class="header col s12 light betterbanner">((rubric.degreeAbbr)) / ((rubric.courseAbbr)) / ((rubric.title))</h5>
+          <h5 class="header col s12 light betterbanner"><a class="waves-effect waves-light btn left" href="/#/degree/((rubric.degreeAbbr))">&lt; Back</a>((rubric.degreeAbbr)) / ((rubric.courseAbbr)) / ((rubric.title))</h5>
         </div>
        <!--  edit buttons -->
         <div class="row">
@@ -39,7 +39,7 @@
     </div>
     </div>
   <div class="row">
-  <button class="btn waves-effect waves-light right" type="submit" name="submit">Submit
+  <button ng-click="exportAudit()" class="btn waves-effect waves-light right">Submit
     <i class="material-icons right">send</i>
   </button>
   </div>

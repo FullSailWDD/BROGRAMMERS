@@ -1,13 +1,6 @@
 .brand-logo{
 	font-family: 'Flamenco', sans-serif;
 }
-
-html{
-
-}
-body{
-
-}
 h5{
    font-family: 'Flamenco', sans-serif;
 }
@@ -125,6 +118,17 @@ p.alert{
 }
 
 /*############ audit page ######################## */
+
+h5.betterbanner {
+	padding: 0 !important;
+}
+
+h5 a {
+	display: block;
+	font-family: 'Asap', sans-serif;
+	font-size: 0.5em;
+}
+
 .medium.material-icons{
 color:red;
 }
@@ -143,7 +147,7 @@ color:red;
 
 }
 
-.card.degreelink:hover { 
+.card.degreelink:hover {
     margin-bottom: 15px;
     box-shadow: 3px 3px 3px #888888;
     background-color: #00b8d4;

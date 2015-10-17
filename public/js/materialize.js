@@ -1,5 +1,4 @@
 $(document).ready(function() {
-	console.log("Materialize.js");
     	// Show sideNav
 	$('.button-collapse').sideNav('show');
 		// Hide sideNav
@@ -7,17 +6,7 @@ $(document).ready(function() {
 	$(".button-collapse").sideNav();
 	 // must include for select forms
 	$('select').material_select();
-
-	// show and hide FAB actions
-	// $('.fixed-action-btn').openFAB();
-	// $('.fixed-action-btn').closeFAB();
- //    $('select').material_select();
 });
-
-
-
-
-
 (function($){
   $(function(){
 
