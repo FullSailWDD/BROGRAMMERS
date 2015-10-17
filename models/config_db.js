@@ -1,11 +1,10 @@
 console.log("Loaded db config file");
 var mongoose = require("mongoose");
 //link to stage mongolab server
+var mongodbURL = process.env.MONGOLAB_URI || 'mongodb://localhost/prorubs';
 
-//mongoose.connect('mongodb://prorubsstage:kfK69bP2MbJapLVy@dbh11.mongolab.com:27117/heroku_w63r32w2');
-
-//link to local mongodb
-mongoose.connect('mongodb://localhost/prorubs');
+//connect to mongo
+mongoose.connect(mongodbURL);
 
 var db = mongoose.connection;
 
