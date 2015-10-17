@@ -15,24 +15,12 @@ describe('A degree in a collection', function() {
         });
 
     });
-    // afterEach( function (done) {
-    //     degree.remove(testdegree._id, function () {
-    //         done();
-    //     });
-    // });
 
     it('ADD a new degree', function(done){
         expect(testdegree.title).to.be.equal('Web Text Fundamentals');
         expect(testdegree.abbr).to.be.equal('WTF');
         done();
     });
-
-    // it('UPDATE an existing degree', function(done){
-    //     degree.update({_id:testdegree._id, abbr:"WDD"}, function(doc){
-    //         expect(doc.quantity).to.be.equal(99);
-    //         done();
-    //     });
-    // });
 
     it('REMOVE an existing Degree', function(done){
         degree.create({

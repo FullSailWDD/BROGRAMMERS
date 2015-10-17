@@ -25,4 +25,4 @@ gulp.task('test', function () {
     });
 });
 
-  gulp.task('startup', ['mongod', 'dev']);
+  gulp.task('startup', ['mongod', 'dev','test']);

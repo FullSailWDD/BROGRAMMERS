@@ -3,7 +3,6 @@ var proRubApp = angular.module('proRubApp', ['ngRoute'])
   //set interpolateProvider to reset handlebars
 	$interpolateProvider.startSymbol('((');
 	$interpolateProvider.endSymbol('))');
-	// $locationProvider.html5Mode(true); // eanabling this creates pretty urls
 
     $routeProvider.
       when('/', {
@@ -30,7 +29,7 @@ var proRubApp = angular.module('proRubApp', ['ngRoute'])
         templateUrl: '/views/audit.html',
         controller: 'auditCtrl'
       }).
-          when('/degree/WDD/WebDeployment/audit/editMode', {
+          when('/degree/:degree/:course/:rubricTitle/audit/editMode', {
         templateUrl: '/views/editMode.html',
         controller: 'editModeCtrl'
       }).
@@ -43,9 +42,6 @@ var proRubApp = angular.module('proRubApp', ['ngRoute'])
         redirectTo: '/'
       });
 }]);
-
-
-console.log("main.js is linked properly");
 
 proRubApp.controller('homeCtrl', ['$scope', '$http',
   function ($scope, $http) {
@@ -91,8 +87,6 @@ proRubApp.controller('homeCtrl', ['$scope', '$http',
   	  });
 
     }]);
-
-console.log("main.js is linked properly");
 // Insert a new degree
 proRubApp.controller('addDegreeCtrl', ['$scope', '$http',
   function ($scope, $http) {
@@ -141,7 +135,20 @@ proRubApp.controller('auditCtrl', ['$scope', '$http', '$routeParams',
     $http.get('/api/fetchRubric/' + $routeParams.degree + '/' + $routeParams.course + '/' + $routeParams.rubricTitle)
 	.success(function(data){
 		$scope.rubric = data;
-		console.log(data);
+
+		$scope.saveAudit = function() {
+			$http.post('/api/newAudit', $scope.rubric)
+			// Once we catch a response run this code
+			.then(function(result){
+
+			}, function(){
+			  // TODO: Add error handling
+			});
+		};
+
+		$scope.exportAudit = function() {
+			console.log($scope.rubric);
+		}
 	  // creates an array of the rubrics associated with the course
 	}).error(function(){
 	// TODO: Add error handling
@@ -149,13 +156,31 @@ proRubApp.controller('auditCtrl', ['$scope', '$http', '$routeParams',
   }]);
 
 
-console.log("Angular routes and Controllers");
 
-proRubApp.controller('editModeCtrl', ['$scope', '$http',
-  function ($scope, $http) {
-    $http.get('/views/editMode.html').success(function(data) {
-     // $scope.course = data;
-    });
+proRubApp.controller('editModeCtrl', ['$scope', '$http', '$routeParams',
+  function ($scope, $http, $routeParams) {
+
+    $http.get('/api/fetchRubric/' + $routeParams.degree + '/' + $routeParams.course + '/' + $routeParams.rubricTitle)
+	.success(function(data){
+		$scope.rubric = data;
+		$scope.updateRubric = function(){
+			$http.put('/api/updateRubric', $scope.rubric)
+			.then(function(data){
+				var targRoute = '/#/degree/' + $scope.rubric.degreeAbbr + '/' + $scope.rubric.courseAbbr + '/' + $scope.rubric.title + '/audit';
+
+	    		// Forward the user to the degree
+			  	window.location.href = targRoute;
+			},
+			function(err){
+
+			});
+		}
+
+	  // creates an array of the rubrics associated with the course
+	}).error(function(){
+	// TODO: Add error handling
+	});
+
   }]);
 
 proRubApp.controller('addrubricCtrl', ['$scope', '$http', '$routeParams',
@@ -163,6 +188,5 @@ proRubApp.controller('addrubricCtrl', ['$scope', '$http', '$routeParams',
     $http.get('/views/addrubric.html').success(function(data) {
      $scope.degree = $routeParams.degree;
      $scope.course= $routeParams.course;
-     console.log($scope.course.degreeAbbr);
     });
   }]);
