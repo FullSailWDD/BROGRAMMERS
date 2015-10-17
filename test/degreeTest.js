@@ -1,5 +1,5 @@
-var expect          = require("chai").expect,
-    degree            = require('../models/degrees.js');
+var expect = require("chai").expect,
+    degree = require('../models/degrees.js');
 
 describe('A degree in a collection', function() {
 
@@ -15,7 +15,6 @@ describe('A degree in a collection', function() {
         });
 
     });
-
     // afterEach( function (done) {
     //     degree.remove(testdegree._id, function () {
     //         done();
