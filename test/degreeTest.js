@@ -1,5 +1,5 @@
-var expect          = require("chai").expect,
-    degree            = require('../models/degrees.js');
+var expect = require("chai").expect,
+    degree = require('../models/degrees.js');
 
 describe('A degree in a collection', function() {
 
@@ -7,15 +7,14 @@ describe('A degree in a collection', function() {
 
     beforeEach(function(done){
         degree.create({
-            abbr: "WDD",
-            title: "Web Design & Development",
+            abbr: "WTF",
+            title: "Web Text Fundamentals",
             }, function (doc) {
                 testdegree = doc;
                 done();
         });
 
     });
-
     // afterEach( function (done) {
     //     degree.remove(testdegree._id, function () {
     //         done();
@@ -23,7 +22,8 @@ describe('A degree in a collection', function() {
     // });
 
     it('ADD a new degree', function(done){
-        expect(testdegree.title).to.be.equal('Web Design & Development');
+        expect(testdegree.title).to.be.equal('Web Text Fundamentals');
+        expect(testdegree.abbr).to.be.equal('WTF');
         done();
     });
 
@@ -58,15 +58,16 @@ describe('A degree in a collection', function() {
 
     it('FIND a degree', function(done){
         degree.fetch({_id:testdegree._id}, function(doc){
-            expect(doc.title).to.be.equal('Web Design & Development');
+            expect(testdegree.title).to.be.equal('Web Text Fundamentals');
+            expect(testdegree.abbr).to.be.equal('WTF');
             done();
         });
     });
 
-    // it('FIND ALL degrees', function(done){
-    //     degree.all(function(docs){
-    //         expect(docs.length).to.be.above(1);
-    //         done();
-    //     });
-    // });
+    it('FIND ALL degrees', function(done){
+        degree.fetchAll(function(docs){
+            expect(docs.length).to.be.above(1);
+            done();
+        });
+    });
 });

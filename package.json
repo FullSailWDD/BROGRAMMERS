@@ -23,8 +23,9 @@
     "express-handlebars": "^2.0.1",
     "gulp-nodemon": "^2.0.4",
     "materialize-css": "^0.97.1",
-    "gulp": "^3.9.0",
-    "mongoose": "^4.1.10"
+    "mongoose": "^4.1.10",
+    "angular-route": "1.4.7",
+    "gulp": "^3.9.0"
   },
   "devDependencies": {
     "gulp-nodemon": "^2.0.4",

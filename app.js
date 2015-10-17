@@ -17,11 +17,6 @@ app.use('/bower_components', express.static('bower_components'));
 var port = process.env.PORT || 8080;
 
 // =-=-=-=-=-=-=-=-=-=-=- Routes -=-=-=-=-=-=-=-=-=-=-=-=-=
-app.get('/', function (req, res) {
-    res.render('home');
-});
-
-
 require('./routes/routes')(app);
 app.listen(port);
 console.log("app running on port", port);
