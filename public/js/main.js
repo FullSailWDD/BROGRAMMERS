@@ -22,7 +22,7 @@ var proRubApp = angular.module('proRubApp', ['ngRoute'])
         templateUrl: '/views/newcourse.html',
         controller: 'newCourseCtrl'
       }).
-        when('/:course/addRubric', {
+        when('/:degree/:course/addRubric', {
         templateUrl: '/views/addrubric.html',
         controller: 'addrubricCtrl'
       }).
@@ -58,8 +58,8 @@ proRubApp.controller('homeCtrl', ['$scope', '$http',
 		  // TODO: Add error handling
 	  });
   }]);
-  // reading one degrees from DB
 
+  // reading one degrees from DB
   proRubApp.controller('degreeCtrl', ['$scope', '$http','$routeParams',
     function ($scope, $http, $routeParams) {
 		// Fetches all of the degrees
@@ -92,6 +92,9 @@ proRubApp.controller('homeCtrl', ['$scope', '$http',
 
     }]);
 
+
+
+
 // Insert a new degree
 proRubApp.controller('addDegreeCtrl', ['$scope', '$http',
   function ($scope, $http) {
@@ -112,6 +115,7 @@ proRubApp.controller('addDegreeCtrl', ['$scope', '$http',
 		  });
 	  }
   }]);
+
 proRubApp.controller('newCourseCtrl', ['$scope', '$http', '$routeParams',
   function ($scope, $http, $routeParams) {
 	// The function to be run when the user presses "Save Course"
@@ -148,5 +152,14 @@ proRubApp.controller('editModeCtrl', ['$scope', '$http',
   function ($scope, $http) {
     $http.get('/views/editMode.html').success(function(data) {
      // $scope.course = data;
+    });
+  }]);
+
+proRubApp.controller('addrubricCtrl', ['$scope', '$http', '$routeParams', 
+  function ($scope, $http, $routeParams) {
+    $http.get('/views/addrubric.html').success(function(data) {
+     $scope.degree = $routeParams.degree;
+     $scope.course= $routeParams.course;
+     console.log($scope.course.degreeAbbr);
     });
   }]);
