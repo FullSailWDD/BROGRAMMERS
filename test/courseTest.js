@@ -69,7 +69,7 @@ describe('A course in a collection', function() {
     });
 
     it('FIND ALL courses', function(done){
-        course.fetchAll(function(docs){
+        course.fetchAll({},function(docs){
             expect(docs.length).to.be.above(1);
             done();
         });

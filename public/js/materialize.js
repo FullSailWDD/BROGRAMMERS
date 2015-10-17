@@ -7,17 +7,7 @@ $(document).ready(function() {
 	$(".button-collapse").sideNav();
 	 // must include for select forms
 	$('select').material_select();
-
-	// show and hide FAB actions
-	// $('.fixed-action-btn').openFAB();
-	// $('.fixed-action-btn').closeFAB();
- //    $('select').material_select();
 });
-
-
-
-
-
 (function($){
   $(function(){
 

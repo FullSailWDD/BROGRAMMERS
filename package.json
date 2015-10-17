@@ -1,6 +1,6 @@
 {
   "name": "pro-rubrics",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "pro rubrics is a simple and unified rubric for project based classes.",
   "main": "app.js",
   "scripts": {

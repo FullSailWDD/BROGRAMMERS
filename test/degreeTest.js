@@ -34,28 +34,22 @@ describe('A degree in a collection', function() {
     //     });
     // });
 
-    // it('REMOVE an existing degree', function(done){
-    //     degree.add({
-    //             deck_id: 'unknown',
-    //             title : 'Deleted degree',
-    //             range : 1,
-    //             damage : 1,
-    //             quantity: 1,
-    //             activation : 'On Defense',
-    //             overcharge : 'Fail on Attack, this degree never makes it into a deck',
-    //         }, function (doc) {
-    //
-    //             var removedegree = doc;
-    //             expect(doc).not.to.be.null;
-    //             degree.remove(removedegree._id, function () {
-    //                 degree.find(removedegree, function(targetDoc){
-    //                     expect(targetDoc).to.be.null;
-    //                     done();
-    //                 });
-    //             });
-    //     });
-    // });
+    it('REMOVE an existing Degree', function(done){
+        degree.create({
+                title : 'DELETE DELETE DELETE',
+                abbr : 'DDD',
+            }, function (doc) {
 
+                var removeDegree = doc;
+                expect(doc).not.to.be.null;
+                degree.delete({_id:removeDegree._id}, function() {
+                    degree.fetch({_id:removeDegree._id}, function(targetDoc){
+                        expect(targetDoc).to.be.null;
+                        done();
+                    });
+                });
+        });
+    });
     it('FIND a degree', function(done){
         degree.fetch({_id:testdegree._id}, function(doc){
             expect(testdegree.title).to.be.equal('Web Text Fundamentals');

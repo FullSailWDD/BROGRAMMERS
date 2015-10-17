@@ -37,12 +37,21 @@ module.exports = function(app){
 	        _degreeModel.findOne(targ, function(err, result){
 		        (err) ? fail(err) : success(result);
 	        });
+        },
+
+		// fetch - removes only one specified degree
+        _remove = function(targ, success, fail){
+	        // removes just one degree specificed by the Degree Abbreviation
+	        _degreeModel.remove(targ, function(err, result){
+		        (err) ? fail(err) : success(result);
+	        });
         }
 
     ;return {
         create: _save,
         fetchAll: _findAll,
-        fetch: _find
+        fetch: _find,
+		delete: _remove,
     };
 
 }();
