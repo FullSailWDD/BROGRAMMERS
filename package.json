@@ -1,6 +1,6 @@
 {
   "name": "pro-rubrics",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "pro rubrics is a simple and unified rubric for project based classes.",
   "main": "app.js",
   "scripts": {
@@ -23,8 +23,9 @@
     "express-handlebars": "^2.0.1",
     "gulp-nodemon": "^2.0.4",
     "materialize-css": "^0.97.1",
-    "gulp": "^3.9.0",
-    "mongoose": "^4.1.10"
+    "mongoose": "^4.1.10",
+    "angular-route": "1.4.7",
+    "gulp": "^3.9.0"
   },
   "devDependencies": {
     "gulp-nodemon": "^2.0.4",
