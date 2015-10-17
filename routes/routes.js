@@ -1,9 +1,6 @@
 module.exports = function(app) {
 console.log('Loaded routes');
-var bodyParser = require('body-parser'),
-	Degree = require('../models/degrees.js'),
-	Course = require('../models/courses.js'),
-	Rubric = require('../models/rubrics.js');
+var bodyParser = require('body-parser');
 
 // create application/x-www-form-urlencoded parser
 app.use(bodyParser.json());
@@ -13,6 +10,7 @@ app.get('/',function(req,res){
     res.render('home');
 });
 
+<<<<<<< HEAD
 // Inserts a new degree
 app.post('/newDegree', function(req, res){
     Degree.create(req.body, function(results){
@@ -110,3 +108,9 @@ app.get('/fetchRubric/:degreeAbbr/:courseAbbr/:title/:sectionTitle', function(re
 });
 
 } 
+=======
+require('./degrees.js')(app);
+require('./courses.js')(app);
+require('./rubrics.js')(app);
+};
+>>>>>>> 4a7f21e4ad652c749f8a8704760571b2a41057e7

@@ -1,0 +1,23 @@
+  <div class="row">
+    <form class="col s12">
+    <div class="row center note">
+     <i class="noteadd large material-icons">note_add</i>
+    </div>
+    <div class="row center">
+      <h5 class="header center cyan-text">Enter the new Degree Program</h5>
+    </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <input id="degree_name" type="text" ng-model="degree.title" class="validate">
+          <label for="degree_name">Degree Name</label>
+        </div>
+        <div class="input-field col s6">
+          <input id="degree_code" type="text" ng-model="degree.abbr" class="validate">
+          <label for="degree_code">Degree Code</label>
+        </div>
+      </div>
+      <div class="row center input savedegree">
+      <button ng-click="insertDegree()" class="waves-effect waves-light cyan btn-large"><i class="material-icons left">input</i>Save Degree Program</button>
+     </div>     
+  </div>
+        

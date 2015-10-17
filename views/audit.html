@@ -1,0 +1,45 @@
+       <!--  heading -->
+        <div class="row center">
+          <h5 class="header col s12 light betterbanner"><a class="waves-effect waves-light btn left" href="/#/degree/((rubric.degreeAbbr))">&lt; Back</a>((rubric.degreeAbbr)) / ((rubric.courseAbbr)) / ((rubric.title))</h5>
+        </div>
+       <!--  edit buttons -->
+        <div class="row">
+        <a href="/#/degree/((rubric.degreeAbbr))/((rubric.courseAbbr))/((rubric.title))/audit/editMode" class="waves-effect waves-light btn">Edit Rubric</a>
+        <a ng-click="deleteRubric()" class="waves-effect waves-light btn right">Delete Rubric</a>
+        </div>
+       <!--  banner title -->
+    <div class="row" ng-repeat="section in rubric.sections">
+	    <div class=" col s12 m12 cyan darken-3">
+		    <h5 class="center white-text">((section.title))</h5> <!-- <p>18 of 34 pts</p> -->
+	    </div>
+	    <div class="row" ng-repeat="item in section.items">
+	    <div class="col s12 m12">
+	      <div class="card blue-grey lighten-4">
+	        <div class="card-content black-text">
+	       <!--  this is a title for the rubric card -->
+	        <div class="row center white-text">
+	          <span class="card-title ">((item.title))</span>
+	          <form class="col s12">
+	            <div class="row">
+	              <div class="input-field col s12 blue-grey-text">
+	               <p>((item.desc))</p>
+	              </div>
+	            </div>
+	             <div class="row">
+	                <a class="waves-effect waves-light btn right" ng-repeat="gradeOption in rubric.gradeOptions">((gradeOption))</a>
+	             </div>
+	             <div class="row white-text">
+	              <a class="comment lime-text text-darken-2 btn-flat right">Add Comment</a>
+	             </div>
+	          </form>
+	        </div>
+	        </div>
+	      </div>
+	  </div>
+    </div>
+    </div>
+  <div class="row">
+  <button ng-click="exportAudit()" class="btn waves-effect waves-light right">Submit
+    <i class="material-icons right">send</i>
+  </button>
+  </div>
