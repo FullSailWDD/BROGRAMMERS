@@ -1,13 +1,4 @@
-.brand-logo{
-	font-family: 'Flamenco', sans-serif;
-}
 
-html{
-
-}
-body{
-
-}
 h5{
    font-family: 'Flamenco', sans-serif;
 }
@@ -30,6 +21,18 @@ p{
  font-family: 'Asap', sans-serif;
 }
 
+/* ############## home.handlebars ##################*/
+a.brand-logo{
+	font-family: 'Flamenco', sans-serif;
+	font-size: 2.1rem;
+	 width: 611.06px;
+    -webkit-transition: font-size .5s; /* Safari 3.1 to 6.0 */
+    transition: font-size .5s;
+}
+a.brand-logo:hover{
+	font-size: 2.2rem;
+}
+
 /* ##############  Buttons  #########################*/
 .button{
 	font-family: 'Asap', sans-serif;
@@ -42,7 +45,7 @@ p{
 	color:white;
 }
 
-/*  #########  addcourse page  ##############*/
+/*################# addcourse page  #################*/
 p.alert{
 	color: #FFA500 !important;
 }
