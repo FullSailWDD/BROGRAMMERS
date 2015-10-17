@@ -1,6 +1,7 @@
 var
     gulp            = require('gulp'), 
     child_process   = require('child_process'),
+    exec   = require('child_process').exec,
     nodemon         = require('gulp-nodemon');
 
 // startup required services to run the app server
@@ -20,9 +21,9 @@ gulp.task('dev', function () {
 
 gulp.task('test', function () {
     // spawn in a child process mongodb
-    child_process.exec('mocha', function(err,stdout,stderr){
+    exec('mocha', function(err,stdout,stderr){
         console.log(stdout);
     });
 });
 
-  gulp.task('startup', ['mongod', 'dev','test']);
+  gulp.task('startup', ['test','mongod', 'dev']);
