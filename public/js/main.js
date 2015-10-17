@@ -144,6 +144,10 @@ proRubApp.controller('auditCtrl', ['$scope', '$http', '$routeParams',
 			}, function(){
 			  // TODO: Add error handling
 			});
+		};
+
+		$scope.exportAudit = function() {
+			console.log($scope.rubric);
 		}
 	  // creates an array of the rubrics associated with the course
 	}).error(function(){
