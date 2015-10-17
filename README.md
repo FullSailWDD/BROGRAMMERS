@@ -1,14 +1,13 @@
 # BROGRAMMERS
-
-Grading Application Pro Rubrics
-# To install run the following command
+###Grading Application Pro Rubrics
+## To install run the following command
 
 ```
 npm install
 
 ```
 
-# Start up gulp
+## Start up gulp
 
 ```
 gulp startup
