@@ -125,6 +125,17 @@ p.alert{
 }
 
 /*############ audit page ######################## */
+
+h5.betterbanner {
+	padding: 0 !important;
+}
+
+h5 a {
+	display: block;
+	font-family: 'Asap', sans-serif;
+	font-size: 0.5em;
+}
+
 .medium.material-icons{
 color:red;
 }

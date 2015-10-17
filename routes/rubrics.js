@@ -1,6 +1,7 @@
 module.exports = function(app) {
 
-var Rubric = require('../models/rubrics.js');
+var Rubric = require('../models/rubrics.js'),
+	History = require('../models/history.js');
 
 // Inserts a new rubric
 app.post('/api/newRubric', function(req, res){
@@ -59,11 +60,17 @@ app.delete('/api/deleteRubric', function(req, res){
 
 // Updates a rubric
 app.put('/api/updateRubric', function(req, res){
-	// If the data is a string (it should be) then parse it to JSON before sending to the model
-	if (typeof req.body.data === 'string') req.body.data = JSON.parse(req.body.data);
-
-    Rubric.update(req.body._id, req.body.data, function(doc){
+	// Convert the new grades to numbers again
+	req.body.gradeOptions = req.body.gradeOptions.split(',').map(Number);
+	
+    Rubric.update(req.body._id, req.body, function(doc){
 	    res.send(doc);
+    });
+});
+
+app.post('/api/newAudit', function(req, res){
+	History.create(req.body, function(results){
+		res.status(201).send(results);
     });
 });
 

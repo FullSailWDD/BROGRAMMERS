@@ -30,7 +30,7 @@ var proRubApp = angular.module('proRubApp', ['ngRoute'])
         templateUrl: '/views/audit.html',
         controller: 'auditCtrl'
       }).
-          when('/degree/WDD/WebDeployment/audit/editMode', {
+          when('/degree/:degree/:course/:rubricTitle/audit/editMode', {
         templateUrl: '/views/editMode.html',
         controller: 'editModeCtrl'
       }).
@@ -143,7 +143,17 @@ proRubApp.controller('auditCtrl', ['$scope', '$http', '$routeParams',
     $http.get('/api/fetchRubric/' + $routeParams.degree + '/' + $routeParams.course + '/' + $routeParams.rubricTitle)
 	.success(function(data){
 		$scope.rubric = data;
-		console.log(data);
+		
+		$scope.saveAudit = function() {
+			$http.post('/api/newAudit', $scope.rubric)
+			// Once we catch a response run this code
+			.then(function(result){
+			  console.log("Worked");
+			
+			}, function(){
+			  // TODO: Add error handling
+			});
+		}
 	  // creates an array of the rubrics associated with the course
 	}).error(function(){
 	// TODO: Add error handling
@@ -153,11 +163,30 @@ proRubApp.controller('auditCtrl', ['$scope', '$http', '$routeParams',
 
 console.log("Angular routes and Controllers");
 
-proRubApp.controller('editModeCtrl', ['$scope', '$http',
-  function ($scope, $http) {
-    $http.get('/views/editMode.html').success(function(data) {
-     // $scope.course = data;
-    });
+proRubApp.controller('editModeCtrl', ['$scope', '$http', '$routeParams',
+  function ($scope, $http, $routeParams) {
+	 
+    $http.get('/api/fetchRubric/' + $routeParams.degree + '/' + $routeParams.course + '/' + $routeParams.rubricTitle)
+	.success(function(data){
+		$scope.rubric = data;
+		$scope.updateRubric = function(){			
+			$http.put('/api/updateRubric', $scope.rubric)
+			.then(function(data){
+				var targRoute = '/#/degree/' + $scope.rubric.degreeAbbr + '/' + $scope.rubric.courseAbbr + '/' + $scope.rubric.title + '/audit';
+
+	    		// Forward the user to the degree
+			  	window.location.href = targRoute;
+			},
+			function(err){
+				
+			});
+		}
+		
+	  // creates an array of the rubrics associated with the course
+	}).error(function(){
+	// TODO: Add error handling
+	});
+
   }]);
 
 proRubApp.controller('addrubricCtrl', ['$scope', '$http', '$routeParams', 
