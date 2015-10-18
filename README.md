@@ -15,4 +15,4 @@ gulp startup
 
 ```
 #License
-MIT: [MIT](http://rem.mit-license.org)
+[MIT](http://rem.mit-license.org)
