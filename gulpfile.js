@@ -26,4 +26,4 @@ gulp.task('test', function () {
     });
 });
 
-  gulp.task('startup', ['test','mongod', 'dev']);
+  gulp.task('startup', ['mongod', 'dev']);
