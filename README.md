@@ -14,3 +14,5 @@ npm install
 gulp startup
 
 ```
+#License
+MIT: [MIT](http://rem.mit-license.org)
