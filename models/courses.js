@@ -28,7 +28,7 @@ module.exports = function(app){
         // fetchAll - finds all courses
         _findAll = function(targ, success, fail){
 	        // Finds all of the courses specified by the degree
-            _courseModel.find(targ, function(err, result){
+            _courseModel.find({}, function(err, result){
                 (err) ? fail(err) : success(result);
             });
         },
@@ -41,7 +41,7 @@ module.exports = function(app){
 	        });
         },
 
-		// fetch - finds only one specified degree
+		// fetch - finds only one specified course
         _remove = function(targ, success, fail){
 	        // removes just one course specificed by the Course Abbreviation
 	        _courseModel.remove(targ, function(err, result){
