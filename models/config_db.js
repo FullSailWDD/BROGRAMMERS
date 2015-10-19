@@ -1,4 +1,4 @@
-console.log("Loaded db config file");
+//load mongoose module
 var mongoose = require("mongoose");
 
 //link to stage mongolab server
