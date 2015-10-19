@@ -64,10 +64,10 @@ module.exports = function(app){
     
     // update - updates a rubric
     _update = function(targ, data, success, fail){
-	    // targ is the _id, data is the new document
-    	_rubricModel.update({_id: targ}, data, function(err, result){
-            (err) ? fail(err) : success(result);
-    	});
+		_rubricModel.findByIdAndUpdate({_id: data._id}, data, function(err, result){
+	        (err) ? fail(err) : success(result);
+		});
+
     },
     
     // destroy - removes the document from the database
