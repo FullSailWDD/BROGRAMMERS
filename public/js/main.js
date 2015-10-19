@@ -134,9 +134,6 @@ proRubApp.controller('auditCtrl', ['$scope', '$http', '$routeParams',
     $http.get('/api/fetchRubric/' + $routeParams.degree + '/' + $routeParams.course + '/' + $routeParams.rubricTitle)
 	.success(function(data){
 		$scope.rubric = data;
-<<<<<<< HEAD
-		
-=======
 
 		$scope.saveAudit = function() {
 			$http.post('/api/newAudit', $scope.rubric)
@@ -151,18 +148,11 @@ proRubApp.controller('auditCtrl', ['$scope', '$http', '$routeParams',
 		$scope.exportAudit = function() {
 			console.log($scope.rubric);
 		}
->>>>>>> 36832032d696acc1d806bb560c440a80bcb303c4
 	  // creates an array of the rubrics associated with the course
 	}).error(function(){
 	// TODO: Add error handling
 	});
   }]);
-
-
-<<<<<<< HEAD
-
-=======
->>>>>>> 36832032d696acc1d806bb560c440a80bcb303c4
 
 proRubApp.controller('editModeCtrl', ['$scope', '$http', '$routeParams',
   function ($scope, $http, $routeParams) {
@@ -195,9 +185,5 @@ proRubApp.controller('addrubricCtrl', ['$scope', '$http', '$routeParams',
     $http.get('/views/addrubric.html').success(function(data) {
      $scope.degree = $routeParams.degree;
      $scope.course= $routeParams.course;
-<<<<<<< HEAD
-     
-=======
->>>>>>> 36832032d696acc1d806bb560c440a80bcb303c4
     });
   }]);
