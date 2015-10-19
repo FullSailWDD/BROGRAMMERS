@@ -45,7 +45,7 @@ var proRubApp = angular.module('proRubApp', ['ngRoute'])
 }]);
 
 
-console.log("main.js is linked properly");
+
 
 proRubApp.controller('homeCtrl', ['$scope', '$http',
   function ($scope, $http) {
@@ -143,7 +143,7 @@ proRubApp.controller('auditCtrl', ['$scope', '$http', '$routeParams',
     $http.get('/api/fetchRubric/' + $routeParams.degree + '/' + $routeParams.course + '/' + $routeParams.rubricTitle)
 	.success(function(data){
 		$scope.rubric = data;
-		console.log(data);
+		
 	  // creates an array of the rubrics associated with the course
 	}).error(function(){
 	// TODO: Add error handling
@@ -151,7 +151,7 @@ proRubApp.controller('auditCtrl', ['$scope', '$http', '$routeParams',
   }]);
 
 
-console.log("Angular routes and Controllers");
+
 
 proRubApp.controller('editModeCtrl', ['$scope', '$http',
   function ($scope, $http) {
@@ -165,6 +165,6 @@ proRubApp.controller('addrubricCtrl', ['$scope', '$http', '$routeParams',
     $http.get('/views/addrubric.html').success(function(data) {
      $scope.degree = $routeParams.degree;
      $scope.course= $routeParams.course;
-     console.log($scope.course.degreeAbbr);
+     
     });
   }]);

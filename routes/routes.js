@@ -1,5 +1,5 @@
 module.exports = function(app) {
-console.log('Loaded routes');
+
 var bodyParser = require('body-parser');
 
 // create application/x-www-form-urlencoded parser
