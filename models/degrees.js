@@ -51,7 +51,7 @@ module.exports = function(app){
         create: _save,
         fetchAll: _findAll,
         fetch: _find,
-		delete: _remove,
+		destroy: _remove,
     };
 
 }();
