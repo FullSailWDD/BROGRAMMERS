@@ -97,7 +97,7 @@ proRubApp.controller('addDegreeCtrl', ['$scope', '$http',
 		  // Once we catch a response run this code
 		  .then(function(result){
 			  // Create the URL we want to redirect to
-			  var targRoute = '/#/degree/' + result.data.abbr;
+			  var targRoute = '/#/degree/' + result.data.abbr + "/addCourse";
 
 			  // Forward the user to the new degree they just created
 			  window.location.href = targRoute;
@@ -110,6 +110,8 @@ proRubApp.controller('addDegreeCtrl', ['$scope', '$http',
 
 proRubApp.controller('newCourseCtrl', ['$scope', '$http', '$routeParams',
   function ($scope, $http, $routeParams) {
+  	$scope.degreeName = $routeParams.degree;
+
 	// The function to be run when the user presses "Save Course"
     $scope.insertCourse = function(){
 	   	  // Grabs the current degree from the URL
