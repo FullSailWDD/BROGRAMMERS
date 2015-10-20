@@ -147,7 +147,6 @@ proRubApp.controller('auditCtrl', ['$scope', '$http', '$routeParams',
     $http.get('/api/fetchRubric/' + $routeParams.degree + '/' + $routeParams.course + '/' + $routeParams.rubricTitle)
 	.success(function(data){
 		$scope.rubric = data;
-
 		$scope.saveAudit = function() {
 			$http.post('/api/newAudit', $scope.rubric)
 			// Once we catch a response run this code
@@ -192,11 +191,26 @@ proRubApp.controller('editModeCtrl', ['$scope', '$http', '$routeParams',
 	});
 
   }]);
+proRubApp.controller('addrubricCtrl', ['$scope', '$http', '$routeParams', '$location',
+	function ($scope, $http, $routeParams, $location) {
+	$scope.degree = $routeParams.degree;
+    $scope.course = $routeParams.course;
 
-proRubApp.controller('addrubricCtrl', ['$scope', '$http', '$routeParams',
-  function ($scope, $http, $routeParams) {
-    $http.get('/views/addrubric.html').success(function(data) {
-     $scope.degree = $routeParams.degree;
-     $scope.course= $routeParams.course;
-    });
+    $scope.insertRubric = function() {
+	    $scope.rubric.degreeAbbr = $routeParams.degree;
+	    $scope.rubric.courseAbbr = $routeParams.course;
+
+		$http.post('/api/newRubric', $scope.rubric)
+		// Once we catch a response run this code
+		.then(function(result){
+			//Create the URL we want to redirect to
+			var targRoute = '/degree/' + $scope.rubric.degreeAbbr + '/' + $scope.rubric.courseAbbr + '/' + $scope.rubric.title + '/audit';
+
+			// Forward the user to the degree
+			$location.path(targRoute);
+
+	  }, function(){
+		  // TODO: Add error handling
+	  });
+    }
   }]);

@@ -24,4 +24,11 @@ app.delete('/api/deleteDegree', function(req, res){
     });
 });
 
+// Remove a degree
+app.get('/api/deleteDegree/:abbr', function(req, res){
+	console.log("request params ",req.params);
+    // Degree.remove({abbr:req.params}, function(doc){
+    // 	res.send(doc);
+    // });
+});
 } //end export
