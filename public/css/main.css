@@ -3,7 +3,8 @@
 	font-family: 'Flamenco', sans-serif;
 }
 
-h5{
+
+h5, h1{
    font-family: 'Flamenco', sans-serif;
 }
 nav{
@@ -71,10 +72,10 @@ p.alert{
 }
 
 /*  #########  Bread Crumbs  ##############*/
-h6{
+/*h6{
 	font-family: 'Asap', sans-serif;
 	color: ;
-}
+}*/
 
 /*####### search card  ########################*/
 #search{
@@ -181,16 +182,16 @@ color:red;
     box-shadow: 3px 3px 3px #888888;
     background-color: #00b8d4;
     width: 617px;
+    cursor: pointer;
 }
 
 .collection .collection-item:hover{
 	background-color: white;
+	cursor: pointer;
+	background-color: #e0f7fa;
 	transition: 1s;
 }
 
-.collection .collection-item:hover{
-	background-color: #fff3e0;
-}
 
 .btn-floating{
 	margin: 15px 15px 0 0;
