@@ -82,6 +82,10 @@ a.brand-logo:hover{
 	fill:#FFFFFF;
 }
 /*####################  footer  ######################*/
+.coollink{
+	font-family: 'Asap', sans-serif;
+	color: #f57c00;
+}
 
 /* ##############  Buttons  #########################*/
 .button{
