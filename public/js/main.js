@@ -17,6 +17,7 @@ var proRubApp = angular.module('proRubApp', ['ngRoute'])
         templateUrl: '/views/degree.html',
         controller: 'degreeCtrl'
       }).
+       //'enter new course' needs to be dynamic
        when('/degree/:degree/addCourse', {
         templateUrl: '/views/newcourse.html',
         controller: 'newCourseCtrl'
@@ -96,7 +97,7 @@ proRubApp.controller('addDegreeCtrl', ['$scope', '$http',
 		  // Once we catch a response run this code
 		  .then(function(result){
 			  // Create the URL we want to redirect to
-			  var targRoute = '/#/degree/' + result.data.abbr;
+			  var targRoute = '/#/degree/' + result.data.abbr + "/addCourse";
 
 			  // Forward the user to the new degree they just created
 			  window.location.href = targRoute;
@@ -109,6 +110,8 @@ proRubApp.controller('addDegreeCtrl', ['$scope', '$http',
 
 proRubApp.controller('newCourseCtrl', ['$scope', '$http', '$routeParams',
   function ($scope, $http, $routeParams) {
+  	$scope.degreeName = $routeParams.degree;
+
 	// The function to be run when the user presses "Save Course"
     $scope.insertCourse = function(){
 	   	  // Grabs the current degree from the URL
@@ -147,7 +150,6 @@ proRubApp.controller('auditCtrl', ['$scope', '$http', '$routeParams',
 		$scope.exportAudit = function() {
 			console.log($scope.rubric);
 		}
-
 	  // creates an array of the rubrics associated with the course
 	}).error(function(){
 	// TODO: Add error handling
@@ -179,11 +181,26 @@ proRubApp.controller('editModeCtrl', ['$scope', '$http', '$routeParams',
 	});
 
   }]);
-
-proRubApp.controller('addrubricCtrl', ['$scope', '$http', '$routeParams',
-  function ($scope, $http, $routeParams) {
-    $http.get('/views/addrubric.html').success(function(data) {
-     $scope.degree = $routeParams.degree;
-     $scope.course= $routeParams.course;
-    });
+proRubApp.controller('addrubricCtrl', ['$scope', '$http', '$routeParams', '$location',
+	function ($scope, $http, $routeParams, $location) {
+	$scope.degree = $routeParams.degree;
+    $scope.course = $routeParams.course;
+        
+    $scope.insertRubric = function() {
+	    $scope.rubric.degreeAbbr = $routeParams.degree;
+	    $scope.rubric.courseAbbr = $routeParams.course;
+	        	
+		$http.post('/api/newRubric', $scope.rubric)
+		// Once we catch a response run this code
+		.then(function(result){
+			//Create the URL we want to redirect to
+			var targRoute = '/degree/' + $scope.rubric.degreeAbbr + '/' + $scope.rubric.courseAbbr + '/' + $scope.rubric.title + '/audit';
+			
+			// Forward the user to the degree			
+			$location.path(targRoute);
+			
+	  }, function(){
+		  // TODO: Add error handling
+	  });
+    }
   }]);

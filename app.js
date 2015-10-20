@@ -19,4 +19,4 @@ var port = process.env.PORT || 8080;
 // =-=-=-=-=-=-=-=-=-=-=- Routes -=-=-=-=-=-=-=-=-=-=-=-=-=
 require('./routes/routes')(app);
 app.listen(port);
-console.log("app running on port", port);
+console.log("app running on port ", port);
