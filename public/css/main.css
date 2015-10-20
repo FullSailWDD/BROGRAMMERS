@@ -69,7 +69,7 @@ p.alert{
 }
 .card .card-action a{
 	font-family: 'Asap', sans-serif;
-	color:white !important;
+	color: #00838f !important;
 }
 
 /*  #########  Bread Crumbs  ##############*/
@@ -189,7 +189,7 @@ color:red;
 .collection .collection-item:hover{
 	background-color: white;
 	cursor: pointer;
-	background-color: #e0f7fa;
+	background-color: #eeeeee;
 	transition: 1s;
 }
 
