@@ -185,11 +185,15 @@ color:red;
     cursor: pointer;
 }
 
+.collection .collection-item{
+	transition: .5s;
+}
+
 .collection .collection-item:hover{
 	background-color: white;
 	cursor: pointer;
 	background-color: #e0f7fa;
-	transition: 1s;
+	transition: .5s;
 }
 
 
