@@ -1,11 +1,18 @@
+body{
+	height: 100%;
+}
+
+.wrapper{
+	min-height: 100%;
+	/*background-color: red;*/
+}
 
 .brand-logo{
 	font-family: 'Flamenco', sans-serif;
 }
 
 
-
-h5, h1{
+h5, h3, h1{
    font-family: 'Flamenco', sans-serif;
 }
 nav{
@@ -87,10 +94,11 @@ a.brand-logo:hover{
 .btn-large{
 	font-family: 'Asap', sans-serif;
 }
-.card{
+
+/*.card{
 	font-family: 'Flamenco', sans-serif;
 	color:white;
-}
+}*/
 
 /*################# addcourse page  #################*/
 p.alert{
@@ -102,7 +110,7 @@ p.alert{
 }
 .card .card-action a{
 	font-family: 'Asap', sans-serif;
-	color:white !important;
+	color: #00838f !important;
 }
 
 /*  #########  Bread Crumbs  ##############*/
@@ -226,8 +234,8 @@ h5 a {
 .collection .collection-item:hover{
 	background-color: white;
 	cursor: pointer;
-	background-color: #e0f7fa;
-	transition: .5s;
+	background-color: #eeeeee;
+	transition: 1s;
 }
 
 
