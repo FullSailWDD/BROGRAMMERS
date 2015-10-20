@@ -17,6 +17,7 @@ var proRubApp = angular.module('proRubApp', ['ngRoute'])
         templateUrl: '/views/degree.html',
         controller: 'degreeCtrl'
       }).
+       //'enter new course' needs to be dynamic
        when('/degree/:degree/addCourse', {
         templateUrl: '/views/newcourse.html',
         controller: 'newCourseCtrl'
