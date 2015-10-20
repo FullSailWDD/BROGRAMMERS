@@ -3,22 +3,25 @@
         <h1 class="header center cyan-text proheader">((degreeData.abbr))</h1>
          <div class="row center">
           <h5 class="header col s12 light cyan-text betterbanner">((degreeData.title))</h5>
-
-          <div class="row center">
-            <a href="/#/degree/((degreeData.abbr))/addCourse" id="download-button" class="btn-large waves-effect waves-light orange darken-1"><i class="material-icons left">note_add</i>Add Course</a>
-          </div>
-
           <div class="input-field col s12">
             <input ng-model="search" type="text">
             <label for="degree_name">Search for courses</label>
           </div>
          </div>
-          
+        <!--  add new course button -->
+      <div class="row">
+        <div class="col s12 m12"><a href="/#/degree/((degreeData.abbr))/addCourse" id="" class="">
+          <div id="bigObutton"class="">
+            <div class="center ">
+              <span class=""><i class="material-icons">note_add</i>Add New Course</span>
+            </div>
+          </div>
+        </a>
+        </div>
+      </div>
 
-
-      <!--  end banner -->
       <!--  card Section -->
-    <div class="row">
+      <div class="row">
       <div class="col s12 m4" ng-repeat="course in coursesData | filter:search">
         <div class="card  cyan darken-2">
           <a class="btn-floating btn waves-effect waves-light orange darken-2 right" href="#/((course.degreeAbbr))/((course.abbr))/addRubric"><i class="material-icons">add</i></a>

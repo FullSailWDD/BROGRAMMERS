@@ -52,7 +52,7 @@ a.brand-logo:hover{
 }
 #twitter{
 	fill:#5b5a59;
-	-webkit-transition: fill .5s; /* Safari 3.1 to 6.0 */
+	-webkit-transition: fill .5s; 
     transition: fill .5s;
    height: 40px;
    width: 60px;
@@ -80,6 +80,23 @@ a.brand-logo:hover{
 }
 .st1:hover{
 	fill:#FFFFFF;
+}
+#bigObutton{
+	padding-top: 5px;
+	height: 50px;
+	border:1px solid #cfd8dc ;
+	color:#f57c00;
+	background-color: #FFF;
+	-webkit-transition: background-color .6s; 
+    transition: background-color .6s;
+	border-radius: 2px;
+}
+#bigObutton:hover{
+	padding-top: 5px;
+	border:none;
+	color: #FFF;
+	background-color: #f57c00;
+	border-radius: 2px;
 }
 /*####################  footer  ######################*/
 
