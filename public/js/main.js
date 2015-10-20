@@ -17,6 +17,7 @@ var proRubApp = angular.module('proRubApp', ['ngRoute'])
         templateUrl: '/views/degree.html',
         controller: 'degreeCtrl'
       }).
+       //'enter new course' needs to be dynamic
        when('/degree/:degree/addCourse', {
         templateUrl: '/views/newcourse.html',
         controller: 'newCourseCtrl'
@@ -42,7 +43,6 @@ var proRubApp = angular.module('proRubApp', ['ngRoute'])
         redirectTo: '/'
       });
 }]);
-
 proRubApp.controller('homeCtrl', ['$scope', '$http',
   function ($scope, $http) {
 	  // Fetches all of the degrees
@@ -156,8 +156,6 @@ proRubApp.controller('auditCtrl', ['$scope', '$http', '$routeParams',
 	// TODO: Add error handling
 	});
   }]);
-
-
 
 proRubApp.controller('editModeCtrl', ['$scope', '$http', '$routeParams',
   function ($scope, $http, $routeParams) {
