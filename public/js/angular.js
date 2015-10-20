@@ -16577,6 +16577,12 @@ function adjustMatchers(matchers) {
  * - but some of your templates are hosted on other domains you control such as
 <<<<<<< HEAD
 <<<<<<< HEAD
+ *   `http://srv01.assets.example.com/`,  `http://srv02.assets.example.com/`, etc.
+=======
+ *   `http://srv01.assets.example.com/`,  `http://srv02.assets.example.com/`, etc.
+>>>>>>> b180654578cf4f1746fbc14a993ed82efe574f8b
+=======
+<<<<<<< HEAD
  *   `http://srv01.assets.example.com/`,  `http://srv02.assets.example.com/`, etc.
 =======
  *   `http://srv01.assets.example.com/`,  `http://srv02.assets.example.com/`, etc.
@@ -16587,6 +16593,7 @@ function adjustMatchers(matchers) {
  *   `http://srv01.assets.example.com/`,  `http://srv02.assets.example.com/`, etc.
 >>>>>>> b180654578cf4f1746fbc14a993ed82efe574f8b
 >>>>>>> 49d36c0d4d4d1ecc874d698c7d7c3249625e899e
+>>>>>>> 3849ba069536d88133c42b347badd8d11a0ef693
  * - and you have an open redirect at `http://myapp.example.com/clickThru?...`.
  *
  * Here is what a secure configuration for this scenario might look like:

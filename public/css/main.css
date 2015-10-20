@@ -1,4 +1,8 @@
 
+.brand-logo{
+	font-family: 'Flamenco', sans-serif;
+}
+
 h5{
    font-family: 'Flamenco', sans-serif;
 }
@@ -31,7 +35,7 @@ a.brand-logo:hover{
 }*/
 /* #############  logos and images  #################*/
 #prologo{
-	height: 45px;
+	height:45px;
 	width:225px;
 	margin-top: 7px;
 }
@@ -40,6 +44,38 @@ a.brand-logo:hover{
 	width:100px;
 	
 }
+#twitter{
+	fill:#5b5a59;
+	-webkit-transition: fill .5s; /* Safari 3.1 to 6.0 */
+    transition: fill .5s;
+   height: 40px;
+   width: 60px;
+  
+}
+#twitter:hover{
+	fill:#00b6f1; 
+}
+#facebook{
+	height:40px;
+	width:40px ;
+}
+.face.col.s6{
+	width: 30% !important;
+}
+.st0{
+	fill:#5b5a59;
+}
+.st1{
+	fill:#FFFFFF;
+}
+.st0:hover{
+	fill:#3C5A99;
+	
+}
+.st1:hover{
+	fill:#FFFFFF;
+}
+
 
 /* ##############  Buttons  #########################*/
 .button{
@@ -136,8 +172,19 @@ p.alert{
 }
 
 /*############ audit page ######################## */
+
+h5.betterbanner {
+	padding: 0 !important;
+}
+
+h5 a {
+	display: block;
+	font-family: 'Asap', sans-serif;
+	font-size: 0.5em;
+}
+
 .medium.material-icons{
-color:red;
+	color:red;
 }
 .comment{
 	font-family: 'Asap', sans-serif;
@@ -154,7 +201,7 @@ color:red;
 
 }
 
-.card.degreelink:hover { 
+.card.degreelink:hover {
     margin-bottom: 15px;
     box-shadow: 3px 3px 3px #888888;
     background-color: #00b8d4;

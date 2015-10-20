@@ -1,5 +1,4 @@
 $(document).ready(function() {
-	
     	// Show sideNav
 	$('.button-collapse').sideNav('show');
 		// Hide sideNav
@@ -8,11 +7,6 @@ $(document).ready(function() {
 	 // must include for select forms
 	$('select').material_select();
 });
-
-
-
-
-
 (function($){
   $(function(){
 
