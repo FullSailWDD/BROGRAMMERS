@@ -73,7 +73,6 @@ p.alert{
 /*  #########  Bread Crumbs  ##############*/
 h6{
 	font-family: 'Asap', sans-serif;
-	color: ;
 }
 
 /*####### search card  ########################*/
@@ -181,15 +180,14 @@ color:red;
     box-shadow: 3px 3px 3px #888888;
     background-color: #00b8d4;
     width: 617px;
+    cursor: pointer;
 }
 
 .collection .collection-item:hover{
 	background-color: white;
-	transition: 1s;
-}
-
-.collection .collection-item:hover{
 	background-color: #fff3e0;
+	transition: 1s;
+	cursor: pointer;
 }
 
 .btn-floating{
