@@ -6,6 +6,11 @@ $(document).ready(function() {
 	$(".button-collapse").sideNav();
 	 // must include for select forms
 	$('select').material_select();
+
+	//modal stuff
+	$('.modal-trigger').leanModal();
+	// $('#modal1').openModal();
+	// $('#modal1').closeModal();
 });
 (function($){
   $(function(){
