@@ -42,6 +42,9 @@ a.brand-logo:hover{
 	margin-top: 7px;
 }
 #brologo{
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
 	margin-top: 8px;
 	height: 150px;
 	width:150px;
