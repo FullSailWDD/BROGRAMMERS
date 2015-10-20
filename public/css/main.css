@@ -1,6 +1,8 @@
+
 .brand-logo{
 	font-family: 'Flamenco', sans-serif;
 }
+
 h5{
    font-family: 'Flamenco', sans-serif;
 }
@@ -19,8 +21,28 @@ footer p{
 }
 
 p{
- color:white;
+ /*color:white;*/
  font-family: 'Asap', sans-serif;
+}
+
+/* ############## home.handlebars ##################*/
+/*a.brand-logo{
+	height: 100px;
+	width: 225px;
+}
+a.brand-logo:hover{
+	font-size: 2.2rem;
+}*/
+/* #############  logos and images  #################*/
+#prologo{
+	height: 45px;
+	width:225px;
+	margin-top: 7px;
+}
+#brologo{
+	height: 100px;
+	width:100px;
+	
 }
 
 /* ##############  Buttons  #########################*/
@@ -35,7 +57,7 @@ p{
 	color:white;
 }
 
-/*  #########  addcourse page  ##############*/
+/*################# addcourse page  #################*/
 p.alert{
 	color: #FFA500 !important;
 }
@@ -159,6 +181,15 @@ color:red;
     box-shadow: 3px 3px 3px #888888;
     background-color: #00b8d4;
     width: 617px;
+}
+
+.collection .collection-item:hover{
+	background-color: white;
+	transition: 1s;
+}
+
+.collection .collection-item:hover{
+	background-color: #fff3e0;
 }
 
 .btn-floating{
