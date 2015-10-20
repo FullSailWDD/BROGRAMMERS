@@ -3,7 +3,8 @@
 	font-family: 'Flamenco', sans-serif;
 }
 
-h5{
+
+h5, h1{
    font-family: 'Flamenco', sans-serif;
 }
 nav{
@@ -71,10 +72,10 @@ p.alert{
 }
 
 /*  #########  Bread Crumbs  ##############*/
-h6{
+/*h6{
 	font-family: 'Asap', sans-serif;
 	color: ;
-}
+}*/
 
 /*####### search card  ########################*/
 #search{
@@ -189,7 +190,7 @@ color:red;
 }
 
 .collection .collection-item:hover{
-	background-color: #fff3e0;
+	background-color: #e0f7fa ;
 }
 
 .btn-floating{
