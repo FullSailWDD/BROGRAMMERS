@@ -137,7 +137,6 @@ proRubApp.controller('auditCtrl', ['$scope', '$http', '$routeParams',
     $http.get('/api/fetchRubric/' + $routeParams.degree + '/' + $routeParams.course + '/' + $routeParams.rubricTitle)
 	.success(function(data){
 		$scope.rubric = data;
-
 		$scope.saveAudit = function() {
 			$http.post('/api/newAudit', $scope.rubric)
 			// Once we catch a response run this code
@@ -182,7 +181,6 @@ proRubApp.controller('editModeCtrl', ['$scope', '$http', '$routeParams',
 	});
 
   }]);
-
 proRubApp.controller('addrubricCtrl', ['$scope', '$http', '$routeParams', '$location',
 	function ($scope, $http, $routeParams, $location) {
 	$scope.degree = $routeParams.degree;
