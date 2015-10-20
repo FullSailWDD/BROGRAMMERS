@@ -32,22 +32,5 @@ gulp.task('minify-css', function() {
     .pipe(minifyCss({compatibility: 'ie8'}))
     .pipe(gulp.dest('public/css'));
 });
-//deploy to heroku stage server
-gulp.task('auto-push', function () {
-    //add files to commit
-    exec('gga', function(err,stdout,stderr){
-        console.log(stdout);
-    });
-    //commit files
-    exec('git commit -m \"deploying to stage server with gulp command test2\"', function(err,stdout,stderr){
-        console.log(stdout);
-    });
-    //push to github
-    exec('git push origin staging', function(err,stdout,stderr){
-        console.log(stdout);
-    });
-});
-// automated deployment
-gulp.task('stage-deploy',['mongod','test','minify-css','auto-push']);
 // start dev environment
   gulp.task('startup', ['mongod','minify-css','dev']);
