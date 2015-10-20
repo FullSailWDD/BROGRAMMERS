@@ -1,7 +1,10 @@
+
 .brand-logo{
 	font-family: 'Flamenco', sans-serif;
 }
-h5{
+
+
+h5, h1{
    font-family: 'Flamenco', sans-serif;
 }
 nav{
@@ -19,8 +22,28 @@ footer p{
 }
 
 p{
- color:white;
+ /*color:white;*/
  font-family: 'Asap', sans-serif;
+}
+
+/* ############## home.handlebars ##################*/
+/*a.brand-logo{
+	height: 100px;
+	width: 225px;
+}
+a.brand-logo:hover{
+	font-size: 2.2rem;
+}*/
+/* #############  logos and images  #################*/
+#prologo{
+	height: 45px;
+	width:225px;
+	margin-top: 7px;
+}
+#brologo{
+	height: 100px;
+	width:100px;
+	
 }
 
 /* ##############  Buttons  #########################*/
@@ -35,7 +58,7 @@ p{
 	color:white;
 }
 
-/*  #########  addcourse page  ##############*/
+/*################# addcourse page  #################*/
 p.alert{
 	color: #FFA500 !important;
 }
@@ -47,6 +70,13 @@ p.alert{
 	font-family: 'Asap', sans-serif;
 	color:white !important;
 }
+
+/*  #########  Bread Crumbs  ##############*/
+/*h6{
+	font-family: 'Asap', sans-serif;
+	color: ;
+}*/
+
 /*####### search card  ########################*/
 #search{
 
@@ -152,7 +182,16 @@ color:red;
     box-shadow: 3px 3px 3px #888888;
     background-color: #00b8d4;
     width: 617px;
+    cursor: pointer;
 }
+
+.collection .collection-item:hover{
+	background-color: white;
+	cursor: pointer;
+	background-color: #e0f7fa;
+	transition: 1s;
+}
+
 
 .btn-floating{
 	margin: 15px 15px 0 0;
