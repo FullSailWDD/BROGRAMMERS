@@ -1,3 +1,5 @@
+<div class="wrapper">
+
 	<h1 class=" center cyan-text proheader"><a class="cyan-text" href="/#/degree/((rubric.degreeAbbr))">((rubric.degreeAbbr))</a></h1>
 	<h3 class="center cyan-text"><a class="cyan-text" href="#">((rubric.courseAbbr))</a></h3>
 	<div class="row center">
@@ -19,17 +21,17 @@
 			</div>
 	    </div>
 
-
+<!-- ng-controller="auditCtrl" -->
 
   <div class="row">
   <button ng-click="exportAudit()" class="btn waves-effect waves-light right">Submit
     <i class="material-icons right">send</i>
   </button>
 
-  <div class="row" ng-controller="auditCtrl">
+  <div class="row" ng-repeat="section in rubric.sections">
     <div class="col s12 m12">
       <div class="card cyan darken-2">
-        <div class="card-content black-text" ng-repeat="section in rubric.sections">
+        <div class="card-content black-text" >
           <div class="row">
             <h5 class="card-title">Section Title - ((section.title))</h5>
             <form class="col s12">
@@ -60,3 +62,7 @@
 
 
   </div>
+
+
+
+</div> <!-- end wrapper -->
