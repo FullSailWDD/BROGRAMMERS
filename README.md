@@ -1,3 +1,7 @@
+#CodeShip Build
+https://codeship.com/projects/108810
+#ClimateCode GPA Score
+https://codeclimate.com/github/FullSailWDD/BROGRAMMERS
 # BROGRAMMERS
 
 Pro Rubrics is a grading application to facilitate the
