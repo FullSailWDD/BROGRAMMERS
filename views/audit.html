@@ -1,16 +1,26 @@
-       <!--  heading -->
-        <div class="row center">
-          <h5 class="header col s12 light betterbanner"><a class="waves-effect waves-light btn left" href="/#/degree/((rubric.degreeAbbr))">&lt; Back</a>((rubric.degreeAbbr)) / ((rubric.courseAbbr)) / ((rubric.title))</h5>
-        </div>
-       <!--  edit buttons -->
-        <div class="row">
-        <a href="/#/degree/((rubric.degreeAbbr))/((rubric.courseAbbr))/((rubric.title))/audit/editMode" class="waves-effect waves-light btn">Edit Rubric</a>
-        <a ng-click="deleteRubric()" class="waves-effect waves-light btn right">Delete Rubric</a>
-        </div>
+	<h1 class="header center cyan-text proheader"><a class="cyan-text" href="/#/degree/((rubric.degreeAbbr))">((rubric.degreeAbbr))</a></h1>
+	<div class="row center">
+	<h3 class="header col s12 light cyan-text betterbanner">((rubric.title))</h3>
+
        <!--  banner title -->
     <div class="row" ng-repeat="section in rubric.sections">
 	    <div class=" col s12 m12 cyan darken-3">
-		    <h5 class="center white-text">((section.title))</h5> <!-- <p>18 of 34 pts</p> -->
+
+
+		<!--  FAB floating action button -->
+		<div class="fixed-action-btn">
+		<a class="btn-floating btn-large orange">
+		  <i class="large material-icons">add</i>
+		</a>
+		<ul>
+			<li><a class="btn-floating orange darken-4" href="/#/degree/((rubric.degreeAbbr))"><i class="material-icons">arrow_back</i></a></li>
+			<li><a class="btn-floating  orange darken-3"><i class="material-icons">delete</i></i></a></li>
+			<li><a class="btn-floating orange darken-2" href="/#/degree/((rubric.degreeAbbr))/((rubric.courseAbbr))/((rubric.title))/audit/editMode"><i class="material-icons">mode_edit</i></a></li>
+		</ul>
+		</div>
+
+
+		<h5 class="center white-text">((section.title))</h5> <!-- <p>18 of 34 pts</p> -->
 	    </div>
 	    <div class="row" ng-repeat="item in section.items">
 	    <div class="col s12 m12">
@@ -42,4 +52,6 @@
   <button ng-click="exportAudit()" class="btn waves-effect waves-light right">Submit
     <i class="material-icons right">send</i>
   </button>
+
+
   </div>
