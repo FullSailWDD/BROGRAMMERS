@@ -35,9 +35,10 @@ module.exports = function(app){
             degreeAbbr: data.degreeAbbr,
             courseAbbr: data.courseAbbr,
             title: data.title,
-            grade: 0,
+            grade: data.grade,
+            weight: data.weight,
             gradeOptions: data.gradeOptions,
-            sections: data.sectionTitle
+            sections: data.sections
         });
 
 		// Insert the new document into the database
