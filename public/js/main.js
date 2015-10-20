@@ -53,11 +53,21 @@ proRubApp.controller('homeCtrl', ['$scope', '$http',
 	  }).error(function(){
 		  // TODO: Add error handling
 	  });
+	  $scope.destroyDegree = function(degrAbbr){
+		  console.log("display degree abbr",degrAbbr);
+		  $http.delete('/api/deleteDegree',degrAbbr)
+		  .then(function(){
+
+		  },function(){
+
+		  });
+	  }
   }]);
 
   // reading one degrees from DB
   proRubApp.controller('degreeCtrl', ['$scope', '$http','$routeParams',
     function ($scope, $http, $routeParams) {
+
 		// Fetches all of the degrees
   	  $http.get('/api/fetchDegree/'+ $routeParams.degree)
   	  .success(function(data){
@@ -78,6 +88,7 @@ proRubApp.controller('homeCtrl', ['$scope', '$http',
 		  	  .success(function(data){
 			  	  // creates an array of the rubrics associated with the course
 			  	  course.rubrics = data;
+
 		  	  }).error(function(){
 		  	  // TODO: Add error handling
 		  	  });
@@ -85,7 +96,6 @@ proRubApp.controller('homeCtrl', ['$scope', '$http',
   	  }).error(function(){
   		  // TODO: Add error handling
   	  });
-
     }]);
 // Insert a new degree
 proRubApp.controller('addDegreeCtrl', ['$scope', '$http',

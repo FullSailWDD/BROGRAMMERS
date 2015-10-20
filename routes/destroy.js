@@ -6,6 +6,7 @@ var Degree = require('../models/degrees.js'),
 
 // Delete a degree and all of its corresponding data
 app.delete('/api/deleteDegree', function(req, res){
+	console.log("logging out the req",req);
     // Remove every rubric related to the target degree
     // Rubric.destroy(req.body, function(doc){
     // 	res.send(doc);
@@ -14,11 +15,11 @@ app.delete('/api/deleteDegree', function(req, res){
     // Course.destroy(req.body, function(doc){
     // 	res.send(doc);
     // });
-
+	console.log("delete degree ran!");
     // Remove the degree
     Degree.destroy({abbr:req.body.degreeAbbr}, function(doc){
 		console.log("logging out the body",req.body);
-		console.log("logging out the degreeAbbr in body",req.body.degreeAbbr);		
+		console.log("logging out the degreeAbbr in body",req.body.abbr);
     	res.send(doc);
     });
 });
