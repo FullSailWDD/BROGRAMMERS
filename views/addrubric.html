@@ -23,19 +23,19 @@
             </div>
             <div class="row">
               <div class="input-field col s12">
-                <input id="rubricName" type="text" class="validate">
+                <input id="rubricName" type="text" class="validate" ng-model="rubric.title">
                 <label for="rubricName">Rubric Name</label>
               </div>
               <div class="input-field col s12">
-                <input id="sectionTitle" type="text" class="validate">
+                <input id="sectionTitle" type="text" class="validate" ng-model="rubric.sections">
                 <label for="sectionTitle">Section Title</label>
               </div>
               <div class="input-field col s12">
-                <input id="gradeOptions" type="text" class="validate">
+                <input id="gradeOptions" type="text" class="validate" ng-model="rubric.gradeOptions">
                 <label for="gradeOptions">Grade Options</label>
               </div>
             </div>
-            <button class="btn waves-effect waves-light orange right" type="submit" name="submit">Submit
+            <button class="btn waves-effect waves-light orange right" ng-click="insertRubric()">Submit
               <i class="material-icons right">send</i>
             </button>
           </form>

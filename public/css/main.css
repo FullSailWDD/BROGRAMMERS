@@ -74,8 +74,12 @@ p.alert{
 /*  #########  Bread Crumbs  ##############*/
 /*h6{
 	font-family: 'Asap', sans-serif;
+<<<<<<< HEAD
 	color: ;
 }*/
+=======
+}
+>>>>>>> 0da7b5765b25f1c62c9996ea6ed98c9473daeb83
 
 /*####### search card  ########################*/
 #search{
@@ -182,16 +186,16 @@ color:red;
     box-shadow: 3px 3px 3px #888888;
     background-color: #00b8d4;
     width: 617px;
+    cursor: pointer;
 }
 
 .collection .collection-item:hover{
 	background-color: white;
+	cursor: pointer;
+	background-color: #fff3e0;
 	transition: 1s;
 }
 
-.collection .collection-item:hover{
-	background-color: #e0f7fa ;
-}
 
 .btn-floating{
 	margin: 15px 15px 0 0;
