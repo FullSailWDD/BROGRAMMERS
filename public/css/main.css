@@ -4,6 +4,7 @@
 }
 
 
+
 h5, h1{
    font-family: 'Flamenco', sans-serif;
 }
@@ -36,15 +37,48 @@ a.brand-logo:hover{
 }*/
 /* #############  logos and images  #################*/
 #prologo{
-	height: 45px;
+	height:45px;
 	width:225px;
 	margin-top: 7px;
 }
 #brologo{
-	height: 100px;
-	width:100px;
+	margin-top: 8px;
+	height: 150px;
+	width:150px;
 	
 }
+#twitter{
+	fill:#5b5a59;
+	-webkit-transition: fill .5s; /* Safari 3.1 to 6.0 */
+    transition: fill .5s;
+   height: 40px;
+   width: 60px;
+  
+}
+#twitter:hover{
+	fill:#00b6f1; 
+}
+#facebook{
+	height:40px;
+	width:40px ;
+}
+.face.col.s6{
+	width: 30% !important;
+}
+.st0{
+	fill:#5b5a59;
+}
+.st1{
+	fill:#FFFFFF;
+}
+.st0:hover{
+	fill:#3C5A99;
+	
+}
+.st1:hover{
+	fill:#FFFFFF;
+}
+/*####################  footer  ######################*/
 
 /* ##############  Buttons  #########################*/
 .button{
@@ -160,7 +194,7 @@ h5 a {
 }
 
 .medium.material-icons{
-color:red;
+	color:red;
 }
 .comment{
 	font-family: 'Asap', sans-serif;
