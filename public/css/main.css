@@ -40,8 +40,9 @@ a.brand-logo:hover{
 	margin-top: 7px;
 }
 #brologo{
-	height: 100px;
-	width:100px;
+	margin-top: 8px;
+	height: 150px;
+	width:150px;
 	
 }
 #twitter{
@@ -75,7 +76,7 @@ a.brand-logo:hover{
 .st1:hover{
 	fill:#FFFFFF;
 }
-
+/*####################  footer  ######################*/
 
 /* ##############  Buttons  #########################*/
 .button{
