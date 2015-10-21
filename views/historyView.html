@@ -1,0 +1,49 @@
+       <!--  heading -->
+        <div class="row center">
+          <h5 class="header col s12 light betterbanner"><a class="waves-effect waves-light btn left" href="/#/degree/((history.degreeAbbr))/((history.courseAbbr))/((history.title))/history">&lt; Back</a>((history.degreeAbbr)) / ((history.courseAbbr)) / ((history.title))</h5>
+          <h3 class="center">Grade: ((history | calcGrade:history))</h3>
+        </div>
+       <!--  banner title -->
+    <div class="row" ng-repeat="section in history.sections">
+      <div class=" col s12 m12 cyan darken-3">
+        <h5 class="center white-text">((section.title))</h5>
+        <span class="left">Weight: ((section.weight * 100))%</span>
+      </div>
+      <div class="row" ng-repeat="item in section.items">
+      <div class="col s12 m12" ng-if="!item.title">
+        <h2>No Items</h2>
+      </div>
+      <div class="col s12 m12" ng-if="item.title">
+        <div class="card blue-grey lighten-4">
+          <div class="card-content black-text">
+         <!--  this is a title for the rubric card -->
+          <div class="row center white-text">
+            <span class="card-title ">((item.title))</span>
+              <div class="row">
+                <div class="input-field col s12 blue-grey-text">
+	                <h5>Description:</h5>
+	                <p>((item.desc))</p>
+	                <h5>Resource:</h5>
+	                <p>((item.link))</p>
+	                <h5>Grade:</h5>
+	                <p>((item.grade))</p>
+                </div>
+              </div>
+               <div class="row blue-grey-text">
+          <div class="input-field col s12">
+            <h5>Comment:</h5>
+            <p>((item.desc))</p>
+          </div>
+               </div>
+          </div>
+          </div>
+        </div>
+    </div>
+    </div>
+    </div>
+  <div class="row">
+    <textarea ng-model="output"></textarea>
+  <button ng-click="exportAudit()" class="btn waves-effect waves-light right">Submit
+    <i class="material-icons right">send</i>
+  </button>
+  </div>
