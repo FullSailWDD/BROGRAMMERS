@@ -44,7 +44,7 @@ var proRubApp = angular.module('proRubApp', ['ngRoute'])
       });
 }]);
 proRubApp.controller('homeCtrl', ['$scope', '$http',
-  function ($scope, $http) {
+  function ($scope, $http,$routeParams,$location) {
 	  // Fetches all of the degrees
 	  $http.get('/api/fetchDegrees')
 	  .success(function(data){
@@ -53,6 +53,20 @@ proRubApp.controller('homeCtrl', ['$scope', '$http',
 	  }).error(function(){
 		  // TODO: Add error handling
 	  });
+    // Remove a degree
+      $scope.removeDegree = function(){
+     //Send a GET Request to the API with the degree abbreviation
+     $http.get('/api/deleteDegree/'+ $routeParams.degree)
+     // Once we catch a response run this code
+     .then(function(result){
+     // Forward the user to the home page
+     $location.path('/#/');
+
+     }, function(){
+      console.log("remove degree request failed");
+     // TODO: Add error handling
+     });
+     }
   }]);
 
   // reading one degrees from DB
