@@ -14,7 +14,7 @@ body{
 
 h5,h4, h3, h1{
    font-family: 'Flamenco', sans-serif;
-   color: #0097a7;
+   color: #00bcd4;
 }
 nav{
     color: #00b8d4;
@@ -158,7 +158,7 @@ p.alert{
 }
 .betterbanner{
 	margin-top: 20px;
-	color:#0097a7;
+	color:#00bcd4;
 }
 
 /*############## Home page add styles  #########*/
