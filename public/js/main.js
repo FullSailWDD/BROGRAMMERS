@@ -219,16 +219,17 @@ proRubApp.controller('editModeCtrl', ['$scope', '$http', '$routeParams',
 	.success(function(data){
 		$scope.rubric = data;
 		$scope.updateRubric = function(){
-			$http.put('/api/updateRubric', $scope.rubric)
-			.then(function(data){
-				var targRoute = '/#/degree/' + $scope.rubric.degreeAbbr + '/' + $scope.rubric.courseAbbr + '/' + $scope.rubric.title + '/audit';
+			console.log($scope.rubric);
+			// $http.put('/api/updateRubric', $scope.rubric)
+			// .then(function(data){
+			// 	var targRoute = '/#/degree/' + $scope.rubric.degreeAbbr + '/' + $scope.rubric.courseAbbr + '/' + $scope.rubric.title + '/audit';
 
-	    		// Forward the user to the degree
-			  	window.location.href = targRoute;
-			},
-			function(err){
+	  //   		// Forward the user to the degree
+			//   	window.location.href = targRoute;
+			// },
+			// function(err){
 
-			});
+			// });
 		}
 
 	  // creates an array of the rubrics associated with the course
