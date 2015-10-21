@@ -201,8 +201,26 @@ proRubApp.controller('newCourseCtrl', ['$scope', '$http', '$routeParams',
 	  }
   }]);
 
-proRubApp.controller('auditCtrl', ['$scope', '$http', '$routeParams',
-  function ($scope, $http, $routeParams) {
+proRubApp.controller('auditCtrl', ['$scope', '$http', '$routeParams','$location',
+  function ($scope, $http, $routeParams,$location) {
+	  // Remove a course
+  	$scope.removeRubric = function(rubric){
+		console.log("remove rubric ran");
+		console.log(rubric);
+  		//Send a GET Request to the API with the degree title and degree abbreviation
+  		$http.get('/api/deleteRubric/'+ rubric._id)
+  		// Once we catch a response run this code
+  		.then(function(result){
+			console.log("remove request passed");
+
+			$location.path('/#/degree/' + rubric.degreeAbbr);
+
+  		}, function(){
+  			console.log("remove request failed");
+  		// TODO: Add error handling
+  		});
+  	}
+
     $http.get('/api/fetchRubric/' + $routeParams.degree + '/' + $routeParams.course + '/' + $routeParams.rubricTitle)
 	.success(function(data){
 		console.log(data);

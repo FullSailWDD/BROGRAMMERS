@@ -32,7 +32,7 @@ app.post('/api/newRubric', function(req, res){
 					grade: 0
 				}
 			]
-			
+
 		}
 		// Push the new object to the sectionsArr array;
 		sectionsArr.push(obj);
@@ -41,7 +41,7 @@ app.post('/api/newRubric', function(req, res){
 	// Sets the req.body.gradeOptions and req.body.sectionTitle to the formatted data
 	req.body.gradeOptions = gradeOptions;
 	req.body.sections = sectionsArr;
-	
+
     Rubric.create(req.body, function(results){
 	    res.status(201).send(results);
     });

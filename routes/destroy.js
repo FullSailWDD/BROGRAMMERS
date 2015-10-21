@@ -37,13 +37,8 @@ app.get('/api/deleteCourse/:abbr', function(req, res){
 
 // Remove a rubric
 app.get('/api/deleteRubric/:abbr', function(req, res){
-	//remove courses in that degree
-
-	Course.destroy({abbr:req.params.abbr},function(doc){
-		res.send();
-	});
-	//remove courses in that degree
-	Rubric.destroy({courseAbbr:req.params.abbr},function(doc){
+	//remove rubric in that course
+	Rubric.destroy({_id:req.params.abbr},function(doc){
 		res.send();
 	});
 
