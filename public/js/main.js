@@ -43,6 +43,29 @@ var proRubApp = angular.module('proRubApp', ['ngRoute'])
         redirectTo: '/'
       });
 }]);
+
+proRubApp.filter('calcGrade', function() {
+	return function(rubric) {
+		var sectionGrades = [];
+		var finalGrade = 0;
+
+		if (rubric) {
+			rubric.sections.forEach(function(section, index){
+				// Create a variable to hold the sum of the items
+				var itemSum = 0;
+				section.items.forEach(function(item, index){
+					itemSum += item.grade;
+				});
+				section.grade = itemSum / section.items.length;
+				sectionGrades.push(section.grade * section.weight);
+				finalGrade += sectionGrades[index];
+
+			});
+		}
+		return finalGrade.toFixed();
+	}
+});
+
 proRubApp.controller('homeCtrl', ['$scope', '$http',
   function ($scope, $http,$routeParams,$location) {
 	  // Fetches all of the degrees
@@ -201,43 +224,49 @@ proRubApp.controller('newCourseCtrl', ['$scope', '$http', '$routeParams',
 	  }
   }]);
 
-proRubApp.controller('auditCtrl', ['$scope', '$http', '$routeParams','$location',
-  function ($scope, $http, $routeParams,$location) {
-	  // Remove a course
-  	$scope.removeRubric = function(rubric){
-		console.log("remove rubric ran");
-		console.log(rubric);
-  		//Send a GET Request to the API with the degree title and degree abbreviation
-  		$http.get('/api/deleteRubric/'+ rubric._id)
-  		// Once we catch a response run this code
-  		.then(function(result){
-			console.log("remove request passed");
 
-			$location.path('/#/degree/' + rubric.degreeAbbr);
+proRubApp.controller('auditCtrl', ['$scope', '$http', '$routeParams', '$filter','$location',
+	function ($scope, $http, $routeParams, $filter,$location) {
+		// Remove a course
+	   $scope.removeRubric = function(rubric){
+	   console.log("remove rubric ran");
+	   console.log(rubric);
+		   //Send a GET Request to the API with the degree title and degree abbreviation
+		   $http.get('/api/deleteRubric/'+ rubric._id)
+		   // Once we catch a response run this code
+		   .then(function(result){
+		   console.log("remove request passed");
 
-  		}, function(){
-  			console.log("remove request failed");
-  		// TODO: Add error handling
-  		});
-  	}
+		   $location.path('/#/degree/' + rubric.degreeAbbr);
+
+		   }, function(){
+			   console.log("remove request failed");
+		   // TODO: Add error handling
+		   });
+	   }
 
     $http.get('/api/fetchRubric/' + $routeParams.degree + '/' + $routeParams.course + '/' + $routeParams.rubricTitle)
 	.success(function(data){
 		console.log(data);
 		$scope.rubric = data;
-		$scope.saveAudit = function() {
-			$http.post('/api/newAudit', $scope.rubric)
-			// Once we catch a response run this code
-			.then(function(result){
 
-			}, function(){
-			  // TODO: Add error handling
-			});
-		};
+		$scope.$watch(function(){
+			$scope.rubric.grade = ~~$filter('calcGrade')($scope.rubric);
+		});
 
 		$scope.exportAudit = function() {
 			console.log($scope.rubric);
-		}
+
+// 			$http.post('/api/newAudit', $scope.rubric)
+// 			// Once we catch a response run this code
+// 			.then(function(result){
+
+// 			}, function(){
+// 			  // TODO: Add error handling
+// 			});
+
+		};
+
 	  // creates an array of the rubrics associated with the course
 	}).error(function(){
 	// TODO: Add error handling
