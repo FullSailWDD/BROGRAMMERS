@@ -20,7 +20,9 @@ module.exports = function(app){
 	historySchema = mongoose.Schema({
         degreeAbbr: String,
         courseAbbr: String,
+        created:  {type: Date, default: Date.now},
         title: String,
+        output: String,
         grade: Number,
         gradeOptions: [Number],
         sections: [sectionSchema]
@@ -35,6 +37,7 @@ module.exports = function(app){
             degreeAbbr: data.degreeAbbr,
             courseAbbr: data.courseAbbr,
             title: data.title,
+            output: data.output,
             grade: data.grade,
             weight: data.weight,
             gradeOptions: data.gradeOptions,
@@ -50,7 +53,7 @@ module.exports = function(app){
     // fetchAll - finds all historys
     _findAll = function(targ, success, fail){
         // Finds all of the historys specified by the degree and course
-        _historyModel.find(targ, function(err, result){
+        _historyModel.find(targ).sort({'created': 'desc'}).exec(function(err, result){
             (err) ? fail(err) : success(result);
         });
     },

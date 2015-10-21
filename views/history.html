@@ -1,18 +1,23 @@
 <div class="row">
-	<table>
-		<thead>
-			<tr>
-				<th>Created</th>
-				<th>Action</th>
+	<a class="waves-effect waves-light btn left" href="/#/degree/((loc.degree))/((loc.course))/((loc.rubricTitle))/audit">&lt; Back</a>
+	<h1 class="header center cyan-text proheader">History</h1>
+	<h3 class="header center col s12 light betterbanner">((loc.degree)) / ((loc.course)) / ((loc.rubricTitle))</h3>
+	<div class="row">
+		<table class="striped">
+			<thead>
+				<tr>
+					<th>Created</th>
+					<th class="right-align">Action</th>
+				</tr>
+			</thead>
+			<tr ng-repeat="item in history">
+				<td>
+					((item.created | formatDate))
+				</td>
+				<td>
+					<a class="btn waves-effect waves-light right" href="/#/degree/((item.degreeAbbr))/((item.courseAbbr))/((item.title))/history/view/((item._id))">View</a>
+				</td>
 			</tr>
-		</thead>
-		<tr ng-repeat="item in history">
-			<td>
-				((item.created))
-			</td>
-			<td>
-				<a href="/#/degree/((item.degreeAbbr))/((item.courseAbbr))/((item.title))/history/view/((item._id))">View</a>
-			</td>
-		</tr>
-</table>
+		</table>
+	</div>
 </div>

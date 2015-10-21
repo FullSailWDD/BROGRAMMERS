@@ -83,6 +83,12 @@ proRubApp.filter('calcGrade', function() {
 	}
 });
 
+proRubApp.filter('formatDate', function(){
+	return function(input) {
+		return new Date(input).toString();
+	}
+});
+
 proRubApp.controller('homeCtrl', ['$scope', '$http',
   function ($scope, $http,$routeParams,$location) {
 	  // Fetches all of the degrees
@@ -248,25 +254,23 @@ proRubApp.controller('auditCtrl', ['$scope', '$http', '$routeParams', '$filter',
 	.success(function(data){
 		$scope.rubric = data;
 		// FIXME: Implement rendering HTML output
-		$scope.output = JSON.stringify($scope.rubric);
 		
 		// Watch for changes to the scope to update the grade and output the new scope data
 		$scope.$watch(function(){
 			$scope.rubric.grade = ~~$filter('calcGrade')($scope.rubric);
-			$scope.output = JSON.stringify($scope.rubric);
 		});
 		
 		// Save the audit
 		$scope.exportAudit = function() {
-			console.log($scope.rubric);
-
-// 			$http.post('/api/newAudit', $scope.rubric)
-// 			// Once we catch a response run this code
-// 			.then(function(result){
-
-// 			}, function(){
-// 			  // TODO: Add error handling
-// 			});
+			
+			$http.post('/api/newAudit', $scope.rubric)
+			// Once we catch a response run this code
+			.then(function(result){
+				$scope.rubric = result.data;
+			
+			}, function(){
+			  // TODO: Add error handling
+			});
 
 		};
 			
@@ -353,9 +357,10 @@ proRubApp.controller('historyCtrl', ['$scope', '$http', '$routeParams',
 		// Fetches all of the saved audits
 		$http.get('/api/fetchHistory/' + $routeParams.degree + '/' + $routeParams.course + '/' + $routeParams.rubricTitle)
 			.success(function(data){
+				
 				// Make the data available to the DOM
 				$scope.history = data;
-				console.log("Success", data);
+				$scope.loc = $routeParams;
 			}).error(function(){
 				// TODO: Add error handling
 		});
