@@ -8,13 +8,14 @@
           <div class="row center">
             <a href="/#/degree/((degreeData.abbr))/addCourse" id="download-button" class="btn-large waves-effect waves-light orange darken-1"><i class="material-icons left">note_add</i>Add Course</a>
           </div>
-
+          <!-- have this ng-click to remove a degree -->
+            <button ng-click="removeDegree()">remove Degree</button>
           <div class="input-field col s12">
             <input ng-model="search" type="text">
             <label for="degree_name">Search for courses</label>
           </div>
          </div>
-      </div>
+
 
       <!--  card Section -->
     <div class="row">
@@ -24,6 +25,8 @@
           <div class="card-content white-text">
             <span class="card-title">((course.abbr))</span>
             <p>((course.title))</p>
+            <!-- have this ng-click to remove a course -->
+            <button ng-click="removeCourse( ((course.abbr)) )">Remove</button>
           </div>
           <div class="card-action">
             <div ng-repeat="rubric in course.rubrics">
