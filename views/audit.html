@@ -1,17 +1,31 @@
-       <!--  heading -->
+  <!--  heading -->
         <div class="row center">
-          <h5 class="header col s12 light betterbanner"><a class="waves-effect waves-light btn left" href="/#/degree/((rubric.degreeAbbr))">&lt; Back</a>((rubric.degreeAbbr)) / ((rubric.courseAbbr)) / ((rubric.title))</h5>
+        <a class="waves-effect waves-light btn right" href="/#/degree/((rubric.degreeAbbr))/((rubric.courseAbbr))/((rubric.title))/history">History</a>
+          <!-- <a class="waves-effect waves-light btn left" href="/#/degree/((rubric.degreeAbbr))">&lt; Back</a> -->
+          <h4 class="header col s12 light betterbanner"><a class=" cyan-text darken-2" href="/#/degree/((rubric.degreeAbbr))">((rubric.degreeAbbr))</a></h4> <br>
+          <h5 class="header col s12 light">Course:((rubric.courseAbbr))</h5><br>
+          <h5 class="header col s12 light"> Rubric:((rubric.title))</h5>
+
         </div>
        <!--  edit buttons -->
         <div class="row">
-        <a href="/#/degree/((rubric.degreeAbbr))/((rubric.courseAbbr))/((rubric.title))/audit/editMode" class="waves-effect waves-light btn">Edit Rubric</a>
-        <a ng-click="removeRubric( ((rubric)) )" class="waves-effect waves-light btn right">Delete Rubric</a>
+
+         <!--  optional edit buttons
+        <a href="/#/degree/((rubric.degreeAbbr))/((rubric.courseAbbr))/((rubric.title))/audit/editMode" class="waves-effect waves-light btn"><i class="material-icons left">edit</i>Edit Rubric</a>
+        <a href="/#/degree/((rubric.degreeAbbr))/((rubric.courseAbbr))/((rubric.title))/audit/editMode" class="waves-effect waves-light btn">Edit Rubric</a> -->
+        <a href="/#/degree/((rubric.degreeAbbr))/((rubric.courseAbbr))/((rubric.title))/audit/editMode" class="btn-floating btn waves-effect waves-light orange darken-2 left"><i class="material-icons">edit</i></a>
+
+
+        <a class="btn-floating btn waves-effect waves-light red darken-2 right" ng-click="deleteRubric()"><i class="material-icons">delete</i></a>
+        <!-- optional delete buttons -->
+        <!-- <a ng-click="deleteRubric()" class="waves-effect waves-light btn right"><i class="material-icons left">delete</i>Delete Rubric</a>
+        <a ng-click="deleteRubric()" class="waves-effect waves-light btn right">Delete Rubric</a> -->
         </div>
        <!--  banner title -->
     <div class="row" ng-repeat="section in rubric.sections">
       <div class=" col s12 m12 cyan darken-3">
         <h5 class="center white-text">((section.title))</h5>
-        <span class="left">Weight: ((section.weight * 100))%</span>
+        <h5 class="center white-text">Weight: ((section.weight * 100))%</h5>
       </div>
       <div class="row" ng-repeat="item in section.items">
       <div class="col s12 m12" ng-if="!item.title">
@@ -22,10 +36,10 @@
           <div class="card-content black-text">
          <!--  this is a title for the rubric card -->
           <div class="row center white-text">
-            <span class="card-title ">((item.title))</span>
+            <h5 class="card-title ">((item.title))</h5>
               <div class="row">
                 <div class="input-field col s12 blue-grey-text">
-                 <p>((item.desc))</p>
+                 <p>Desciption: ((item.desc))</p>
                  <p>Resource: ((item.link))</p>
                 </div>
               </div>
@@ -37,8 +51,15 @@
                </div>
                <div class="row blue-grey-text">
           <div class="input-field col s12">
-            <h4 class="left">Comment:</h4>
-            <textarea class="validate" ng-model="item.comment"></textarea>
+              <input id="itemTitle" type="text"  ng-model="item.comment">
+              <label class="active edit" for="itemTitle">Comments</label>
+            <div class="input-field col s12">
+              <!-- <textarea ng-model="item.comment" id="textarea1" class="materialize-textarea" length="120"></textarea> -->
+             <!--  <label for="textarea1">Comments:</label> -->
+            </div>
+            <!-- <h4 class="left">Comment:</h4>
+            <textarea class="validate" ng-model="item.comment"></textarea> -->
+
           </div>
                </div>
           </div>
@@ -48,9 +69,10 @@
     </div>
     </div>
   <div class="row">
+
       <h3 class="center">Grade: ((rubric | calcGrade:rubric))</h3>
     <h3>Output:</h3>
-    <textarea ng-model="output"></textarea>
+    <textarea ng-model="rubric.output"></textarea>
   <button ng-click="exportAudit()" class="btn waves-effect waves-light right">Submit
     <i class="material-icons right">send</i>
   </button>
