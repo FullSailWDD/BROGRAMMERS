@@ -61,8 +61,6 @@ proRubApp.filter('calcGrade', function() {
 				section.items.forEach(function(item, index){
 					itemSum += item.grade;
 				});
-				// FIXME: This doesn't need to grab the average, needs to multiply by 1 / section.items.length
-				// Get the average grade for the section
 				section.grade = itemSum / section.items.length;
 				sectionGrades.push(section.grade * section.weight);
 				finalGrade += sectionGrades[index];
@@ -87,7 +85,7 @@ proRubApp.controller('homeCtrl', ['$scope', '$http',
 		  // Make the data available to the DOM
 		  $scope.data = data;
 	  }).error(function(){
-		  // TODO: Add error handling
+
 	  });
     // Remove a degree
       $scope.removeDegree = function(){
@@ -99,7 +97,6 @@ proRubApp.controller('homeCtrl', ['$scope', '$http',
      $location.path('/#/');
 
      }, function(){
-     // TODO: Add error handling
      });
      }
   }]);
@@ -117,7 +114,6 @@ proRubApp.controller('homeCtrl', ['$scope', '$http',
 		     $location.path('/#/');
 
 		     }, function(){
-		     // TODO: Add error handling
 		     });
 	     }
 		 // Remove a course
@@ -133,7 +129,6 @@ proRubApp.controller('homeCtrl', ['$scope', '$http',
 	   		  // Make the data available to the DOM
 	   		  $scope.degreeData = data;
 	   	  }).error(function(){
-	   		  // TODO: Add error handling
 	   	  });
 
 	   	  // Grab all of the courses from the database
@@ -149,15 +144,12 @@ proRubApp.controller('homeCtrl', ['$scope', '$http',
 	 			  	  course.rubrics = data;
 
 	 		  	  }).error(function(){
-	 		  	  // TODO: Add error handling
 	 		  	  });
 	   		  });
 	   	  }).error(function(){
-	   		  // TODO: Add error handling
 	   	  });
 
  		     }, function(){
- 		     // TODO: Add error handling
  		     });
  	     }
 		// Fetches all of the degrees
@@ -166,7 +158,6 @@ proRubApp.controller('homeCtrl', ['$scope', '$http',
   		  // Make the data available to the DOM
   		  $scope.degreeData = data;
   	  }).error(function(){
-  		  // TODO: Add error handling
   	  });
 
   	  // Grab all of the courses from the database
@@ -182,11 +173,9 @@ proRubApp.controller('homeCtrl', ['$scope', '$http',
 			  	  course.rubrics = data;
 
 		  	  }).error(function(){
-		  	  // TODO: Add error handling
 		  	  });
   		  });
   	  }).error(function(){
-  		  // TODO: Add error handling
   	  });
     }]);
 // Insert a new degree
@@ -205,7 +194,6 @@ proRubApp.controller('addDegreeCtrl', ['$scope', '$http',
 			  window.location.href = targRoute;
 
 		  }, function(){
-			  // TODO: Add error handling
 		  });
 	  }
   }]);
@@ -229,7 +217,6 @@ proRubApp.controller('newCourseCtrl', ['$scope', '$http', '$routeParams',
 			  window.location.href = targRoute;
 
 		  }, function(){
-			  // TODO: Add error handling
 		  });
 	  }
   }]);
@@ -247,15 +234,12 @@ proRubApp.controller('auditCtrl', ['$scope', '$http', '$routeParams', '$filter',
 		   window.location.href = '/#/degree/' + rubric.degreeAbbr;
 
 		   }, function(){
-		   // TODO: Add error handling
 		   });
 	   }
 
     $http.get('/api/fetchRubric/' + $routeParams.degree + '/' + $routeParams.course + '/' + $routeParams.rubricTitle)
 	.success(function(data){
 		$scope.rubric = data;
-		// FIXME: Implement rendering HTML output
-		$scope.output = JSON.stringify($scope.rubric);
 		// Watch for changes to the scope to update the grade and output the new scope data
 		$scope.$watch(function(){
 			$scope.rubric.grade = ~~$filter('calcGrade')($scope.rubric);
@@ -269,14 +253,12 @@ proRubApp.controller('auditCtrl', ['$scope', '$http', '$routeParams', '$filter',
 				$scope.rubric = result.data;
 
 			}, function(){
-			  // TODO: Add error handling
 			});
 
 		};
 
 	  // creates an array of the rubrics associated with the course
 	}).error(function(){
-	// TODO: Add error handling
 	});
   }]);
 
@@ -322,7 +304,6 @@ proRubApp.controller('editModeCtrl', ['$scope', '$http', '$routeParams',
 
 	  // creates an array of the rubrics associated with the course
 	}).error(function(){
-	// TODO: Add error handling
 	});
 
   }]);
@@ -346,7 +327,6 @@ proRubApp.controller('addrubricCtrl', ['$scope', '$http', '$routeParams', '$loca
 			$location.path(targRoute);
 
 	  }, function(){
-		  // TODO: Add error handling
 	  });
     }
   }]);
@@ -361,7 +341,6 @@ proRubApp.controller('historyCtrl', ['$scope', '$http', '$routeParams',
 				$scope.history = data;
 				$scope.loc = $routeParams;
 			}).error(function(){
-				// TODO: Add error handling
 		});
 }]);
 
@@ -373,6 +352,5 @@ proRubApp.controller('historyViewCtrl', ['$scope', '$http', '$routeParams',
 				// Make the data available to the DOM
 				$scope.history = data;
 			}).error(function(){
-				// TODO: Add error handling
 		});
 }]);
