@@ -5,7 +5,7 @@
        <!--  edit buttons -->
         <div class="row">
         <a href="/#/degree/((rubric.degreeAbbr))/((rubric.courseAbbr))/((rubric.title))/audit/editMode" class="waves-effect waves-light btn">Edit Rubric</a>
-        <a ng-click="deleteRubric()" class="waves-effect waves-light btn right">Delete Rubric</a>
+        <a ng-click="removeRubric( ((rubric)) )" class="waves-effect waves-light btn right">Delete Rubric</a>
         </div>
        <!--  banner title -->
     <div class="row" ng-repeat="section in rubric.sections">
