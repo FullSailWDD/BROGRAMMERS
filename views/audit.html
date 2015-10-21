@@ -1,78 +1,83 @@
- <br><br>
-	<h1 class=" center cyan-text proheader"><a class="cyan-text" href="/#/degree/((rubric.degreeAbbr))">((rubric.degreeAbbr))</a></h1>
-	<h3 class="center cyan-text"><a class="cyan-text" href="/#/degree/((rubric.degreeAbbr))">((rubric.courseAbbr))</a></h3>
-	<div class="row center">
-	<h3 class="header col s12 light cyan-text betterbanner">((rubric.title))</h3>
-   </div>
+<!--  FAB floating action button -->
+<div class="fixed-action-btn">
+  <a class="btn-floating btn-large orange">
+    <i class="large material-icons">more_vert</i>
+  </a>
+  <ul>
+    <li><a class="btn-floating orange darken-4" href="/#/degree/((rubric.degreeAbbr))"><i class="material-icons">arrow_back</i></a></li>
+    <li><a class="btn-floating orange darken-3" href="/#modal1"><i class="material-icons">delete</i></a></li>
+    <li><a class="btn-floating orange darken-2" href="/#/degree/((rubric.degreeAbbr))/((rubric.courseAbbr))/((rubric.title))/audit/editMode"><i class="material-icons">mode_edit</i></a></li>
+  </ul>
+</div> <!-- end FAB --> 
+
+ <!--  heading -->
+  <h1 class=" center cyan-text proheader"><a class="cyan-text" href="/#/degree/((rubric.degreeAbbr))">((rubric.degreeAbbr))</a></h1>
+  <h3 class="center cyan-text"><a class="cyan-text" href="/#/degree/((rubric.degreeAbbr))">((rubric.courseAbbr))</a></h3>
+  <div class="row center">
+  <h3 class="header col s12 light cyan-text betterbanner">((rubric.title))</h3>
+       <!--  edit buttons -->
+      <!--   <div class="row">
+        <a href="/#/degree/((rubric.degreeAbbr))/((rubric.courseAbbr))/((rubric.title))/audit/editMode" class="waves-effect waves-light btn">Edit Rubric</a>
+        <a ng-click="deleteRubric()" class="waves-effect waves-light btn right">Delete Rubric</a>
+        <h3 class="center">Grade: ((rubric.grade))</h3>
+        </div> -->
        <!--  banner title -->
     <div class="row" ng-repeat="section in rubric.sections">
-	    <div class=" col s12 m12 cyan darken-3">
-
-
-		<!--  FAB floating action button -->
-		<div class="fixed-action-btn">
-		<a class="btn-floating btn-large orange">
-		  <i class="large material-icons">more_vert</i>
-		</a>
-		<ul>
-			<li><a class="btn-floating orange darken-4" href="/#/degree/((rubric.degreeAbbr))"><i class="material-icons">arrow_back</i></a></li>
-			<li><a class="btn-floating orange darken-3" href="/#modal1"><i class="material-icons">delete</i></a></li>
-			<li><a class="btn-floating orange darken-2" href="/#/degree/((rubric.degreeAbbr))/((rubric.courseAbbr))/((rubric.title))/audit/editMode"><i class="material-icons">mode_edit</i></a></li>
-		</ul>
-	</div>
-  </div>
-
-  <!-- Modal Structure -->
-  <div id="modal1" class="modal bottom-sheet">
-    <div class="modal-content">
-      <h4>Modal Header</h4>
-      <p>A bunch of text</p>
-    </div>
-    <div class="modal-footer">
-      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
-    </div>
-  </div>
-
-
-  <div class="row" ng-repeat="section in rubric.sections">
-    <div class=" col s12 m12 cyan darken-3">
-      <h5 class="center white-text">((section.title))  </h5> <!-- <p>18 of 34 pts</p> -->
-      <h5 class="center white-text">Weight: ((section.weight * 100))%</h5> 
-    </div>
-    <div class="row" ng-repeat="item in section.items">
-      <div class="row col s12 m12">
-          <div class="card blue-grey lighten-4">
-            <div class="card-content black-text">
-             <!--  this is a title for the rubric card -->
-              <div class="row center ">
-                <span class="card-title white-text">((item.title))</span>
-                <form class="col s12">
-                  <div class="row">
-                    <div class="input-field col s12 black-text">
-                     <p class="center">((item.desc))</p>
-                    </div>
-                  </div>
-
-                  <div class="row">
-                    <span ng-repeat="gradeOption in rubric.gradeOptions">
-                      <input id="((item.title))-grade((gradeOption))" type="radio" name="((item.title))-grade" class="validate" ng-value="((gradeOption))" ng-model="item.grade">
-                      <label for="((item.title))-grade((gradeOption))" class="active" for="link">((gradeOption))</label>
-                    </span>
-                  </div>
-                   <div class="row">
-                    <p class="center">Comments : ((item.comment))</p>
-                   </div>
-                   <div class="row white-text">
-                    <!-- Modal Trigger -->
-                    <a class="comment cyan-text btn-flat right" >Add Comment</a>
-                   </div>
-                </form>
-              </div>
-            </div>
-          </div>
+      <div class=" col s12 m12 cyan darken-3">
+        <h5 class="center white-text">((section.title))</h5>
+        <h5 class="center white-text">Weight: ((section.weight * 100))%</h5>
       </div>
+      <div class="row" ng-repeat="item in section.items">
+      <div class="col s12 m12">
+        <div class="card blue-grey lighten-4">
+          <div class="card-content black-text">
+         <!--  this is a title for the rubric card -->
+          <div class="row center white-text">
+            <span class="card-title ">((item.title))</span>
+              <div class="row">
+                <div class="input-field col s12 blue-grey-text">
+                 <p>((item.desc))</p>
+                 <p>Resource: ((item.link))</p>
+                </div>
+              </div>
+               <div class="row">
+          <span ng-repeat="gradeOption in rubric.gradeOptions">
+                    <input id="((item.title))-grade((gradeOption))" type="radio" name="((item.title))-grade" class="validate" ng-value="((gradeOption))" ng-model="item.grade">
+                    <label for="((item.title))-grade((gradeOption))" class="active" for="link">((gradeOption))</label>
+          </span>
+               </div>
+
+               <!-- comments -->
+               <div class="row">
+                <p class="center">Comments : ((item.comment))</p>
+               </div>
+               <a class="comment cyan-text btn-flat right" ng-click="isReplyFormOpen = !isReplyFormOpen">Add Comment</a>
+              <div ng-show="isReplyFormOpen" id="replyForm" class="input-field col s12 m12">
+                <input type="text">
+                <label for="text">What is your comment?</label>
+                  <div class="row">
+                  <button ng-click="" class="btn waves-effect waves-light right">Submit
+                    <i class="material-icons right">send</i>
+                  </button>
+                  </div>
+              </div> <!-- end comments -->
+
+
+
+
+               <div class="row blue-grey-text">
+                <p>((item.comment))</p>
+               </div>
+               <div ng-if="!item.comment" class="row white-text">
+                <button class="btn waves-effect waves-light right" ng-click="addComment()">Add Comment
+                </button>
+               </div>
+          </div>
+          </div>
+        </div>
     </div>
-  </div>
+    </div>
+    </div>
   <div class="row">
   <button ng-click="exportAudit()" class="btn waves-effect waves-light right">Submit
     <i class="material-icons right">send</i>
