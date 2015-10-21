@@ -1,7 +1,7 @@
   <!--  heading -->
         <div class="row center">
-          <a class="waves-effect waves-light btn left" href="/#/degree/((rubric.degreeAbbr))">&lt; Back</a>
-          <h4 class="header col s12 light betterbanner">((rubric.degreeAbbr))</h4> <br>
+          <!-- <a class="waves-effect waves-light btn left" href="/#/degree/((rubric.degreeAbbr))">&lt; Back</a> -->
+          <h4 class="header col s12 light betterbanner"><a class=" cyan-text darken-2" href="/#/degree/((rubric.degreeAbbr))">((rubric.degreeAbbr))</a></h4> <br>
           <h5 class="header col s12 light">Course:((rubric.courseAbbr))</h5><br>
           <h5 class="header col s12 light"> Rubric:((rubric.title))</h5>
         </div>
@@ -48,6 +48,8 @@
                </div>
                <div class="row blue-grey-text">
           <div class="input-field col s12">
+              <!-- <input id="itemTitle" type="text"  ng-model="item.comment">
+              <label class="active edit" for="itemTitle">Comments</label> -->
             <div class="input-field col s12">
               <textarea ng-model="item.comment" id="textarea1" class="materialize-textarea" length="120"></textarea>
               <label for="textarea1">Comments:</label>
@@ -66,7 +68,7 @@
       <h3 class="center cyan-text">Grade: ((rubric | calcGrade:rubric))</h3>
     <h3>Export:</h3>
     <textarea ng-model="output"></textarea>
-  <button ng-click="exportAudit()" class="btn waves-effect waves-light right">Submit
+  <button ng-click="exportAudit()" class="btn waves-effect waves-light orange darken-2 right">Submit
     <i class="material-icons right">send</i>
   </button>
   </div>
