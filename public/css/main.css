@@ -49,6 +49,9 @@ a.brand-logo:hover{
 	margin-top: 7px;
 }
 #brologo{
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
 	margin-top: 8px;
 	height: 150px;
 	width:150px;
@@ -86,6 +89,10 @@ a.brand-logo:hover{
 	fill:#FFFFFF;
 }
 /*####################  footer  ######################*/
+.coollink{
+	font-family: 'Asap', sans-serif;
+	color: #f57c00;
+}
 
 /* ##############  Buttons  #########################*/
 .button{
@@ -121,7 +128,6 @@ p.alert{
 
 /*####### search card  ########################*/
 #search{
-
 	width:200px;
 	height:30px;
 	border: none;
@@ -149,7 +155,6 @@ p.alert{
 	margin-bottom: 0px;
 	font-family: 'Flamenco', sans-serif;
 }
-
 .betterbanner{
 	margin-top: 20px;
 	color:#0097a7;
@@ -192,9 +197,10 @@ p.alert{
 /*############ audit page ######################## */
 
 h5.betterbanner {
+	margin-top: 0px;
+	margin-bottom: 40px;
 	padding: 0 !important;
 }
-
 h5 a {
 	display: block;
 	font-family: 'Asap', sans-serif;
