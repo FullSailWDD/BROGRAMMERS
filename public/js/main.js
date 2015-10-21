@@ -90,7 +90,6 @@ proRubApp.controller('homeCtrl', ['$scope', '$http',
      $location.path('/#/');
 
      }, function(){
-      console.log("remove degree request failed");
      // TODO: Add error handling
      });
      }
@@ -109,7 +108,6 @@ proRubApp.controller('homeCtrl', ['$scope', '$http',
 		     $location.path('/#/');
 
 		     }, function(){
-				 console.log("remove degree request failed");
 		     // TODO: Add error handling
 		     });
 	     }
@@ -150,7 +148,6 @@ proRubApp.controller('homeCtrl', ['$scope', '$http',
 	   	  });
 
  		     }, function(){
- 				 console.log("remove request failed");
  		     // TODO: Add error handling
  		     });
  	     }
@@ -233,25 +230,20 @@ proRubApp.controller('auditCtrl', ['$scope', '$http', '$routeParams', '$filter',
 	function ($scope, $http, $routeParams, $filter) {
 		// Remove a course
 	   $scope.removeRubric = function(rubric){
-	   console.log("remove rubric ran");
-	   console.log(rubric);
 		   //Send a GET Request to the API with the degree title and degree abbreviation
 		   $http.get('/api/deleteRubric/'+ rubric._id)
 		   // Once we catch a response run this code
 		   .then(function(result){
-		   console.log("remove request passed");
 
 		   window.location.href = '/#/degree/' + rubric.degreeAbbr;
 
 		   }, function(){
-			   console.log("remove request failed");
 		   // TODO: Add error handling
 		   });
 	   }
 
     $http.get('/api/fetchRubric/' + $routeParams.degree + '/' + $routeParams.course + '/' + $routeParams.rubricTitle)
 	.success(function(data){
-		console.log(data);
 		$scope.rubric = data;
 		// FIXME: Implement rendering HTML output
 		$scope.output = JSON.stringify($scope.rubric);
@@ -263,7 +255,6 @@ proRubApp.controller('auditCtrl', ['$scope', '$http', '$routeParams', '$filter',
 
 		// Save the audit
 		$scope.exportAudit = function() {
-			console.log($scope.rubric);
 			$http.post('/api/newAudit', $scope.rubric)
 			// Once we catch a response run this code
 			.then(function(result){
@@ -308,7 +299,6 @@ proRubApp.controller('editModeCtrl', ['$scope', '$http', '$routeParams',
 
 		// Updates the rubric with the newest data
 		$scope.updateRubric = function(){
-			console.log($scope.rubric);
 			 $http.put('/api/updateRubric', $scope.rubric)
 			 .then(function(data){
 			 	var targRoute = '/#/degree/' + $scope.rubric.degreeAbbr + '/' + $scope.rubric.courseAbbr + '/' + $scope.rubric.title + '/audit';
