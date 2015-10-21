@@ -225,8 +225,8 @@ proRubApp.controller('newCourseCtrl', ['$scope', '$http', '$routeParams',
   }]);
 
 
-proRubApp.controller('auditCtrl', ['$scope', '$http', '$routeParams', '$filter','$location',
-	function ($scope, $http, $routeParams, $filter,$location) {
+proRubApp.controller('auditCtrl', ['$scope', '$http', '$routeParams', '$filter',
+	function ($scope, $http, $routeParams, $filter) {
 		// Remove a course
 	   $scope.removeRubric = function(rubric){
 	   console.log("remove rubric ran");
@@ -237,7 +237,7 @@ proRubApp.controller('auditCtrl', ['$scope', '$http', '$routeParams', '$filter',
 		   .then(function(result){
 		   console.log("remove request passed");
 
-		   $location.path('/#/degree/' + rubric.degreeAbbr);
+		   window.location.href = '/#/degree/' + rubric.degreeAbbr;
 
 		   }, function(){
 			   console.log("remove request failed");
