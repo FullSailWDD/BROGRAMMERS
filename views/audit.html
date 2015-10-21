@@ -49,25 +49,12 @@
 
                <!-- comments -->
                <div class="row">
-                <p class="center">Comments : ((item.comment))</p>
+                <p class="center blue-grey-text">Comments : ((item.comment))</p>
                </div>
-               <a class="comment cyan-text btn-flat right" ng-click="isReplyFormOpen = !isReplyFormOpen">Add Comment</a>
-              <div ng-show="isReplyFormOpen" id="replyForm" class="input-field col s12 m12">
-                <input type="text">
-                <label for="text">What is your comment?</label>
-                  <div class="row">
-                  <button ng-click="" class="btn waves-effect waves-light right">Submit
-                    <i class="material-icons right">send</i>
-                  </button>
                   </div>
               </div> <!-- end comments -->
 
-
-
-
-               <div class="row blue-grey-text">
-                <p>((item.comment))</p>
-               </div>
+              
                <div ng-if="!item.comment" class="row white-text">
                 <button class="btn waves-effect waves-light right" ng-click="addComment()">Add Comment
                 </button>
