@@ -1,7 +1,7 @@
 var expect = require("chai").expect,
     course = require('../models/courses.js');
 
-describe('A course in a collection', function() {
+describe('A course in a degree', function() {
 
     var testcourse = null;
 
