@@ -34,7 +34,7 @@ var proRubApp = angular.module('proRubApp', ['ngRoute'])
         templateUrl: '/views/editMode.html',
         controller: 'editModeCtrl'
       }).
-         when('/degree/WDD/course', {
+         when('/degree/:degree/:course/:rubricTitle/history', {
         templateUrl: '/views/addcourse.html',
         controller: 'addCourseCtrl'
       }).
@@ -242,7 +242,6 @@ proRubApp.controller('auditCtrl', ['$scope', '$http', '$routeParams', '$filter',
     	
     $http.get('/api/fetchRubric/' + $routeParams.degree + '/' + $routeParams.course + '/' + $routeParams.rubricTitle)
 	.success(function(data){
-		console.log(data);
 		$scope.rubric = data;
 		// FIXME: Implement rendering HTML output
 		$scope.output = JSON.stringify($scope.rubric);
@@ -343,4 +342,16 @@ proRubApp.controller('addrubricCtrl', ['$scope', '$http', '$routeParams', '$loca
 		  // TODO: Add error handling
 	  });
     }
+  }]);
+
+proRubApp.controller('historyCtrl', ['$scope', '$http',
+	function ($scope, $http) {
+		// Fetches all of the saved audits
+		$http.get('/api/fetchHistory/' + $routeParams.degree + '/' + $routeParams.course + '/' + $routeParams.rubricTitle)
+			.success(function(data){
+				// Make the data available to the DOM
+				console.log(data);
+			}).error(function(){
+				// TODO: Add error handling
+		});
   }]);
