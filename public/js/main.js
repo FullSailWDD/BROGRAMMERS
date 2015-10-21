@@ -35,8 +35,8 @@ var proRubApp = angular.module('proRubApp', ['ngRoute'])
         controller: 'editModeCtrl'
       }).
          when('/degree/:degree/:course/:rubricTitle/history', {
-        templateUrl: '/views/addcourse.html',
-        controller: 'addCourseCtrl'
+        templateUrl: '/views/history.html',
+        controller: 'historyCtrl'
       }).
 
       otherwise({
