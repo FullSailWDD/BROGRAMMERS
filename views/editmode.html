@@ -11,10 +11,14 @@
       </div>
     <div class="row" ng-repeat="section in rubric.sections">
 	    <div class=" col s12 m14 cyan darken-3">
-		    <div class="input-field col s12">
+		    <div class="input-field col s2">
+                <input id="sectionWeight" type="text" class="validate" ng-model="section.weight">
+                <label class="active" for="sectionWeigth">Weight</label>
+            </div>
+		    <div class="input-field col s10">
                 <input id="sectionTitle" type="text" class="validate" ng-model="section.title">
                 <label class="active" for="sectionTitle">Section Title</label>
-              </div> <!-- <p>18 of 34 pts</p> -->
+            </div>
 	    </div>
 	<div class="row" ng-repeat="item in section.items">
     <div class="col s12 m12">
@@ -46,6 +50,7 @@
     </div>
   </div>
   </div>
+    <button ng-click="newItem()" class="btn waves-effect waves-light right">Add Item</button>
 </div>
   <div class="row">
   <button class="btn waves-effect waves-light right" ng-click="updateRubric()">Submit

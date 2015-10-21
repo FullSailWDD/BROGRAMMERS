@@ -161,9 +161,12 @@ proRubApp.controller('auditCtrl', ['$scope', '$http', '$routeParams', '$filter',
     $http.get('/api/fetchRubric/' + $routeParams.degree + '/' + $routeParams.course + '/' + $routeParams.rubricTitle)
 	.success(function(data){
 		$scope.rubric = data;
-
+		// FIXME
+		$scope.output = JSON.stringify($scope.rubric);
+		
 		$scope.$watch(function(){
 			$scope.rubric.grade = ~~$filter('calcGrade')($scope.rubric);
+			$scope.output = JSON.stringify($scope.rubric);
 		});
 		
 		$scope.exportAudit = function() {
