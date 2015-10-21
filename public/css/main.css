@@ -197,9 +197,10 @@ p.alert{
 /*############ audit page ######################## */
 
 h5.betterbanner {
+	margin-top: 0px;
+	margin-bottom: 40px;
 	padding: 0 !important;
 }
-
 h5 a {
 	display: block;
 	font-family: 'Asap', sans-serif;
