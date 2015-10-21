@@ -44,6 +44,7 @@ var proRubApp = angular.module('proRubApp', ['ngRoute'])
       });
 }]);
 
+// Filter for calculating the final grade
 proRubApp.filter('calcGrade', function() {
 	return function(rubric) {
 		var sectionGrades = [];
