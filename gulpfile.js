@@ -33,5 +33,4 @@ gulp.task('minify-css', function() {
     .pipe(gulp.dest('public/css'));
 });
 // start dev environment
-
   gulp.task('startup', ['mongod', 'dev']);

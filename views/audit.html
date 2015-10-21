@@ -30,7 +30,7 @@
   <div class="row" ng-repeat="section in rubric.sections">
     <div class=" col s12 m12 cyan darken-3">
       <h5 class="center white-text">((section.title))  </h5> <!-- <p>18 of 34 pts</p> -->
-      <h5 class="center white-text">Weight: ((section.weight * 100))%</h5> 
+      <h5 class="center white-text">Weight: ((section.weight * 100))%</h5>
     </div>
     <div class="row" ng-repeat="item in section.items">
       <div class="row col s12 m12">
@@ -56,12 +56,7 @@
                     <p class="center">Comments : ((item.comment))</p>
                    </div>
                    <div class="row white-text">
-<<<<<<< HEAD
-                    <!-- Modal Trigger -->
                     <a class="comment cyan-text btn-flat right" >Add Comment</a>
-=======
-                    <a class="comment cyan-text btn-flat right modal-trigger" >Add Comment</a>
->>>>>>> 4f4ea9eabb5afc8d633dd68c177942ff54f342fc
                    </div>
                 </form>
               </div>
