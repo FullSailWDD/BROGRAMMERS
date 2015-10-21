@@ -3,12 +3,12 @@
         <h1 class="header center cyan-text proheader">((degreeData.abbr))</h1>
          <div class="row center">
           <h5 class="header col s12 light cyan-text betterbanner">((degreeData.title))</h5>
-
+          
           <div class="row center">
             <a href="/#/degree/((degreeData.abbr))/addCourse" id="download-button" class="btn-large waves-effect waves-light orange darken-1"><i class="material-icons left">note_add</i>Add Course</a>
           </div>
           <!-- have this ng-click to remove a degree -->
-            <button ng-click="removeDegree()">remove Degree</button>
+            <a id="removeDegree" ng-click="removeDegree()" class="cyan-text">- Remove Degree -</a><br><br>
           <div class="input-field col s12">
             <input ng-model="search" type="text">
             <label for="degree_name">Search for courses</label>

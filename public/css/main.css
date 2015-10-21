@@ -242,3 +242,9 @@ h5 a {
 .btn-floating{
 	margin: 15px 15px 0 0;
 }
+
+#removeDegree:hover{
+	text-decoration: underline;
+	cursor: pointer;
+	color: red !important;
+}
