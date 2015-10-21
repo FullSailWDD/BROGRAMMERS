@@ -25,9 +25,8 @@
       <div class="card blue-grey lighten-4">
         <div class="card-content black-text">
        <!--  this is a commment for a latest push -->
-        <div class="row center">
+         <button class="btn-floating btn waves-effect waves-light red darken-2 right" ng-click="delItem($index, $parent.$index)"><i class="material-icons">delete</i></button>
             <div class="row">
-             
               <div class="input-field col s12">
                 <input id="itemTitle" type="text" class="validate" ng-model="item.title">
                 <label class="active" for="itemTitle">Item Title</label>
@@ -44,13 +43,12 @@
                 <input id="comment" type="text" class="validate" ng-model="item.comment">
                 <label class="active" for="comment">Comment</label>
               </div>
-            </div> 
         </div>
       </div>
     </div>
   </div>
   </div>
-    <button ng-click="newItem()" class="btn waves-effect waves-light right">Add Item</button>
+    <button ng-click="newItem($index)" class="btn waves-effect waves-light right">Add Item</button>
 </div>
   <div class="row">
   <button class="btn waves-effect waves-light right" ng-click="updateRubric()">Submit
