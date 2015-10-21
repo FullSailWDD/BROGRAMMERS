@@ -1,4 +1,4 @@
-	<h1 class=" center cyan-text proheader"><a class="cyan-text" href="/#/degree/((rubric.degreeAbbr))">((rubric.degreeAbbr))</a></h1>
+  <h1 class=" center cyan-text proheader"><a class="cyan-text" href="/#/degree/((rubric.degreeAbbr))">((rubric.degreeAbbr))</a></h1>
 	<h3 class="center cyan-text"><a class="cyan-text" href="#">((rubric.courseAbbr))</a></h3>
 	<div class="row center">
 	<h3 class=" col s12 light cyan-text">((rubric.title))</h3>
@@ -10,11 +10,21 @@
 		</a>
 		<ul>
 			<li><a class="btn-floating orange darken-4" href="/#/degree/((rubric.degreeAbbr))"><i class="material-icons">arrow_back</i></a></li>
-			<li><a ng-click="deleteRubric()" class="btn-floating  orange darken-3"><i class="material-icons">delete</i></i></a></li>
+			<li><a class="btn-floating orange darken-3" href="/#modal1"><i class="material-icons">delete</i></a></li>
 			<li><a class="btn-floating orange darken-2" href="/#/degree/((rubric.degreeAbbr))/((rubric.courseAbbr))/((rubric.title))/audit/editMode"><i class="material-icons">mode_edit</i></a></li>
 		</ul>
 	</div>
 
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal bottom-sheet">
+    <div class="modal-content">
+      <h4>Modal Header</h4>
+      <p>A bunch of text</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+    </div>
+  </div>
 
   <div class="row" ng-repeat="section in rubric.sections">
     <div class=" col s12 m12 cyan darken-3">
@@ -38,8 +48,7 @@
                    </div>
                    <div class="row white-text">
                     <!-- Modal Trigger -->
-                    <button data-target="modal1" class="btn modal-trigger">Modal</button>
-                    <a class="comment cyan-text btn-flat right modal-trigger" >Add Comment</a>
+                    <a class="comment cyan-text btn-flat right" >Add Comment</a>
                    </div>
                 </form>
               </div>
@@ -53,15 +62,3 @@
     <i class="material-icons right">send</i>
   </button>
   </div>
-
-
-<!-- Modal Structure -->
-<div id="modal1" class="modal">
-  <div class="modal-content">
-    <h4>Modal Header</h4>
-    <p>A bunch of text</p>
-  </div>
-  <div class="modal-footer">
-    <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
-  </div>
-</div>

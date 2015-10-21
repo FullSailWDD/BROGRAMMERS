@@ -6,10 +6,26 @@
       </a>
       <ul>
         <li><a class="btn-floating orange darken-4" href="/#/degree/((rubric.degreeAbbr))/((rubric.courseAbbr))/((rubric.title))/audit"><i class="material-icons">arrow_back</i></a></li>
-        <li><a class="btn-floating  orange darken-3"><i class="material-icons">delete</i></i></a></li>
+        <li><a class="btn-floating orange darken-3 modal-trigger" href="#modal1"><i class="material-icons">delete</i></a></li>
         <li><a class="btn-floating orange darken-2" href="/#/degree/((rubric.degreeAbbr))/((rubric.courseAbbr))/((rubric.title))/audit/editMode"><i class="material-icons">mode_edit</i></a></li>
       </ul>
     </div>
+
+<!-- Modal Structure -->
+<!-- Modal Trigger -->
+  <!-- <button data-target="modal1" class="btn modal-trigger">Modal</button> -->
+
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <h4>Modal Header</h4>
+      <p>A bunch of text</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+    </div>
+  </div>
+
 
     <div class="row center">
       <h1 class="center cyan-text"><a class="cyan-text" href="/#/degree/((rubric.degreeAbbr))">((rubric.degreeAbbr))</a></h1>
