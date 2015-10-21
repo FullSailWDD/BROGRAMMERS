@@ -18,7 +18,7 @@ app.post('/api/newRubric', function(req, res){
 		var obj = {
 			title: title,
 			// Calculates the default weight of each section
-			weight: Math.round(100 / sectionTitles.length),
+			weight: Math.round(100 / sectionTitles.length) / 100,
 			// The grade has not been set yet so we start at 0
 			grade: 0,
 			// Lets store an empty item
@@ -70,8 +70,9 @@ app.delete('/api/deleteRubric', function(req, res){
 
 // Updates a rubric
 app.put('/api/updateRubric', function(req, res){
-	// Convert the new grades to numbers again
-	req.body.gradeOptions = req.body.gradeOptions.split(',').map(Number);
+	// Convert the new grades to numbers again only if the gradeOptions is a string
+	if (typeof req.body.gradeOptions === 'string') req.body.gradeOptions = req.body.gradeOptions.split(',').map(Number);
+
 
     Rubric.update(req.body._id, req.body, function(doc){
 	    res.send(doc);
