@@ -1,7 +1,8 @@
-<div class="row" ng-controller="degreeCtrl">
+   <br><br>
+      <div class="row" ng-controller="degreeCtrl">
     <!-- end Search Bar -->
         <h1 class="header center cyan-text proheader">((degreeData.abbr))</h1>
-         <div class="row center">
+         <div class="row center ">
           <h5 class="header col s12 light cyan-text betterbanner">((degreeData.title))</h5>
 
           <div class="row center">
@@ -13,18 +14,16 @@
             <label for="degree_name">Search for courses</label>
           </div>
          </div>
-
-
       <!--  card Section -->
     <div class="row">
       <div class="col s12 m4" ng-repeat="course in coursesData | filter:search">
         <div class="card  cyan darken-2">
           <a class="btn-floating btn waves-effect waves-light orange darken-2 right" href="#/((course.degreeAbbr))/((course.abbr))/addRubric"><i class="material-icons">add</i></a>
+          <button class="btn-floating btn waves-effect waves-light red darken-2 right" ng-click="removeCourse( ((course.abbr)) )"><i class="material-icons">delete</i></button>
           <div class="card-content white-text">
             <span class="card-title">((course.abbr))</span>
             <p>((course.title))</p>
             <!-- have this ng-click to remove a course -->
-            <button ng-click="removeCourse( ((course.abbr)) )">Remove</button>
           </div>
           <div class="card-action">
             <div ng-repeat="rubric in course.rubrics">
@@ -35,4 +34,4 @@
       </div>
     </div>
 
-</div>
+
