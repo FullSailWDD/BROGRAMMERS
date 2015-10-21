@@ -1,0 +1,5 @@
+exclude_paths:
+- node_modules/**/*
+- public/js/angular-route.js
+- public/js/angular.js
+- public/js/materialize.js
