@@ -1,6 +1,5 @@
 
-<div class="section no-pad-bot" id="index-banner">
-  <div class="container">
+<div class="section no-pad-bot" id="index-banner"> 
     <br><br>
     <h1 class="header center cyan-text proheader">Pro Rubrics</h1>
     <div class="row center">
@@ -9,12 +8,12 @@
 
 
     <div class="row center input">
-     <a href="/#/addDegree" class="waves-effect waves-light orange darken-1 btn-large"><i class="material-icons left">input</i>Add Degree Program</a>
+     <a href="/#/addDegree" class="waves-effect waves-light orange darken-1 btn-large"><i class="material-icons left">note_add</i>Add Degree Program</a>
     </div>
     <br><br>
-    </div>
+   
 
-    <h5 class="row center cyan-text">~OR~</h5>
+    <h5 class="row center cyan-text"> ---- OR ---- </h5>
 
 <!--   	<div class="row homeselection"> -->
 <!--       <div class="degreeSelect input-field col s12">
@@ -29,8 +28,6 @@
         </div>
       </div> -->
 
-
-
     <!--========================== table ==========================-->
     <div class="wrapper container">
       <div class="row">
@@ -38,11 +35,11 @@
           
 
           <div class="input-field">
-          <input type="text" ng-model="search">
-          <label for="search">Search for a degree</label>
+            <input type="text" ng-model="search">
+            <label for="search">Search for a degree</label>
           </div>
 
-            <ul class="collection">
+            <ul class="collection hoverable">
               <a href="/#/degree/(( degree.abbr ))">
                 <li class="collection-item avatar" ng-repeat="degree in data | filter:search">
                 <i class="material-icons circle cyan">(( degree.abbr ))</i>
@@ -51,7 +48,7 @@
                 <h5 class="black-text">
                   (( degree.title ))
                 </h5>
-                <a href="#!" class="secondary-content"><!-- <i class="material-icons">library_books</i> --></a>
+                <a href="#!" class="secondary-content"><!-- <i class="material-icons">delete</i> --></a>
               </li></a>
             </ul>
           
@@ -61,10 +58,5 @@
 
 
     <br><br>
-
-
-
-<!-- 
-  </div> -->
 </div>
  <!--  end banner -->

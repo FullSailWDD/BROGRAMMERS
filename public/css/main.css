@@ -1,10 +1,18 @@
+body{
+	height: 100%;
+}
+
+.wrapper{
+	min-height: 100%;
+	/*background-color: red;*/
+}
 
 .brand-logo{
 	font-family: 'Flamenco', sans-serif;
 }
 
 
-h5, h1{
+h5, h3, h1{
    font-family: 'Flamenco', sans-serif;
 }
 nav{
@@ -36,14 +44,54 @@ a.brand-logo:hover{
 }*/
 /* #############  logos and images  #################*/
 #prologo{
-	height: 45px;
+	height:45px;
 	width:225px;
 	margin-top: 7px;
 }
 #brologo{
-	height: 100px;
-	width:100px;
-	
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+	margin-top: 8px;
+	height: 150px;
+	width:150px;
+
+}
+#twitter{
+	fill:#5b5a59;
+	-webkit-transition: fill .5s; /* Safari 3.1 to 6.0 */
+    transition: fill .5s;
+   height: 40px;
+   width: 60px;
+
+}
+#twitter:hover{
+	fill:#00b6f1;
+}
+#facebook{
+	height:40px;
+	width:40px ;
+}
+.face.col.s6{
+	width: 30% !important;
+}
+.st0{
+	fill:#5b5a59;
+}
+.st1{
+	fill:#FFFFFF;
+}
+.st0:hover{
+	fill:#3C5A99;
+
+}
+.st1:hover{
+	fill:#FFFFFF;
+}
+/*####################  footer  ######################*/
+.coollink{
+	font-family: 'Asap', sans-serif;
+	color: #f57c00;
 }
 
 /* ##############  Buttons  #########################*/
@@ -53,10 +101,11 @@ a.brand-logo:hover{
 .btn-large{
 	font-family: 'Asap', sans-serif;
 }
-.card{
+
+/*.card{
 	font-family: 'Flamenco', sans-serif;
 	color:white;
-}
+}*/
 
 /*################# addcourse page  #################*/
 p.alert{
@@ -68,7 +117,7 @@ p.alert{
 }
 .card .card-action a{
 	font-family: 'Asap', sans-serif;
-	color:white !important;
+	color: #00838f !important;
 }
 
 /*  #########  Bread Crumbs  ##############*/
@@ -79,7 +128,6 @@ p.alert{
 
 /*####### search card  ########################*/
 #search{
-
 	width:200px;
 	height:30px;
 	border: none;
@@ -107,7 +155,6 @@ p.alert{
 	margin-bottom: 0px;
 	font-family: 'Flamenco', sans-serif;
 }
-
 .betterbanner{
 	margin-top: 20px;
 	color:#0097a7;
@@ -150,9 +197,10 @@ p.alert{
 /*############ audit page ######################## */
 
 h5.betterbanner {
+	margin-top: 0px;
+	margin-bottom: 40px;
 	padding: 0 !important;
 }
-
 h5 a {
 	display: block;
 	font-family: 'Asap', sans-serif;
@@ -160,7 +208,7 @@ h5 a {
 }
 
 .medium.material-icons{
-color:red;
+	color:red;
 }
 .comment{
 	font-family: 'Asap', sans-serif;
@@ -185,14 +233,24 @@ color:red;
     cursor: pointer;
 }
 
+.collection .collection-item{
+	transition: .5s;
+}
+
 .collection .collection-item:hover{
 	background-color: white;
 	cursor: pointer;
-	background-color: #e0f7fa;
+	background-color: #eeeeee;
 	transition: 1s;
 }
 
 
 .btn-floating{
 	margin: 15px 15px 0 0;
+}
+
+#removeDegree:hover{
+	text-decoration: underline;
+	cursor: pointer;
+	color: red !important;
 }
