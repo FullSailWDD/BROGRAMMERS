@@ -1,12 +1,17 @@
-      <div class="row center">
-          <a class="waves-effect waves-light btn left" href="/#/degree/((rubric.degreeAbbr))/((rubric.courseAbbr))/((rubric.title))/audit">&lt; Back to Audit</a>
-          <h4 class="header col s12 light betterbanner">((rubric.degreeAbbr))</h4> <br>
+  <!--  heading -->
+        <div class="row center">
+          <!-- <a class="waves-effect waves-light btn left" href="/#/degree/((rubric.degreeAbbr))">&lt; Back</a> -->
+          <h4 class="header col s12 light betterbanner"><a class=" cyan-text darken-2" href="/#/degree/((rubric.degreeAbbr))">((rubric.degreeAbbr))</a></h4> <br>
           <h5 class="header col s12 light">Course:((rubric.courseAbbr))</h5><br>
           <h5 class="header col s12 light"> Rubric:((rubric.title))</h5>
         </div>
+       <!--  edit buttons -->
         <div class="row">
-        <a class="waves-effect waves-light btn right">Delete Rubric</a>
+        <a href="/#/degree/((rubric.degreeAbbr))/((rubric.courseAbbr))/((rubric.title))/audit" class="waves-effect waves-light btn left orange darken-2">Back to audit <i class="material-icons left">arrow_back</i></a>
+
+        <a class="waves-effect waves-light btn right red darken-2">Delete Rubric <i class="material-icons right">delete</i></a>
         </div>
+       
       <div class="input-field col s4 m4">
         <input id="gradeOptions" type="text"  ng-model="rubric.gradeOptions">
         <label class="active edit" for="gradeOptions">Grade Options</label>
@@ -16,11 +21,11 @@
         <div class="input-field col s2">
                 <input id="sectionWeight" type="text"  ng-model="section.weight">
                 <label class="active white-text" for="sectionWeigth">Weight</label>
-            </div>
+        </div>
         <div class="input-field col s10">
                 <input id="sectionTitle" type="text"  ng-model="section.title">
                 <label class="active white-text" for="sectionTitle">Section Title</label>
-            </div>
+        </div>
       </div>
   <div class="row" ng-repeat="item in section.items">
     <div class="col s12 m12">
@@ -50,10 +55,10 @@
     </div>
   </div>
   </div>
-    <button ng-click="newItem($index)" class="btn waves-effect waves-light right">Add Item</button>
+    <button ng-click="newItem($index)" class="btn waves-effect waves-light orange darken-2 right">Add Item</button>
 </div>
   <div class="row">
-  <button class="btn waves-effect waves-light right" ng-click="updateRubric()">Submit
+  <button class="btn waves-effect waves-light orange darken-2 right" ng-click="updateRubric()">Submit
     <i class="material-icons right">send</i>
   </button>
   </div>
