@@ -1,12 +1,14 @@
 var
-    gulp            = require('gulp'), 
+    gulp            = require('gulp'),
+
     child_process   = require('child_process'),
     exec   = require('child_process').exec,
     minifyCss = require('gulp-minify-css'),
     nodemon         = require('gulp-nodemon');
 
 // startup required services to run the app server
-gulp.task('mongod', function() { 
+gulp.task('mongod', function() {
+
     // spawn in a child process mongodb
     child_process.exec('mongod', function(err,stdout,stderr){
     	console.log(stdout);
