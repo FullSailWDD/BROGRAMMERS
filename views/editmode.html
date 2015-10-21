@@ -1,6 +1,5 @@
   <!--  heading -->
         <div class="row center">
-          <!-- <a class="waves-effect waves-light btn left" href="/#/degree/((rubric.degreeAbbr))">&lt; Back</a> -->
           <h4 class="header col s12 light betterbanner"><a class=" cyan-text darken-2" href="/#/degree/((rubric.degreeAbbr))">((rubric.degreeAbbr))</a></h4> <br>
           <h5 class="header col s12 light">Course:((rubric.courseAbbr))</h5><br>
           <h5 class="header col s12 light"> Rubric:((rubric.title))</h5>
@@ -11,7 +10,7 @@
 
         <a class="waves-effect waves-light btn right red darken-2">Delete Rubric <i class="material-icons right">delete</i></a>
         </div>
-       
+
       <div class="input-field col s4 m4">
         <input id="gradeOptions" type="text"  ng-model="rubric.gradeOptions">
         <label class="active edit" for="gradeOptions">Grade Options</label>
@@ -33,7 +32,6 @@
     <div class="col s12 m12">
       <div class="card blue-grey lighten-4">
         <div class="card-content black-text">
-       <!--  this is a commment for a latest push -->
          <button class="btn-floating btn waves-effect waves-light red darken-2 right" ng-click="delItem($index, $parent.$index)"><i class="material-icons">delete</i></button>
             <div class="row">
               <div class="input-field col s12">
