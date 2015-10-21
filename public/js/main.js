@@ -44,7 +44,7 @@ var proRubApp = angular.module('proRubApp', ['ngRoute'])
       });
 }]);
 proRubApp.controller('homeCtrl', ['$scope', '$http',
-  function ($scope, $http) {
+  function ($scope, $http,$routeParams,$location) {
 	  // Fetches all of the degrees
 	  $http.get('/api/fetchDegrees')
 	  .success(function(data){
@@ -53,6 +53,20 @@ proRubApp.controller('homeCtrl', ['$scope', '$http',
 	  }).error(function(){
 		  // TODO: Add error handling
 	  });
+    // Remove a degree
+      $scope.removeDegree = function(){
+     //Send a GET Request to the API with the degree abbreviation
+     $http.get('/api/deleteDegree/'+ $routeParams.degree)
+     // Once we catch a response run this code
+     .then(function(result){
+     // Forward the user to the home page
+     $location.path('/#/');
+
+     }, function(){
+      console.log("remove degree request failed");
+     // TODO: Add error handling
+     });
+     }
   }]);
 
   // reading one degrees from DB
@@ -220,16 +234,16 @@ proRubApp.controller('editModeCtrl', ['$scope', '$http', '$routeParams',
 		$scope.rubric = data;
 		$scope.updateRubric = function(){
 			console.log($scope.rubric);
-			// $http.put('/api/updateRubric', $scope.rubric)
-			// .then(function(data){
-			// 	var targRoute = '/#/degree/' + $scope.rubric.degreeAbbr + '/' + $scope.rubric.courseAbbr + '/' + $scope.rubric.title + '/audit';
+			$http.put('/api/updateRubric', $scope.rubric)
+			.then(function(data){
+				var targRoute = '/#/degree/' + $scope.rubric.degreeAbbr + '/' + $scope.rubric.courseAbbr + '/' + $scope.rubric.title + '/audit';
 
-	  //   		// Forward the user to the degree
-			//   	window.location.href = targRoute;
-			// },
-			// function(err){
+	    		// Forward the user to the degree
+			  	window.location.href = targRoute;
+			},
+			function(err){
 
-			// });
+			});
 		}
 
 	  // creates an array of the rubrics associated with the course

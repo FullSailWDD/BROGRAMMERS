@@ -1,10 +1,16 @@
+ <br><br>
 	<h1 class=" center cyan-text proheader"><a class="cyan-text" href="/#/degree/((rubric.degreeAbbr))">((rubric.degreeAbbr))</a></h1>
 	<h3 class="center cyan-text"><a class="cyan-text" href="/#/degree/((rubric.degreeAbbr))">((rubric.courseAbbr))</a></h3>
 	<div class="row center">
-	<h3 class=" col s12 light cyan-text">((rubric.title))</h3>
+	<h3 class="header col s12 light cyan-text betterbanner">((rubric.title))</h3>
+   </div>
+       <!--  banner title -->
+    <div class="row" ng-repeat="section in rubric.sections">
+	    <div class=" col s12 m12 cyan darken-3">
 
-	<!--  FAB floating action button -->
-	<div class="fixed-action-btn">
+
+		<!--  FAB floating action button -->
+		<div class="fixed-action-btn">
 		<a class="btn-floating btn-large orange">
 		  <i class="large material-icons">more_vert</i>
 		</a>
@@ -14,6 +20,7 @@
 			<li><a class="btn-floating orange darken-2" href="/#/degree/((rubric.degreeAbbr))/((rubric.courseAbbr))/((rubric.title))/audit/editMode"><i class="material-icons">mode_edit</i></a></li>
 		</ul>
 	</div>
+  </div>
 
   <!-- Modal Structure -->
   <div id="modal1" class="modal bottom-sheet">
