@@ -18,14 +18,15 @@
   "homepage": "https://github.com/FullSailWDD/BROGRAMMERS#readme",
   "dependencies": {
     "angular": "^1.4.7",
+    "angular-route": "1.4.7",
     "body-parser": "^1.14.1",
     "express": "^4.13.3",
     "express-handlebars": "^2.0.1",
+    "gulp": "^3.9.0",
     "gulp-nodemon": "^2.0.4",
+    "handlebars": "^4.0.3",
     "materialize-css": "^0.97.1",
-    "mongoose": "^4.1.10",
-    "angular-route": "1.4.7",
-    "gulp": "^3.9.0"
+    "mongoose": "^4.1.10"
   },
   "devDependencies": {
     "chai": "^3.3.0",
