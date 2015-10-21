@@ -1,86 +1,60 @@
-
-<!--  FAB floating action button -->
-    <div class="fixed-action-btn">
-      <a class="btn-floating btn-large orange">
-        <i class="large material-icons">more_vert</i>
-      </a>
-      <ul>
-        <li><a class="btn-floating orange darken-4" href="/#/degree/((rubric.degreeAbbr))/((rubric.courseAbbr))/((rubric.title))/audit"><i class="material-icons">arrow_back</i></a></li>
-        <li><a class="btn-floating orange darken-3 modal-trigger" href="#modal1"><i class="material-icons">delete</i></a></li>
-        <li><a class="btn-floating orange darken-2" href="/#/degree/((rubric.degreeAbbr))/((rubric.courseAbbr))/((rubric.title))/audit/editMode"><i class="material-icons">mode_edit</i></a></li>
-      </ul>
-    </div>
-
-<!-- Modal Structure -->
-<!-- Modal Trigger -->
-  <!-- <button data-target="modal1" class="btn modal-trigger">Modal</button> -->
-
-  <!-- Modal Structure -->
-  <div id="modal1" class="modal">
-    <div class="modal-content">
-      <h4>Modal Header</h4>
-      <p>A bunch of text</p>
-    </div>
-    <div class="modal-footer">
-      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
-    </div>
-  </div>
-
-
-    <div class="row center">
-      <h1 class="center cyan-text"><a class="cyan-text" href="/#/degree/((rubric.degreeAbbr))">((rubric.degreeAbbr))</a></h1>
-      <h3 class="center cyan-text"><a class="cyan-text" href="#">((rubric.courseAbbr))</a></h3>
-      <h5 class="header col s12 light cyan-text betterbanner">((rubric.title))</h5>
-
-
-  <div class="input-field col s4 m4">
-    <input id="gradeOptions" type="text" ng-model="rubric.gradeOptions">
-    <label class="active" for="gradeOptions">Grade Options</label>
-  </div>
-<div class="row" ng-repeat="section in rubric.sections">
-  <div class=" col s12 m14 cyan darken-3">
-    <div class="input-field col s12 m2">
-      <input id="sectionWeight" type="text" ng-model="section.weight">
-      <label class="active white-text" for="sectionWeight">weight</label>
-    </div>
-    <div class="input-field col s12 m6">
-      <input id="sectionTitle" type="text" ng-model="section.title">
-      <label class="active white-text" for="sectionTitle">Section Title</label>
-    </div> <!-- <p>18 of 34 pts</p> -->
-  </div>
+      <div class="row center">
+          <a class="waves-effect waves-light btn left" href="/#/degree/((rubric.degreeAbbr))/((rubric.courseAbbr))/((rubric.title))/audit">&lt; Back to Audit</a>
+          <h4 class="header col s12 light betterbanner">((rubric.degreeAbbr))</h4> <br>
+          <h5 class="header col s12 light">Course:((rubric.courseAbbr))</h5><br>
+          <h5 class="header col s12 light"> Rubric:((rubric.title))</h5>
+        </div>
+        <div class="row">
+        <a class="waves-effect waves-light btn right">Delete Rubric</a>
+        </div>
+      <div class="input-field col s4 m4">
+        <input id="gradeOptions" type="text"  ng-model="rubric.gradeOptions">
+        <label class="active edit" for="gradeOptions">Grade Options</label>
+      </div>
+    <div class="row" ng-repeat="section in rubric.sections">
+      <div class=" col s12 m14 cyan darken-3">
+        <div class="input-field col s2">
+                <input id="sectionWeight" type="text"  ng-model="section.weight">
+                <label class="active white-text" for="sectionWeigth">Weight</label>
+            </div>
+        <div class="input-field col s10">
+                <input id="sectionTitle" type="text"  ng-model="section.title">
+                <label class="active white-text" for="sectionTitle">Section Title</label>
+            </div>
+      </div>
   <div class="row" ng-repeat="item in section.items">
     <div class="col s12 m12">
-      <div class="card white">
+      <div class="card blue-grey lighten-4">
         <div class="card-content black-text">
-         <!--  this is a commment for a latest push -->
-          <div class="row center">
-              <div class="row">
-                <div class="input-field col s12">
-                  <input id="itemTitle" type="text" ng-model="item.title">
-                  <label class="active" for="itemTitle">Item Title</label>
-                </div>
-                <div class="input-field col s12">
-                  <input id="link" type="text" ng-model="item.link">
-                  <label class="active" for="link">Link</label>
-                </div>
-                <div class="input-field col s12">
-                  <input id="desc" type="text" ng-model="item.desc">
-                  <label class="active" for="desc">Description</label>
-                </div>
-                <div class="input-field col s12">
-                  <input id="comment" type="text" ng-model="item.comment">
-                  <label class="active" for="comment">Comment</label>
-                </div>
-              </div> 
-          </div>
+       <!--  this is a commment for a latest push -->
+         <button class="btn-floating btn waves-effect waves-light red darken-2 right" ng-click="delItem($index, $parent.$index)"><i class="material-icons">delete</i></button>
+            <div class="row">
+              <div class="input-field col s12">
+                <input id="itemTitle" type="text"  ng-model="item.title">
+                <label class="active edit" for="itemTitle">Item Title</label>
+              </div>
+              <div class="input-field col s12">
+                <input id="link" type="text"  ng-model="item.link">
+                <label class="active edit" for="link">Link</label>
+              </div>
+              <div class="input-field col s12">
+                <input id="desc" type="text" ng-model="item.desc">
+                <label class="active edit" for="desc">Description</label>
+              </div>
+              <div class="input-field col s12">
+                <input id="comment" type="text" ng-model="item.comment">
+                <label class="active edit" for="comment">Comment</label>
+              </div>
         </div>
       </div>
     </div>
   </div>
+  </div>
+    <button ng-click="newItem($index)" class="btn waves-effect waves-light right">Add Item</button>
 </div>
-
   <div class="row">
-  <button class="btn waves-effect waves-light right orange darken-2" ng-click="updateRubric()">Save changes
-    <i class="material-icons right">save</i>
+  <button class="btn waves-effect waves-light right" ng-click="updateRubric()">Submit
+    <i class="material-icons right">send</i>
   </button>
   </div>
+ 

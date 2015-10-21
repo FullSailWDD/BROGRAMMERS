@@ -18,7 +18,7 @@ app.post('/api/newRubric', function(req, res){
 		var obj = {
 			title: title,
 			// Calculates the default weight of each section
-			weight: Math.round(100 / sectionTitles.length),
+			weight: Math.round(100 / sectionTitles.length) / 100,
 			// The grade has not been set yet so we start at 0
 			grade: 0,
 			// Lets store an empty item

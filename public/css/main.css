@@ -12,8 +12,9 @@ body{
 }
 
 
-h5, h3, h1{
+h5,h4, h3, h1{
    font-family: 'Flamenco', sans-serif;
+   color: #0097a7;
 }
 nav{
     color: #00b8d4;
@@ -253,4 +254,7 @@ h5 a {
 	text-decoration: underline;
 	cursor: pointer;
 	color: red !important;
+}
+label.active.edit{
+	color:#607d8b;
 }
