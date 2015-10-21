@@ -34,9 +34,13 @@ var proRubApp = angular.module('proRubApp', ['ngRoute'])
         templateUrl: '/views/editmode.html',
         controller: 'editModeCtrl'
       }).
-         when('/degree/WDD/course', {
-        templateUrl: '/views/addcourse.html',
-        controller: 'addCourseCtrl'
+         when('/degree/:degree/:course/:rubricTitle/history', {
+        templateUrl: '/views/history.html',
+        controller: 'historyCtrl'
+      }).
+      	when('/degree/:degree/:course/:rubricTitle/history/view/:id', {
+        templateUrl: '/views/historyView.html',
+        controller: 'historyViewCtrl'
       }).
 
       otherwise({
@@ -44,7 +48,6 @@ var proRubApp = angular.module('proRubApp', ['ngRoute'])
       });
 }]);
 
-// Filter for calculating the final grade
 proRubApp.filter('calcGrade', function() {
 	return function(rubric) {
 		var sectionGrades = [];
@@ -67,6 +70,12 @@ proRubApp.filter('calcGrade', function() {
 			});
 		}
 		return finalGrade.toFixed();
+	}
+});
+
+proRubApp.filter('formatDate', function(){
+	return function(input) {
+		return new Date(input).toString();
 	}
 });
 
@@ -247,7 +256,6 @@ proRubApp.controller('auditCtrl', ['$scope', '$http', '$routeParams', '$filter',
 		$scope.rubric = data;
 		// FIXME: Implement rendering HTML output
 		$scope.output = JSON.stringify($scope.rubric);
-
 		// Watch for changes to the scope to update the grade and output the new scope data
 		$scope.$watch(function(){
 			$scope.rubric.grade = ~~$filter('calcGrade')($scope.rubric);
@@ -258,6 +266,7 @@ proRubApp.controller('auditCtrl', ['$scope', '$http', '$routeParams', '$filter',
 			$http.post('/api/newAudit', $scope.rubric)
 			// Once we catch a response run this code
 			.then(function(result){
+				$scope.rubric = result.data;
 
 			}, function(){
 			  // TODO: Add error handling
@@ -341,3 +350,29 @@ proRubApp.controller('addrubricCtrl', ['$scope', '$http', '$routeParams', '$loca
 	  });
     }
   }]);
+
+proRubApp.controller('historyCtrl', ['$scope', '$http', '$routeParams',
+	function ($scope, $http, $routeParams) {
+		// Fetches all of the saved audits
+		$http.get('/api/fetchHistory/' + $routeParams.degree + '/' + $routeParams.course + '/' + $routeParams.rubricTitle)
+			.success(function(data){
+
+				// Make the data available to the DOM
+				$scope.history = data;
+				$scope.loc = $routeParams;
+			}).error(function(){
+				// TODO: Add error handling
+		});
+}]);
+
+proRubApp.controller('historyViewCtrl', ['$scope', '$http', '$routeParams',
+	function ($scope, $http, $routeParams) {
+		// Fetches all of the saved audits
+		$http.get('/api/fetchHistory/' + $routeParams.id)
+			.success(function(data){
+				// Make the data available to the DOM
+				$scope.history = data;
+			}).error(function(){
+				// TODO: Add error handling
+		});
+}]);

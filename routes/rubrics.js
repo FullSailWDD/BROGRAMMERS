@@ -1,8 +1,6 @@
 module.exports = function(app) {
 
-var Rubric = require('../models/rubrics.js'),
-	History = require('../models/history.js');
-
+var Rubric = require('../models/rubrics.js');
 // Inserts a new rubric
 app.post('/api/newRubric', function(req, res){
 	// Define an empty array to hold our section objects
@@ -76,12 +74,6 @@ app.put('/api/updateRubric', function(req, res){
 
     Rubric.update(req.body._id, req.body, function(doc){
 	    res.send(doc);
-    });
-});
-
-app.post('/api/newAudit', function(req, res){
-	History.create(req.body, function(results){
-		res.status(201).send(results);
     });
 });
 
