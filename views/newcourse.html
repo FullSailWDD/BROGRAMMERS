@@ -1,11 +1,12 @@
-  <div class="row">
+  <div class="wrapper container">
+    <!-- <h6 class="cyan-text"><a href="#/degree/((degreeName))"><b>Degree:((degreeName))</a></b> > Create new course</h6> -->
     <form class="col s12">
     <div class="row center note">
-     <i class="noteadd large material-icons">note_add</i>
+     <!-- <i class="noteadd large material-icons">note_add</i> -->
     </div>
-    <h6 class="cyan-text"><b>((degreeName))</b> > Create new course</h6>
+    
     <div class="row center">
-      <h5 class="header center cyan-text">Enter new Course for Program</h5>
+      <h1 class="header center cyan-text">Enter a new course for <a class="cyan-text" href="#/degree/((degreeName))">((degreeName))</a></h1>
     </div>
       <div class="row">
         <div class="input-field col s6">
@@ -18,7 +19,7 @@
         </div>
       </div>
       <div class="row center input savedegree">
-      <button ng-click="insertCourse()" class="waves-effect waves-light cyan btn-large"><i class="material-icons left">input</i>Save Course</button>
+      <button ng-click="insertCourse()" class="waves-effect waves-light orange darken-1 btn-large"><i class="material-icons left">note_add</i>Save Course</button>
      </div>     
   </div>
         

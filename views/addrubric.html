@@ -1,14 +1,12 @@
   <!--========================== ADD RUBRIC FORM ==========================-->
-
-  <div class="row" ng-controller="addrubricCtrl">
-    <div class="section no-pad-bot" id="index-banner" >
+<h1 class="header center cyan-text proheader"><a class="cyan-text" href="/#/degree/((rubric.degreeAbbr))">((rubric.degreeAbbr))</a></h1>
+  <div class="wrapper container" ng-controller="addrubricCtrl">
         <div class="container">
-            <h1 class="header center cyan-text proheader">((degree))</h1>
+            <h1 class="header center cyan-text proheader" ><a class="cyan-text" href="/#/degree/((degree))">((degree))</a></h1>
               <div class="row center">
-            <h5 class="header col s12 light betterbanner">((course))</h5>
+            <h5 class="header col s12 cyan-text betterbanner">((course))</h5>
            </div>
         </div>
-    </div>
 
 
     <div class="col s12 m12">
@@ -25,19 +23,19 @@
             </div>
             <div class="row">
               <div class="input-field col s12">
-                <input id="rubricName" type="text" class="validate">
+                <input id="rubricName" type="text" class="validate" ng-model="rubric.title">
                 <label for="rubricName">Rubric Name</label>
               </div>
               <div class="input-field col s12">
-                <input id="sectionTitle" type="text" class="validate">
+                <input id="sectionTitle" type="text" class="validate" ng-model="rubric.sections">
                 <label for="sectionTitle">Section Title</label>
               </div>
               <div class="input-field col s12">
-                <input id="gradeOptions" type="text" class="validate">
+                <input id="gradeOptions" type="text" class="validate" ng-model="rubric.gradeOptions">
                 <label for="gradeOptions">Grade Options</label>
               </div>
             </div>
-            <button class="btn waves-effect waves-light right" type="submit" name="submit">Submit
+            <button class="btn waves-effect waves-light orange right" ng-click="insertRubric()">Submit
               <i class="material-icons right">send</i>
             </button>
           </form>
