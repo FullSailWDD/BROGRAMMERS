@@ -31,7 +31,7 @@ var proRubApp = angular.module('proRubApp', ['ngRoute'])
         controller: 'auditCtrl'
       }).
           when('/degree/:degree/:course/:rubricTitle/audit/editMode', {
-        templateUrl: '/views/editMode.html',
+        templateUrl: '/views/editmode.html',
         controller: 'editModeCtrl'
       }).
          when('/degree/WDD/course', {
