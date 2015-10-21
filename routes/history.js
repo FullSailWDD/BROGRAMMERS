@@ -1,6 +1,6 @@
 module.exports = function(app) {
 
-	var History = require('../models/history.js');
+var History = require('../models/history.js');
 
 // Inserts a new audit
 app.post('/api/newAudit', function(req, res){
@@ -54,7 +54,7 @@ app.get('/api/fetchHistory/:degreeAbbr/:courseAbbr/:title', function(req, res){
 });
 
 // Finds just one rubric by the degree abbreviation and course abbreviation
-app.get('/api/fetchHistory/:degreeAbbr/:courseAbbr/:title/:id', function(req, res){
+app.get('/api/fetchHistory/:_id', function(req, res){
     History.fetch(req.params, function(doc){
 	    res.send(doc);
     });

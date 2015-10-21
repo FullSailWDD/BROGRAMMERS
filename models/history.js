@@ -26,7 +26,7 @@ module.exports = function(app){
         sections: [sectionSchema]
     }),
 
-    _historyModel = mongoose.model('history', historySchema),
+    _historyModel = mongoose.model('histories', historySchema),
     
     // create - inserts a new history
     _save = function(data, success, fail){

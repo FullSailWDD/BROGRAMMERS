@@ -38,6 +38,10 @@ var proRubApp = angular.module('proRubApp', ['ngRoute'])
         templateUrl: '/views/history.html',
         controller: 'historyCtrl'
       }).
+      	when('/degree/:degree/:course/:rubricTitle/history/view/:id', {
+        templateUrl: '/views/historyView.html',
+        controller: 'historyViewCtrl'
+      }).
 
       otherwise({
         redirectTo: '/'
@@ -344,14 +348,28 @@ proRubApp.controller('addrubricCtrl', ['$scope', '$http', '$routeParams', '$loca
     }
   }]);
 
-proRubApp.controller('historyCtrl', ['$scope', '$http',
-	function ($scope, $http) {
+proRubApp.controller('historyCtrl', ['$scope', '$http', '$routeParams',
+	function ($scope, $http, $routeParams) {
 		// Fetches all of the saved audits
 		$http.get('/api/fetchHistory/' + $routeParams.degree + '/' + $routeParams.course + '/' + $routeParams.rubricTitle)
 			.success(function(data){
 				// Make the data available to the DOM
-				console.log(data);
+				$scope.history = data;
+				console.log("Success", data);
 			}).error(function(){
 				// TODO: Add error handling
 		});
-  }]);
+}]);
+		
+proRubApp.controller('historyViewCtrl', ['$scope', '$http', '$routeParams',
+	function ($scope, $http, $routeParams) {
+		// Fetches all of the saved audits
+		$http.get('/api/fetchHistory/' + $routeParams.id)
+			.success(function(data){
+				// Make the data available to the DOM
+				$scope.history = data;
+				console.log("Success", data);
+			}).error(function(){
+				// TODO: Add error handling
+		});
+}]);

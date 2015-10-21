@@ -77,10 +77,4 @@ app.put('/api/updateRubric', function(req, res){
     });
 });
 
-app.post('/api/newAudit', function(req, res){
-	History.create(req.body, function(results){
-		res.status(201).send(results);
-    });
-});
-
 } //end export
