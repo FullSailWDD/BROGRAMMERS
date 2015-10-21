@@ -22,12 +22,12 @@
     <label class="active" for="gradeOptions">Grade Options</label>
   </div>
 <div class="row" ng-repeat="section in rubric.sections">
-  <div class=" col s12 m12 cyan darken-3">
-      <h5 class="center white-text">((section.title))</h5> <!-- <p>18 of 34 pts</p> -->
-    </div>
   <div class=" col s12 m14 cyan darken-3">
-
-    <div class="input-field col s12">
+    <div class="input-field col s12 m2">
+      <input id="sectionWeight" type="text" ng-model="section.weight">
+      <label class="active white-text" for="sectionWeight">weight</label>
+    </div>
+    <div class="input-field col s12 m6">
       <input id="sectionTitle" type="text" ng-model="section.title">
       <label class="active white-text" for="sectionTitle">Section Title</label>
     </div> <!-- <p>18 of 34 pts</p> -->

@@ -1,5 +1,5 @@
 	<h1 class=" center cyan-text proheader"><a class="cyan-text" href="/#/degree/((rubric.degreeAbbr))">((rubric.degreeAbbr))</a></h1>
-	<h3 class="center cyan-text"><a class="cyan-text" href="#">((rubric.courseAbbr))</a></h3>
+	<h3 class="center cyan-text"><a class="cyan-text" href="/#/degree/((rubric.degreeAbbr))">((rubric.courseAbbr))</a></h3>
 	<div class="row center">
 	<h3 class=" col s12 light cyan-text">((rubric.title))</h3>
 
@@ -16,25 +16,34 @@
 	</div>
 
 
+
   <div class="row" ng-repeat="section in rubric.sections">
     <div class=" col s12 m12 cyan darken-3">
-      <h5 class="center white-text">((section.title))</h5> <!-- <p>18 of 34 pts</p> -->
+      <h5 class="center white-text">((section.title))  </h5> <!-- <p>18 of 34 pts</p> -->
+      <h5 class="center white-text">Weight: ((section.weight * 100))%</h5> 
     </div>
     <div class="row" ng-repeat="item in section.items">
-      <div class="col s12 m12">
-          <div class="card white">
+      <div class="row col s12 m12">
+          <div class="card blue-grey lighten-4">
             <div class="card-content black-text">
              <!--  this is a title for the rubric card -->
               <div class="row center ">
-                <span class="card-title black-text">((item.title))</span>
+                <span class="card-title white-text">((item.title))</span>
                 <form class="col s12">
                   <div class="row">
-                    <div class="input-field col s12 blue-grey-text">
-                     <p>((item.desc))</p>
+                    <div class="input-field col s12 black-text">
+                     <p class="center">((item.desc))</p>
                     </div>
                   </div>
+
+                  <div class="row">
+                    <span ng-repeat="gradeOption in rubric.gradeOptions">
+                      <input id="((item.title))-grade((gradeOption))" type="radio" name="((item.title))-grade" class="validate" ng-value="((gradeOption))" ng-model="item.grade">
+                      <label for="((item.title))-grade((gradeOption))" class="active" for="link">((gradeOption))</label>
+                    </span>
+                  </div>
                    <div class="row">
-                      <a class="waves-effect waves-light btn right" ng-repeat="gradeOption in rubric.gradeOptions">((gradeOption))</a>
+                    <p class="center">Comments : ((item.comment))</p>
                    </div>
                    <div class="row white-text">
                     <!-- Modal Trigger -->
