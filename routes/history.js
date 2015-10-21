@@ -18,16 +18,17 @@ app.get('/api/fetchHistory/:_id', function(req, res){
 });
 
 app.post('/api/newAudit', function(req, res){
-	
+	// FIXME: We should pull the template from an external file
 	var source = "<section><h1>{{title}} - {{grade}}</h1>{{#each sections}}<article><h2>{{title}} - {{weight}}</h2><ul>{{#each items}}<li><h3>{{title}} - {{grade}}</h3>{{#if comment}}<p>Description: {{comment}}</p>{{else}}<p>Description: None</p>{{/if}}{{#if comment}}<p>Comment: {{comment}}</p>{{else}}<p>Comment: None</p>{{/if}}</li>{{/each}}</ul></article>{{/each}}</section>";
 	
+	// Compile the template
 	var template = Handlebars.compile(source);
-	 
-	var data = req.body;
-		
-	var ren = template(data);
 	
-	req.body.output = ren;
+	// Template out the data
+	var rendered = template(req.body);
+	
+	// Assign the output value equal to the templated data
+	req.body.output = rendered;
 	
 	History.create(req.body, function(results){
 		res.status(201).send(results);

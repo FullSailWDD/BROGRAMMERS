@@ -52,7 +52,7 @@ module.exports = function(app){
     
     // fetchAll - finds all historys
     _findAll = function(targ, success, fail){
-        // Finds all of the historys specified by the degree and course
+        // Finds all of the historys
         _historyModel.find(targ).sort({'created': 'desc'}).exec(function(err, result){
             (err) ? fail(err) : success(result);
         });
@@ -60,7 +60,7 @@ module.exports = function(app){
     
     // fetch - finds one history
     _find = function(targ, success, fail){
-        // Finds all of the historys specified by the degree and course
+        // Finds one history record
         _historyModel.findOne(targ, function(err, result){
             (err) ? fail(err) : success(result);
         });
