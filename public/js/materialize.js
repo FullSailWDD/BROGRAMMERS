@@ -11,10 +11,10 @@ $(document).ready(function() {
 	$('.modal-trigger').leanModal();
 	// $('#modal1').openModal();
 	// $('#modal1').closeModal();
+	$('.tooltipped').tooltip({delay: 50});
 });
 (function($){
   $(function(){
-
     $('.button-collapse').sideNav();
     $('.parallax').parallax();
 

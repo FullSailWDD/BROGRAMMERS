@@ -2,6 +2,10 @@ body{
 	height: 100%;
 }
 
+strong { 
+    font-weight: bold;
+}
+
 .wrapper{
 	min-height: 100%;
 	/*background-color: red;*/

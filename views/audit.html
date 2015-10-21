@@ -10,8 +10,7 @@
          <!--  optional edit buttons
         <a href="/#/degree/((rubric.degreeAbbr))/((rubric.courseAbbr))/((rubric.title))/audit/editMode" class="waves-effect waves-light btn"><i class="material-icons left">edit</i>Edit Rubric</a>
         <a href="/#/degree/((rubric.degreeAbbr))/((rubric.courseAbbr))/((rubric.title))/audit/editMode" class="waves-effect waves-light btn">Edit Rubric</a> -->
-        <a href="/#/degree/((rubric.degreeAbbr))/((rubric.courseAbbr))/((rubric.title))/audit/editMode" class="btn-floating btn waves-effect waves-light orange darken-2 left"><i class="material-icons">edit</i></a>
-
+        <a data-position="bottom" data-delay="50" data-tooltip="Edit this rubric" href="/#/degree/((rubric.degreeAbbr))/((rubric.courseAbbr))/((rubric.title))/audit/editMode" class="tooltipped btn-floating btn waves-effect waves-light orange darken-2 left"><i class="material-icons">edit</i></a>
 
         <a class="btn-floating btn waves-effect waves-light red darken-2 right" ng-click="deleteRubric()"><i class="material-icons">delete</i></a>
         <!-- optional delete buttons -->
@@ -36,8 +35,8 @@
             <h5 class="card-title ">((item.title))</h5>
               <div class="row">
                 <div class="input-field col s12 blue-grey-text">
-                 <p>Desciption: ((item.desc))</p>
-                 <p>Resource: ((item.link))</p>
+                 <p><b>Desciption:</b> ((item.desc))</p>
+                 <p><b>Resource:</b> ((item.link))</p>
                 </div>
               </div>
                <div class="row">
@@ -47,16 +46,18 @@
           </span>
                </div>
                <div class="row blue-grey-text">
-          <div class="input-field col s12">
-              <!-- <input id="itemTitle" type="text"  ng-model="item.comment">
-              <label class="active edit" for="itemTitle">Comments</label> -->
-            <div class="input-field col s12">
+          <div class="container wrapper">
+          <div class="input-field col s12 m12 center">
+              <input id="itemTitle" type="text"  ng-model="item.comment">
+              <label class="active edit" for="itemTitle">Comments</label>
+            <!-- <div class="input-field col s12">
               <textarea ng-model="item.comment" id="textarea1" class="materialize-textarea" length="120"></textarea>
               <label for="textarea1">Comments:</label>
-            </div>
+            </div> -->
             <!-- <h4 class="left">Comment:</h4>
             <textarea class="validate" ng-model="item.comment"></textarea> -->
           </div>
+        </div>
                </div>
           </div>
           </div>
