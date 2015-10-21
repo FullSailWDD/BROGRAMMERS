@@ -43,6 +43,29 @@ var proRubApp = angular.module('proRubApp', ['ngRoute'])
         redirectTo: '/'
       });
 }]);
+
+proRubApp.filter('calcGrade', function() {
+	return function(rubric) {
+		var sectionGrades = [];
+		var finalGrade = 0;
+		
+		if (rubric) {
+			rubric.sections.forEach(function(section, index){
+				// Create a variable to hold the sum of the items
+				var itemSum = 0;
+				section.items.forEach(function(item, index){
+					itemSum += item.grade;
+				});				
+				section.grade = itemSum / section.items.length;
+				sectionGrades.push(section.grade * section.weight);
+				finalGrade += sectionGrades[index];
+				
+			});
+		}
+		return finalGrade.toFixed();
+	}
+});
+
 proRubApp.controller('homeCtrl', ['$scope', '$http',
   function ($scope, $http) {
 	  // Fetches all of the degrees
@@ -132,13 +155,20 @@ proRubApp.controller('newCourseCtrl', ['$scope', '$http', '$routeParams',
 	  }
   }]);
 
-proRubApp.controller('auditCtrl', ['$scope', '$http', '$routeParams',
-  function ($scope, $http, $routeParams) {
+proRubApp.controller('auditCtrl', ['$scope', '$http', '$routeParams', '$filter',
+	function ($scope, $http, $routeParams, $filter) {
+    	
     $http.get('/api/fetchRubric/' + $routeParams.degree + '/' + $routeParams.course + '/' + $routeParams.rubricTitle)
 	.success(function(data){
 		$scope.rubric = data;
 
-		$scope.saveAudit = function() {
+		$scope.$watch(function(){
+			$scope.rubric.grade = ~~$filter('calcGrade')($scope.rubric);
+		});
+		
+		$scope.exportAudit = function() {
+			console.log($scope.rubric);
+/*
 			$http.post('/api/newAudit', $scope.rubric)
 			// Once we catch a response run this code
 			.then(function(result){
@@ -146,11 +176,9 @@ proRubApp.controller('auditCtrl', ['$scope', '$http', '$routeParams',
 			}, function(){
 			  // TODO: Add error handling
 			});
+*/
 		};
-
-		$scope.exportAudit = function() {
-			console.log($scope.rubric);
-		}
+			
 	  // creates an array of the rubrics associated with the course
 	}).error(function(){
 	// TODO: Add error handling

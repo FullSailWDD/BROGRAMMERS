@@ -6,11 +6,13 @@
         <div class="row">
         <a href="/#/degree/((rubric.degreeAbbr))/((rubric.courseAbbr))/((rubric.title))/audit/editMode" class="waves-effect waves-light btn">Edit Rubric</a>
         <a ng-click="deleteRubric()" class="waves-effect waves-light btn right">Delete Rubric</a>
+        <h3 class="center">Grade: ((rubric | calcGrade:rubric))</h3>
         </div>
        <!--  banner title -->
     <div class="row" ng-repeat="section in rubric.sections">
 	    <div class=" col s12 m12 cyan darken-3">
-		    <h5 class="center white-text">((section.title))</h5> <!-- <p>18 of 34 pts</p> -->
+		    <h5 class="center white-text">((section.title))</h5>
+		    <span class="left">Weight: ((section.weight * 100))%</span>
 	    </div>
 	    <div class="row" ng-repeat="item in section.items">
 	    <div class="col s12 m12">
@@ -19,19 +21,24 @@
 	       <!--  this is a title for the rubric card -->
 	        <div class="row center white-text">
 	          <span class="card-title ">((item.title))</span>
-	          <form class="col s12">
 	            <div class="row">
 	              <div class="input-field col s12 blue-grey-text">
 	               <p>((item.desc))</p>
+	               <p>Resource: ((item.link))</p>
 	              </div>
 	            </div>
 	             <div class="row">
-	                <a class="waves-effect waves-light btn right" ng-repeat="gradeOption in rubric.gradeOptions">((gradeOption))</a>
+					<span ng-repeat="gradeOption in rubric.gradeOptions">
+		                <input id="((item.title))-grade((gradeOption))" type="radio" name="((item.title))-grade" class="validate" ng-value="((gradeOption))" ng-model="item.grade">
+		                <label for="((item.title))-grade((gradeOption))" class="active" for="link">((gradeOption))</label>
+					</span>
 	             </div>
-	             <div class="row white-text">
-	              <a class="comment lime-text text-darken-2 btn-flat right">Add Comment</a>
+	             <div class="row blue-grey-text">
+	             	<p>((item.comment))</p>
 	             </div>
-	          </form>
+	             <div ng-if="!item.comment" class="row white-text">
+	             	<button class="btn waves-effect waves-light right" ng-click="addComment()">Add Comment</button>
+	             </div>
 	        </div>
 	        </div>
 	      </div>
