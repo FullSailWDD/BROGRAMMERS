@@ -53,21 +53,66 @@ proRubApp.controller('homeCtrl', ['$scope', '$http',
 	  }).error(function(){
 		  // TODO: Add error handling
 	  });
-	  $scope.destroyDegree = function(degrAbbr){
-		  console.log("display degree abbr",degrAbbr);
-		  $http.delete('/api/deleteDegree',degrAbbr)
-		  .then(function(){
-
-		  },function(){
-
-		  });
-	  }
   }]);
 
   // reading one degrees from DB
-  proRubApp.controller('degreeCtrl', ['$scope', '$http','$routeParams',
-    function ($scope, $http, $routeParams) {
+  proRubApp.controller('degreeCtrl', ['$scope', '$http','$routeParams','$location',
+	    function ($scope, $http, $routeParams,$location) {
+		// Remove a degree
+		$scope.removeDegree = function(){
+		     //Send a GET Request to the API with the degree abbreviation
+		     $http.get('/api/deleteDegree/'+ $routeParams.degree)
+		     // Once we catch a response run this code
+		     .then(function(result){
+		     // Forward the user to the home page
+		     $location.path('/#/');
 
+		     }, function(){
+				 console.log("remove degree request failed");
+		     // TODO: Add error handling
+		     });
+	     }
+		 // Remove a course
+		 $scope.removeCourse = function(courseAbbr){
+ 		     //Send a GET Request to the API with the degree title and degree abbreviation
+ 		     $http.get('/api/deleteCourse/'+ courseAbbr)
+ 		     // Once we catch a response run this code
+ 		     .then(function(result){
+ 		     // Forward the user to the home page
+			 // Fetches all of the degrees
+	   	  $http.get('/api/fetchDegree/'+ $routeParams.degree)
+	   	  .success(function(data){
+	   		  // Make the data available to the DOM
+	   		  $scope.degreeData = data;
+	   	  }).error(function(){
+	   		  // TODO: Add error handling
+	   	  });
+
+	   	  // Grab all of the courses from the database
+	   	  $http.get('/api/fetchCourses/'+ $routeParams.degree)
+	   	  .success(function(data){
+	   		  // Make the data available to the DOM
+	   		  $scope.coursesData = data;
+	   		  // For every course, loop through and grab all of the rubrics
+	   		  $scope.coursesData.forEach(function(course){
+	 		  	  $http.get('/api/fetchRubrics/'+ $routeParams.degree + '/' + course.abbr)
+	 		  	  .success(function(data){
+	 			  	  // creates an array of the rubrics associated with the course
+	 			  	  course.rubrics = data;
+
+	 		  	  }).error(function(){
+	 		  	  // TODO: Add error handling
+	 		  	  });
+	   		  });
+	   	  }).error(function(){
+	   		  // TODO: Add error handling
+	   	  });
+
+ 		     }, function(){
+ 				 console.log("remove request failed");
+ 		     // TODO: Add error handling
+ 		     });
+ 	     }
 		// Fetches all of the degrees
   	  $http.get('/api/fetchDegree/'+ $routeParams.degree)
   	  .success(function(data){
