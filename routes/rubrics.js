@@ -1,8 +1,6 @@
 module.exports = function(app) {
 
-var Rubric = require('../models/rubrics.js'),
-	History = require('../models/history.js');
-
+var Rubric = require('../models/rubrics.js');
 // Inserts a new rubric
 app.post('/api/newRubric', function(req, res){
 	// Define an empty array to hold our section objects
@@ -32,7 +30,7 @@ app.post('/api/newRubric', function(req, res){
 					grade: 0
 				}
 			]
-			
+
 		}
 		// Push the new object to the sectionsArr array;
 		sectionsArr.push(obj);
@@ -41,7 +39,7 @@ app.post('/api/newRubric', function(req, res){
 	// Sets the req.body.gradeOptions and req.body.sectionTitle to the formatted data
 	req.body.gradeOptions = gradeOptions;
 	req.body.sections = sectionsArr;
-	
+
     Rubric.create(req.body, function(results){
 	    res.status(201).send(results);
     });
@@ -76,12 +74,6 @@ app.put('/api/updateRubric', function(req, res){
 
     Rubric.update(req.body._id, req.body, function(doc){
 	    res.send(doc);
-    });
-});
-
-app.post('/api/newAudit', function(req, res){
-	History.create(req.body, function(results){
-		res.status(201).send(results);
     });
 });
 

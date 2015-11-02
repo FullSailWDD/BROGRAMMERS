@@ -34,9 +34,13 @@ var proRubApp = angular.module('proRubApp', ['ngRoute'])
         templateUrl: '/views/editMode.html',
         controller: 'editModeCtrl'
       }).
-         when('/degree/WDD/course', {
-        templateUrl: '/views/addcourse.html',
-        controller: 'addCourseCtrl'
+         when('/degree/:degree/:course/:rubricTitle/history', {
+        templateUrl: '/views/history.html',
+        controller: 'historyCtrl'
+      }).
+      	when('/degree/:degree/:course/:rubricTitle/history/view/:id', {
+        templateUrl: '/views/historyView.html',
+        controller: 'historyViewCtrl'
       }).
 
       otherwise({
@@ -44,38 +48,34 @@ var proRubApp = angular.module('proRubApp', ['ngRoute'])
       });
 }]);
 
-// Filter for calculating the final grade
 proRubApp.filter('calcGrade', function() {
 	return function(rubric) {
-		// Array to hold the sums of our sections
 		var sectionGrades = [];
-		// Instantiate the final grade
 		var finalGrade = 0;
-		
+
 		// If there is a rubric
 		if (rubric) {
-			// Loop through each section
 			rubric.sections.forEach(function(section, index){
 				// Create a variable to hold the sum of the items
 				var itemSum = 0;
-				// Loop through each item
 				section.items.forEach(function(item, index){
-					// Calculate the sum of the items
 					itemSum += item.grade;
-				});			
-				
+				});
 				// FIXME: This doesn't need to grab the average, needs to multiply by 1 / section.items.length
 				// Get the average grade for the section
 				section.grade = itemSum / section.items.length;
-				// Push the final grade for this section
 				sectionGrades.push(section.grade * section.weight);
-				// Add all of the section grades together to get the total
 				finalGrade += sectionGrades[index];
-				
+
 			});
 		}
-		// Return the final grade
 		return finalGrade.toFixed();
+	}
+});
+
+proRubApp.filter('formatDate', function(){
+	return function(input) {
+		return new Date(input).toString();
 	}
 });
 
@@ -91,18 +91,17 @@ proRubApp.controller('homeCtrl', ['$scope', '$http',
 	  });
     // Remove a degree
       $scope.removeDegree = function(){
-     //Send a GET Request to the API with the degree abbreviation
-     $http.get('/api/deleteDegree/'+ $routeParams.degree)
-     // Once we catch a response run this code
-     .then(function(result){
-     // Forward the user to the home page
-     $location.path('/#/');
+     //Send a GET Request to the API with the degree abbreviation
+     $http.get('/api/deleteDegree/'+ $routeParams.degree)
+     // Once we catch a response run this code
+     .then(function(result){
+     // Forward the user to the home page
+     $location.path('/#/');
 
-     }, function(){
-      console.log("remove degree request failed");
-     // TODO: Add error handling
-     });
-     }
+     }, function(){
+     // TODO: Add error handling
+     });
+     }
   }]);
 
   // reading one degrees from DB
@@ -118,7 +117,6 @@ proRubApp.controller('homeCtrl', ['$scope', '$http',
 		     $location.path('/#/');
 
 		     }, function(){
-				 console.log("remove degree request failed");
 		     // TODO: Add error handling
 		     });
 	     }
@@ -159,7 +157,6 @@ proRubApp.controller('homeCtrl', ['$scope', '$http',
 	   	  });
 
  		     }, function(){
- 				 console.log("remove request failed");
  		     // TODO: Add error handling
  		     });
  	     }
@@ -237,36 +234,47 @@ proRubApp.controller('newCourseCtrl', ['$scope', '$http', '$routeParams',
 	  }
   }]);
 
+
 proRubApp.controller('auditCtrl', ['$scope', '$http', '$routeParams', '$filter',
 	function ($scope, $http, $routeParams, $filter) {
-    	
+		// Remove a course
+	   $scope.removeRubric = function(rubric){
+		   //Send a GET Request to the API with the degree title and degree abbreviation
+		   $http.get('/api/deleteRubric/'+ rubric._id)
+		   // Once we catch a response run this code
+		   .then(function(result){
+
+		   window.location.href = '/#/degree/' + rubric.degreeAbbr;
+
+		   }, function(){
+		   // TODO: Add error handling
+		   });
+	   }
+
     $http.get('/api/fetchRubric/' + $routeParams.degree + '/' + $routeParams.course + '/' + $routeParams.rubricTitle)
 	.success(function(data){
-		console.log(data);
 		$scope.rubric = data;
 		// FIXME: Implement rendering HTML output
 		$scope.output = JSON.stringify($scope.rubric);
-		
 		// Watch for changes to the scope to update the grade and output the new scope data
 		$scope.$watch(function(){
 			$scope.rubric.grade = ~~$filter('calcGrade')($scope.rubric);
-			$scope.output = JSON.stringify($scope.rubric);
 		});
-		
+
 		// Save the audit
 		$scope.exportAudit = function() {
-			console.log($scope.rubric);
-
-// 			$http.post('/api/newAudit', $scope.rubric)
-// 			// Once we catch a response run this code
-// 			.then(function(result){
-
-// 			}, function(){
-// 			  // TODO: Add error handling
-// 			});
+			
+			$http.post('/api/newAudit', $scope.rubric)
+			// Once we catch a response run this code
+			.then(function(result){
+				$scope.rubric = result.data;
+			
+			}, function(){
+			  // TODO: Add error handling
+			});
 
 		};
-			
+
 	  // creates an array of the rubrics associated with the course
 	}).error(function(){
 	// TODO: Add error handling
@@ -275,7 +283,7 @@ proRubApp.controller('auditCtrl', ['$scope', '$http', '$routeParams', '$filter',
 
 proRubApp.controller('editModeCtrl', ['$scope', '$http', '$routeParams',
   function ($scope, $http, $routeParams) {
-  	
+
     $http.get('/api/fetchRubric/' + $routeParams.degree + '/' + $routeParams.course + '/' + $routeParams.rubricTitle)
 	.success(function(data){
 		$scope.rubric = data;
@@ -291,20 +299,19 @@ proRubApp.controller('editModeCtrl', ['$scope', '$http', '$routeParams',
 					grade: 0
 				});
 		};
-		
+
 		// Deletes the item using the item index and section index
 		$scope.delItem = function(index, section) {
 			// Remove the target item from the array
 			$scope.rubric.sections[section].items.splice(index, 1);
-			
+
 		};
-		
+
 		// Updates the rubric with the newest data
 		$scope.updateRubric = function(){
-			console.log($scope.rubric);
-			$http.put('/api/updateRubric', $scope.rubric)
-			.then(function(data){
-				var targRoute = '/#/degree/' + $scope.rubric.degreeAbbr + '/' + $scope.rubric.courseAbbr + '/' + $scope.rubric.title + '/audit';
+			 $http.put('/api/updateRubric', $scope.rubric)
+			 .then(function(data){
+			 	var targRoute = '/#/degree/' + $scope.rubric.degreeAbbr + '/' + $scope.rubric.courseAbbr + '/' + $scope.rubric.title + '/audit';
 
 	    		// Forward the user to the audit page
 			  	window.location.href = targRoute;
@@ -325,7 +332,7 @@ proRubApp.controller('addrubricCtrl', ['$scope', '$http', '$routeParams', '$loca
 	$scope.degree = $routeParams.degree;
     $scope.course = $routeParams.course;
 
-    // Inserts a new rubric  
+    // Inserts a new rubric
     $scope.insertRubric = function() {
 	    $scope.rubric.degreeAbbr = $routeParams.degree;
 	    $scope.rubric.courseAbbr = $routeParams.course;
@@ -344,3 +351,29 @@ proRubApp.controller('addrubricCtrl', ['$scope', '$http', '$routeParams', '$loca
 	  });
     }
   }]);
+
+proRubApp.controller('historyCtrl', ['$scope', '$http', '$routeParams',
+	function ($scope, $http, $routeParams) {
+		// Fetches all of the saved audits
+		$http.get('/api/fetchHistory/' + $routeParams.degree + '/' + $routeParams.course + '/' + $routeParams.rubricTitle)
+			.success(function(data){
+				
+				// Make the data available to the DOM
+				$scope.history = data;
+				$scope.loc = $routeParams;
+			}).error(function(){
+				// TODO: Add error handling
+		});
+}]);
+		
+proRubApp.controller('historyViewCtrl', ['$scope', '$http', '$routeParams',
+	function ($scope, $http, $routeParams) {
+		// Fetches all of the saved audits
+		$http.get('/api/fetchHistory/' + $routeParams.id)
+			.success(function(data){
+				// Make the data available to the DOM
+				$scope.history = data;
+			}).error(function(){
+				// TODO: Add error handling
+		});
+}]);

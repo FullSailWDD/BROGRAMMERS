@@ -1,0 +1,27 @@
+<div class="row">
+	
+	<div class="row center">
+	<h1 class="header cyan-text proheader">History</h1>
+	<h4 class="header col s12 light betterbanner"><a class=" cyan-text darken-2" href="/#/degree/((loc.degree))">((loc.degree))</a></h4> <br>
+          <h5 class="header col s12 light">Course:((loc.course))</h5><br>
+          <h5 class="header col s12 light"> Rubric:((loc.rubricTitle))</h5>
+	</div>
+	<div class="row">
+		<table class="striped">
+			<thead>
+				<tr>
+					<th>Created</th>
+					<th class="right-align">Action</th>
+				</tr>
+			</thead>
+			<tr ng-repeat="item in history">
+				<td>
+					((item.created | formatDate))
+				</td>
+				<td>
+					<a class="btn waves-effect waves-light right" href="/#/degree/((item.degreeAbbr))/((item.courseAbbr))/((item.title))/history/view/((item._id))">View</a>
+				</td>
+			</tr>
+		</table>
+	</div>
+</div>

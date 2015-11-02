@@ -7,7 +7,7 @@
         </div>
        <!--  edit buttons -->
         <div class="row">
-        <a href="/#/degree/((rubric.degreeAbbr))/((rubric.courseAbbr))/((rubric.title))/audit" class="waves-effect waves-light btn left orange darken-2">Back to audit <i class="material-icons left">arrow_back</i></a>
+        <a href="/#/degree/((rubric.degreeAbbr))/((rubric.courseAbbr))/((rubric.title))/audit" class="waves-effect waves-light btn left">Back to audit <i class="material-icons left">arrow_back</i></a>
 
         <a class="waves-effect waves-light btn right red darken-2">Delete Rubric <i class="material-icons right">delete</i></a>
         </div>
@@ -23,9 +23,11 @@
                 <label class="active white-text" for="sectionWeigth">Weight</label>
         </div>
         <div class="input-field col s10">
+
                 <input id="sectionTitle" type="text"  ng-model="section.title">
                 <label class="active white-text" for="sectionTitle">Section Title</label>
         </div>
+
       </div>
   <div class="row" ng-repeat="item in section.items">
     <div class="col s12 m12">
@@ -55,11 +57,10 @@
     </div>
   </div>
   </div>
-    <button ng-click="newItem($index)" class="btn waves-effect waves-light orange darken-2 right">Add Item</button>
+    <button ng-click="newItem($index)" class="btn waves-effect waves-light orange darken-2 right">Add Item <i class="material-icons right">add</i></button>
 </div>
   <div class="row">
-  <button class="btn waves-effect waves-light orange darken-2 right" ng-click="updateRubric()">Submit
-    <i class="material-icons right">send</i>
+  <button class="btn waves-effect waves-light right" ng-click="updateRubric()">Save Changes
+    <i class="material-icons right">save</i>
   </button>
   </div>
- 
